@@ -30,9 +30,7 @@ type Story = StoryObj<typeof Sheet>;
 export const Default: Story = {
   render: () => (
     <Sheet>
-      <SheetTrigger asChild>
-        <Button variant="outline">Open Sheet</Button>
-      </SheetTrigger>
+      <SheetTrigger render={<Button variant="outline" />}>Open Sheet</SheetTrigger>
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Edit profile</SheetTitle>
@@ -46,9 +44,7 @@ export const Default: Story = {
           </p>
         </div>
         <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
+          <SheetClose render={<Button type="submit" />}>Save changes</SheetClose>
         </SheetFooter>
       </SheetContent>
     </Sheet>
@@ -58,9 +54,7 @@ export const Default: Story = {
 export const FromLeft: Story = {
   render: () => (
     <Sheet>
-      <SheetTrigger asChild>
-        <Button variant="outline">Open Left Sheet</Button>
-      </SheetTrigger>
+      <SheetTrigger render={<Button variant="outline" />}>Open Left Sheet</SheetTrigger>
       <SheetContent side="left">
         <SheetHeader>
           <SheetTitle>Navigation</SheetTitle>
@@ -79,9 +73,7 @@ export const FromLeft: Story = {
 export const FromTop: Story = {
   render: () => (
     <Sheet>
-      <SheetTrigger asChild>
-        <Button variant="outline">Open Top Sheet</Button>
-      </SheetTrigger>
+      <SheetTrigger render={<Button variant="outline" />}>Open Top Sheet</SheetTrigger>
       <SheetContent side="top">
         <SheetHeader>
           <SheetTitle>Announcement</SheetTitle>
@@ -95,18 +87,14 @@ export const FromTop: Story = {
 export const FromBottom: Story = {
   render: () => (
     <Sheet>
-      <SheetTrigger asChild>
-        <Button variant="outline">Open Bottom Sheet</Button>
-      </SheetTrigger>
+      <SheetTrigger render={<Button variant="outline" />}>Open Bottom Sheet</SheetTrigger>
       <SheetContent side="bottom">
         <SheetHeader>
           <SheetTitle>Confirm Action</SheetTitle>
           <SheetDescription>Are you sure you want to proceed?</SheetDescription>
         </SheetHeader>
         <SheetFooter className="mt-4">
-          <SheetClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </SheetClose>
+          <SheetClose render={<Button variant="outline" />}>Cancel</SheetClose>
           <Button>Confirm</Button>
         </SheetFooter>
       </SheetContent>

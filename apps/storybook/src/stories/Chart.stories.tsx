@@ -54,8 +54,8 @@ export const BarChartStory: Story = {
       <BarChart data={barData}>
         <CartesianGrid vertical={false} />
         <XAxis dataKey="month" tickLine={false} tickMargin={10} axisLine={false} />
-        <ChartTooltip content={<ChartTooltipContent />} />
-        <ChartLegend content={<ChartLegendContent />} />
+        <ChartTooltip content={(props) => <ChartTooltipContent {...props} />} />
+        <ChartLegend content={(props) => <ChartLegendContent {...props} />} />
         <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
         <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
       </BarChart>
@@ -71,8 +71,8 @@ export const LineChartStory: Story = {
         <CartesianGrid vertical={false} />
         <XAxis dataKey="month" tickLine={false} tickMargin={10} axisLine={false} />
         <YAxis tickLine={false} axisLine={false} />
-        <ChartTooltip content={<ChartTooltipContent />} />
-        <ChartLegend content={<ChartLegendContent />} />
+        <ChartTooltip content={(props) => <ChartTooltipContent {...props} />} />
+        <ChartLegend content={(props) => <ChartLegendContent {...props} />} />
         <Line type="monotone" dataKey="desktop" stroke="var(--color-desktop)" strokeWidth={2} dot={false} />
         <Line type="monotone" dataKey="mobile" stroke="var(--color-mobile)" strokeWidth={2} dot={false} />
       </LineChart>
@@ -88,8 +88,8 @@ export const AreaChartStory: Story = {
         <CartesianGrid vertical={false} />
         <XAxis dataKey="month" tickLine={false} tickMargin={10} axisLine={false} />
         <YAxis tickLine={false} axisLine={false} />
-        <ChartTooltip content={<ChartTooltipContent />} />
-        <ChartLegend content={<ChartLegendContent />} />
+        <ChartTooltip content={(props) => <ChartTooltipContent {...props} />} />
+        <ChartLegend content={(props) => <ChartLegendContent {...props} />} />
         <Area type="monotone" dataKey="desktop" fill="var(--color-desktop)" fillOpacity={0.2} stroke="var(--color-desktop)" strokeWidth={2} />
         <Area type="monotone" dataKey="mobile" fill="var(--color-mobile)" fillOpacity={0.2} stroke="var(--color-mobile)" strokeWidth={2} />
       </AreaChart>

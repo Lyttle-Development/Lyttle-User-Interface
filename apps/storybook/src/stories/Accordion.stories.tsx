@@ -51,7 +51,7 @@ export const Default: Story = {
 
 export const MultipleOpen: Story = {
   render: () => (
-    <Accordion className="w-full max-w-md" openMultiple>
+    <Accordion className="w-full max-w-md" multiple>
       <AccordionItem value="a">
         <AccordionTrigger>Section A</AccordionTrigger>
         <AccordionContent>Content for section A.</AccordionContent>

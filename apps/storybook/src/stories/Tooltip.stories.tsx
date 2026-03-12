@@ -34,9 +34,7 @@ type Story = StoryObj<typeof Tooltip>;
 export const Default: Story = {
   render: () => (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button variant="outline">Hover me</Button>
-      </TooltipTrigger>
+      <TooltipTrigger render={<Button variant="outline" />}>Hover me</TooltipTrigger>
       <TooltipContent>
         <p>Add to library</p>
       </TooltipContent>
@@ -47,10 +45,8 @@ export const Default: Story = {
 export const WithIcon: Story = {
   render: () => (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Plus className="h-4 w-4" />
-        </Button>
+      <TooltipTrigger render={<Button variant="outline" size="icon" />}>
+        <Plus className="h-4 w-4" />
       </TooltipTrigger>
       <TooltipContent>
         <p>Create new item</p>
@@ -62,9 +58,7 @@ export const WithIcon: Story = {
 export const TopPlacement: Story = {
   render: () => (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button variant="outline">Top</Button>
-      </TooltipTrigger>
+      <TooltipTrigger render={<Button variant="outline" />}>Top</TooltipTrigger>
       <TooltipContent side="top">
         <p>Tooltip on top</p>
       </TooltipContent>
@@ -75,9 +69,7 @@ export const TopPlacement: Story = {
 export const BottomPlacement: Story = {
   render: () => (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button variant="outline">Bottom</Button>
-      </TooltipTrigger>
+      <TooltipTrigger render={<Button variant="outline" />}>Bottom</TooltipTrigger>
       <TooltipContent side="bottom">
         <p>Tooltip on bottom</p>
       </TooltipContent>
@@ -88,9 +80,7 @@ export const BottomPlacement: Story = {
 export const LeftPlacement: Story = {
   render: () => (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button variant="outline">Left</Button>
-      </TooltipTrigger>
+      <TooltipTrigger render={<Button variant="outline" />}>Left</TooltipTrigger>
       <TooltipContent side="left">
         <p>Tooltip on left</p>
       </TooltipContent>
@@ -101,9 +91,7 @@ export const LeftPlacement: Story = {
 export const RightPlacement: Story = {
   render: () => (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button variant="outline">Right</Button>
-      </TooltipTrigger>
+      <TooltipTrigger render={<Button variant="outline" />}>Right</TooltipTrigger>
       <TooltipContent side="right">
         <p>Tooltip on right</p>
       </TooltipContent>

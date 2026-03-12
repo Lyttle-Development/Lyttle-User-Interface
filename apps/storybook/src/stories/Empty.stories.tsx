@@ -34,8 +34,9 @@ export const WithAction: Story = {
       icon={<FolderOpen className="h-10 w-10" />}
       title="No projects"
       description="Get started by creating a new project."
-      action={<Button>Create project</Button>}
-    />
+    >
+      <Button>Create project</Button>
+    </Empty>
   ),
 };
 

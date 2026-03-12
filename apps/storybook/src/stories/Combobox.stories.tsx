@@ -32,7 +32,7 @@ export const Default: Story = {
       options={frameworks}
       placeholder="Select framework..."
       searchPlaceholder="Search framework..."
-      emptyText="No framework found."
+      emptyMessage="No framework found."
     />
   ),
 };
@@ -44,7 +44,7 @@ export const WithPreselected: Story = {
       value="next.js"
       placeholder="Select framework..."
       searchPlaceholder="Search framework..."
-      emptyText="No framework found."
+      emptyMessage="No framework found."
     />
   ),
 };
@@ -65,7 +65,7 @@ export const LongList: Story = {
       options={countries}
       placeholder="Select country..."
       searchPlaceholder="Search country..."
-      emptyText="No country found."
+      emptyMessage="No country found."
     />
   ),
 };

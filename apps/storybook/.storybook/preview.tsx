@@ -1,8 +1,8 @@
-import type { Preview } from "@storybook/react-vite";
+import type { Decorator, Preview } from "@storybook/react-vite";
 import React from "react";
 import "../src/styles/globals.css";
 
-const withTheme: NonNullable<Preview["decorators"]>[number] = (Story, context) => {
+const withTheme: Decorator = (Story, context) => {
   const theme = context.globals?.theme === "dark" ? "dark" : "light";
 
   return (

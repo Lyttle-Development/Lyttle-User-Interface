@@ -36,10 +36,8 @@ type Story = StoryObj<typeof DropdownMenu>;
 export const Default: Story = {
   render: () => (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">
-          Open Menu <ChevronDown className="ml-2 h-4 w-4" />
-        </Button>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>
+        Open Menu <ChevronDown className="ml-2 h-4 w-4" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-48">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -65,9 +63,7 @@ export const Default: Story = {
 export const WithSubmenu: Story = {
   render: () => (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open</Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>Open</DropdownMenuTrigger>
       <DropdownMenuContent className="w-48">
         <DropdownMenuItem>New Tab</DropdownMenuItem>
         <DropdownMenuItem>New Window</DropdownMenuItem>
@@ -86,9 +82,7 @@ export const WithSubmenu: Story = {
 export const WithCheckboxes: Story = {
   render: () => (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">View Options</Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>View Options</DropdownMenuTrigger>
       <DropdownMenuContent className="w-48">
         <DropdownMenuLabel>Appearance</DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -103,9 +97,7 @@ export const WithCheckboxes: Story = {
 export const WithRadioGroup: Story = {
   render: () => (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">Select Position</Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>Select Position</DropdownMenuTrigger>
       <DropdownMenuContent className="w-48">
         <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
         <DropdownMenuSeparator />

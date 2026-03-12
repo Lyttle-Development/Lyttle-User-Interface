@@ -29,9 +29,7 @@ type Story = StoryObj<typeof HoverCard>;
 export const Default: Story = {
   render: () => (
     <HoverCard>
-      <HoverCardTrigger asChild>
-        <Button variant="link">@lyttle</Button>
-      </HoverCardTrigger>
+      <HoverCardTrigger render={<Button variant="link" />}>@lyttle</HoverCardTrigger>
       <HoverCardContent className="w-80">
         <div className="flex justify-between space-x-4">
           <Avatar>

@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
+impoPlease alsigrt type { Meta, StoryObj } from "@storybook/react-vite";
 import { Calendar } from "@lyttle/ui";
 import * as React from "react";
-
+import type { DateRange } from "react-day-picker";
 const meta: Meta<typeof Calendar> = {
   title: "Components/Calendar",
   component: Calendar,
@@ -35,12 +35,12 @@ export const Default: Story = {
 export const RangeSelection: Story = {
   render: () => {
     const [range, setRange] = React.useState<{ from: Date; to?: Date } | undefined>();
-    return (
+    const [range, setRange] = React.useState<DateRange | undefined>();
       <Calendar
         mode="range"
         selected={range}
         onSelect={setRange as any}
-        numberOfMonths={2}
+        onSelect={setRange}
         className="rounded-md border"
       />
     );

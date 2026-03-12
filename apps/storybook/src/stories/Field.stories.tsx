@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Field, Label, Input } from "@lyttle/ui";
+import { Field, Input } from "@lyttle/ui";
 
 const meta: Meta<typeof Field> = {
   title: "Components/Field",
@@ -19,8 +19,7 @@ type Story = StoryObj<typeof Field>;
 
 export const Default: Story = {
   render: () => (
-    <Field className="w-full max-w-sm">
-      <Label htmlFor="email">Email</Label>
+    <Field label="Email" htmlFor="email" className="w-full max-w-sm">
       <Input id="email" type="email" placeholder="Enter your email" />
     </Field>
   ),
@@ -28,22 +27,26 @@ export const Default: Story = {
 
 export const WithHelperText: Story = {
   render: () => (
-    <Field className="w-full max-w-sm">
-      <Label htmlFor="username">Username</Label>
+    <Field
+      label="Username"
+      htmlFor="username"
+      description="This is your public display name."
+      className="w-full max-w-sm"
+    >
       <Input id="username" placeholder="johndoe" />
-      <p className="text-sm text-muted-foreground">
-        This is your public display name.
-      </p>
     </Field>
   ),
 };
 
 export const WithError: Story = {
   render: () => (
-    <Field className="w-full max-w-sm">
-      <Label htmlFor="password">Password</Label>
-      <Input id="password" type="password" className="border-destructive" />
-      <p className="text-sm text-destructive">Password must be at least 8 characters.</p>
+    <Field
+      label="Password"
+      htmlFor="password"
+      error="Password must be at least 8 characters."
+      className="w-full max-w-sm"
+    >
+      <Input id="password" type="password" />
     </Field>
   ),
 };

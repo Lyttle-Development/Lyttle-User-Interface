@@ -34,5 +34,5 @@ export const Complete: Story = {
 };
 
 export const Indeterminate: Story = {
-  render: () => <Progress className="w-64" />,
+  render: () => <Progress value={null} className="w-64" />,
 };
