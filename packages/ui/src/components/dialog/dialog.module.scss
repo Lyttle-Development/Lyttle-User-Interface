@@ -1,0 +1,111 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  isolation: isolate;
+  z-index: 50;
+  background: rgb(0 0 0 / 0.1);
+  opacity: 1;
+  transition: opacity var(--motion-fast) var(--ease-standard);
+
+  @supports ((backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px))) {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  &[data-starting-style],
+  &[data-ending-style],
+  &[data-closed] {
+    opacity: 0;
+  }
+}
+
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 50;
+  display: grid;
+  width: calc(100% - 2rem);
+  max-width: min(24rem, calc(100% - 2rem));
+  gap: 1rem;
+  border-radius: var(--radius-xl);
+  background: var(--background);
+  padding: 1rem;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  translate: -50% -50%;
+  opacity: 1;
+  scale: 1;
+  outline: none;
+  box-shadow: var(--shadow-md), 0 0 0 1px color-mix(in oklab, var(--foreground) 10%, transparent);
+  transition: opacity var(--motion-fast) var(--ease-standard), scale var(--motion-fast) var(--ease-standard);
+
+  &[data-starting-style],
+  &[data-ending-style],
+  &[data-closed] {
+    opacity: 0;
+    scale: 0.95;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer {
+  margin-right: -1rem;
+  margin-bottom: -1rem;
+  margin-left: -1rem;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border);
+  border-bottom-right-radius: var(--radius-xl);
+  border-bottom-left-radius: var(--radius-xl);
+  background: color-mix(in oklab, var(--muted) 50%, transparent);
+  padding: 1rem;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.description {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.5;
+
+  :global(a) {
+    text-decoration: underline;
+    text-underline-offset: 0.1875rem;
+  }
+
+  :global(a:hover) {
+    color: var(--foreground);
+  }
+}
+
+@media (min-width: 640px) {
+  .footer {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .content {
+    transition: none;
+  }
+}
+
