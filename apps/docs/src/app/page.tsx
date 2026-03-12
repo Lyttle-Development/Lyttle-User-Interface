@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <ShowcaseNav />
-      <main id="main-content" className="container mx-auto px-4 py-8 max-w-7xl">
+      <main id="main-content" className="container mx-auto max-w-7xl px-4 py-10 md:py-12">
         <ShowcaseHero />
         <SectionColors />
         <SectionTypography />
@@ -31,7 +31,7 @@ export default function Home() {
         <SectionOverlays />
         <SectionLayout />
       </main>
-      <footer className="border-t border-border mt-24 py-12 text-center text-muted-foreground text-sm">
+      <footer className="mt-20 border-t border-border py-12 text-center text-sm text-muted-foreground md:mt-24">
         <p>
           <strong className="text-foreground">Lyttle Framework</strong> — Built
           with shadcn/ui · LyttleDevelopment brand palette · WCAG AA accessible

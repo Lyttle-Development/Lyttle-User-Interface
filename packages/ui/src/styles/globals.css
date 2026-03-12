@@ -65,7 +65,7 @@
   --chart-5:                 oklch(0.78 0.12  140);   /* mint */
 
   /* shape */
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 
   /* sidebar */
   --sidebar:                 oklch(0.96 0.01  270);
@@ -214,13 +214,13 @@ body {
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
-  /* Accessible focus ring — always visible, never hidden */
+  /* Accessible focus ring — tuned to match shadcn visual language */
   :focus-visible {
     outline: 2px solid var(--ring);
-    outline-offset: 2px;
+    outline-offset: 1px;
     border-radius: var(--radius-sm);
   }
 
@@ -278,12 +278,13 @@ body {
     opacity: 0.85;
   }
 
-  /* Minimum touch target size (WCAG 2.5.5) */
-  button, [role="button"], input[type="submit"],
-  input[type="button"], input[type="reset"],
-  a[href], label[for], select {
-    min-height: 44px;
-    min-width: 44px;
+  /* Keep controls comfortably tappable without forcing all links to blocky layouts */
+  :where(button, [role="button"], input, select, textarea) {
+    touch-action: manipulation;
+  }
+
+  :where(button, [role="button"], input[type="submit"], input[type="button"], input[type="reset"], select) {
+    min-height: 2.5rem;
   }
 }
 

@@ -2,10 +2,19 @@ import type { Preview } from "@storybook/react-vite";
 import React from "react";
 import "../src/styles/globals.css";
 
-const withTheme = (Story: React.ComponentType, context: { globals: { theme: string } }) => {
-  const theme = context.globals?.theme ?? "light";
+const withTheme: NonNullable<Preview["decorators"]>[number] = (Story, context) => {
+  const theme = context.globals?.theme === "dark" ? "dark" : "light";
+
   return (
-    <div className={theme === "dark" ? "dark" : ""} style={{ minHeight: "100vh", background: "var(--background)", color: "var(--foreground)", padding: "1.5rem" }}>
+    <div
+      className={theme === "dark" ? "dark" : ""}
+      style={{
+        minHeight: "100vh",
+        background: "var(--background)",
+        color: "var(--foreground)",
+        padding: "2rem",
+      }}
+    >
       <Story />
     </div>
   );
@@ -36,7 +45,7 @@ const preview: Preview = {
       },
     },
     backgrounds: { disabled: true },
-    layout: "padded",
+    layout: "fullscreen",
   },
 };
 

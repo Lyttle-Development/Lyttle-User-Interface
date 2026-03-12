@@ -2,7 +2,7 @@ import { Badge } from "@lyttle/ui";
 
 export function ShowcaseHero() {
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-brand-gradient text-white mb-16 px-8 py-20 md:px-16 md:py-28 text-center">
+    <div className="relative mb-14 overflow-hidden rounded-3xl border border-white/10 bg-brand-gradient px-6 py-16 text-center text-white shadow-xl md:mb-16 md:px-14 md:py-24">
       {/* decorative circles */}
       <div
         aria-hidden="true"
@@ -15,29 +15,29 @@ export function ShowcaseHero() {
         style={{ background: "radial-gradient(circle, #FF6363 0%, transparent 70%)" }}
       />
 
-      <div className="relative z-10 space-y-6 max-w-3xl mx-auto">
+      <div className="relative z-10 mx-auto max-w-3xl space-y-6">
         <Badge
           variant="secondary"
-          className="bg-white/15 text-white border-white/20 hover:bg-white/20 text-sm px-4 py-1"
+          className="border-white/20 bg-white/10 px-4 py-1 text-sm text-white hover:bg-white/20"
         >
           Design Framework v1.0
         </Badge>
 
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+        <h1 className="text-4xl font-bold leading-tight tracking-tight md:text-6xl">
           Lyttle{" "}
-          <span style={{ color: "#a78bfa" }}>Framework</span>
+          <span className="text-violet-200">Framework</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+        <p className="text-lg leading-relaxed text-white/85 md:text-xl">
           A complete design system built on shadcn/ui — styled with the
           LyttleDevelopment brand palette, improved for WCAG AA accessibility,
           and ready for any web project.
         </p>
 
-        <div className="flex flex-wrap gap-3 justify-center pt-2">
+        <div className="flex flex-wrap justify-center gap-3 pt-2">
           <a
             href="#colors"
-            className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold bg-white text-purple-900 hover:bg-white/90 shadow-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="inline-flex min-h-11 items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-violet-900 shadow-lg transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
             Explore Components
           </a>
@@ -45,13 +45,13 @@ export function ShowcaseHero() {
             href="https://github.com/lyttledevelopment"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold border border-white/40 text-white hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="inline-flex min-h-11 items-center justify-center rounded-lg border border-white/40 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
             View on GitHub
           </a>
         </div>
 
-        <div className="flex flex-wrap gap-6 justify-center pt-4 text-white/60 text-sm">
+        <div className="flex flex-wrap justify-center gap-5 pt-4 text-sm text-white/70">
           <span>✦ 56 components</span>
           <span>✦ Dark &amp; Light mode</span>
           <span>✦ WCAG AA</span>

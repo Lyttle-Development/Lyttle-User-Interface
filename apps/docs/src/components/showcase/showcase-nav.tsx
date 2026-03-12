@@ -32,23 +32,23 @@ export function ShowcaseNav() {
           : "bg-background border-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="flex items-center justify-between h-14">
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="font-bold text-lg text-foreground no-underline hover:opacity-80 transition-opacity"
+            className="text-lg font-bold text-foreground no-underline transition-opacity hover:opacity-80"
             aria-label="Lyttle Framework home"
           >
             <span style={{ color: "var(--brand-purple)" }}>Lyttle</span>
             <span className="text-foreground"> Framework</span>
           </Link>
           <nav aria-label="Section navigation">
-            <ul className="hidden md:flex items-center gap-1 list-none p-0 m-0">
+            <ul className="m-0 hidden list-none items-center gap-1 p-0 md:flex">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground rounded-md hover:bg-muted transition-colors no-underline min-h-0 min-w-0 inline-block"
+                    className="inline-flex items-center rounded-md px-3 py-2 text-sm text-muted-foreground no-underline transition-colors hover:bg-muted hover:text-foreground"
                   >
                     {item.label}
                   </a>
@@ -61,7 +61,7 @@ export function ShowcaseNav() {
               href="http://localhost:6006"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors no-underline min-h-0 min-w-0"
+              className="hidden items-center gap-1.5 rounded-md border border-border px-3 py-2 text-sm font-medium text-muted-foreground no-underline transition-colors hover:bg-muted hover:text-foreground sm:flex"
               aria-label="Open Storybook component explorer"
             >
               <StorybookIcon />
@@ -120,7 +120,7 @@ function ThemeToggle() {
       onClick={toggle}
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
       aria-pressed={dark}
-      className="rounded-md p-2 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors min-h-0 min-w-0 w-9 h-9 flex items-center justify-center"
+      className="flex h-10 w-10 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
     >
       {dark ? (
         <svg
