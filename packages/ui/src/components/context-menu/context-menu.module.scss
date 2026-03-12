@@ -1,0 +1,197 @@
+.trigger {
+  user-select: none;
+}
+
+.positioner {
+  isolation: isolate;
+  z-index: 50;
+  outline: none;
+}
+
+.content {
+  --context-menu-enter-x: 0rem;
+  --context-menu-enter-y: 0rem;
+
+  z-index: 50;
+  min-width: 9rem;
+  max-height: var(--available-height);
+  transform-origin: var(--transform-origin);
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: var(--radius-lg);
+  background: var(--popover);
+  padding: 0.25rem;
+  color: var(--popover-foreground);
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+  outline: none;
+  box-shadow: var(--shadow-md), 0 0 0 1px color-mix(in oklab, var(--foreground) 10%, transparent);
+  transition:
+    opacity var(--motion-fast) var(--ease-standard),
+    translate var(--motion-fast) var(--ease-standard),
+    scale var(--motion-fast) var(--ease-standard);
+  will-change: opacity, translate, scale;
+
+  &[data-side="bottom"] {
+    --context-menu-enter-y: -0.5rem;
+  }
+
+  &[data-side="top"] {
+    --context-menu-enter-y: 0.5rem;
+  }
+
+  &[data-side="left"],
+  &[data-side="inline-start"] {
+    --context-menu-enter-x: 0.5rem;
+  }
+
+  &[data-side="right"],
+  &[data-side="inline-end"] {
+    --context-menu-enter-x: -0.5rem;
+  }
+
+  &[data-starting-style],
+  &[data-ending-style],
+  &[data-closed] {
+    opacity: 0;
+    translate: var(--context-menu-enter-x) var(--context-menu-enter-y);
+    scale: 0.95;
+  }
+}
+
+.subContent {
+  box-shadow: var(--shadow-md), 0 0 0 1px color-mix(in oklab, var(--foreground) 10%, transparent);
+}
+
+.label {
+  padding: 0.25rem 0.375rem;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+
+  &[data-inset] {
+    padding-left: 1.75rem;
+  }
+}
+
+.item,
+.subTrigger,
+.checkboxItem,
+.radioItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: calc(var(--radius) - 2px);
+  color: inherit;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  user-select: none;
+  cursor: default;
+  outline: none;
+  transition: background-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard);
+
+  :global(svg) {
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+
+  :global(svg:not([class*="size-"])) {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &[data-highlighted],
+  &:focus-visible {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  &[data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &[data-inset] {
+    padding-left: 1.75rem;
+  }
+}
+
+.item,
+.subTrigger {
+  padding: 0.25rem 0.375rem;
+}
+
+.item {
+  &[data-highlighted] .shortcut,
+  &:focus-visible .shortcut {
+    color: var(--accent-foreground);
+  }
+
+  &[data-variant="destructive"] {
+    color: var(--destructive);
+
+    :global(svg) {
+      color: var(--destructive);
+    }
+  }
+
+  &[data-variant="destructive"][data-highlighted],
+  &[data-variant="destructive"]:focus-visible {
+    background: color-mix(in oklab, var(--destructive) 10%, transparent);
+    color: var(--destructive);
+  }
+}
+
+.subTrigger {
+  &[data-popup-open],
+  &[data-open] {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+.subTriggerIcon {
+  margin-left: auto;
+}
+
+.checkboxItem,
+.radioItem {
+  padding: 0.25rem 2rem 0.25rem 0.375rem;
+}
+
+.endIndicator {
+  pointer-events: none;
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  :global(svg:not([class*="size-"])) {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.separator {
+  height: 1px;
+  margin: 0.25rem -0.25rem;
+  background: var(--border);
+}
+
+.shortcut {
+  margin-left: auto;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content {
+    transition: none;
+  }
+}
+
