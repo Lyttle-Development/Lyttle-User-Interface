@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { cn } from "../lib/utils"
+import { cn } from "../../lib/utils"
 import styles from "./input.module.scss"
 
 const Input = React.forwardRef<HTMLInputElement, React.ComponentPropsWithoutRef<"input">>(
@@ -20,3 +20,4 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentPropsWithoutRef<
 Input.displayName = "Input"
 
 export { Input }
+

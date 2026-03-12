@@ -1,4 +1,4 @@
-@use "../styles/mixins" as mixins;
+@use "../../styles/mixins" as mixins;
 
 .input {
   width: 100%;
@@ -29,4 +29,5 @@
     background: color-mix(in oklab, var(--input) 60%, transparent);
   }
 }
+
 
