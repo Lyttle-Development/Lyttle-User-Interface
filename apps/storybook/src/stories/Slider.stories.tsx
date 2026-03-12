@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Slider } from "@lyttle/ui";
 
 const meta: Meta<typeof Slider> = {

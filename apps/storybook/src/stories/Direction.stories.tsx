@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { DirectionProvider } from "@lyttle/ui";
 import { Button, Input, Label } from "@lyttle/ui";
 

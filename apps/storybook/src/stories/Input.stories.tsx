@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Input, Label, Button } from "@lyttle/ui";
 import { Search, Mail, Eye, EyeOff } from "lucide-react";
 import React from "react";
