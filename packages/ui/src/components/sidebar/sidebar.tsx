@@ -36,9 +36,9 @@ const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 type SidebarContextProps = {
   state: "expanded" | "collapsed"
   open: boolean
-  setOpen: (open: boolean) => void
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
   openMobile: boolean
-  setOpenMobile: (open: boolean) => void
+  setOpenMobile: React.Dispatch<React.SetStateAction<boolean>>
   isMobile: boolean
   toggleSidebar: () => void
 }
@@ -537,10 +537,12 @@ function SidebarMenuButton({
 function SidebarMenuAction({
   className,
   render,
+  size = "default",
   showOnHover = false,
   ...props
 }: useRender.ComponentProps<"button"> &
   React.ComponentProps<"button"> & {
+    size?: "default" | "sm" | "lg"
     showOnHover?: boolean
   }) {
   return useRender({
@@ -559,6 +561,7 @@ function SidebarMenuAction({
     state: {
       slot: "sidebar-menu-action",
       sidebar: "menu-action",
+      size,
     },
   })
 }

@@ -1,10 +1,51 @@
 import { ShowcaseSection, ShowcaseBlock } from "./showcase-section";
-import { Card, CardContent, CardHeader, CardTitle } from "@lyttle/ui";
-import { Separator } from "@lyttle/ui";
-import { Badge } from "@lyttle/ui";
-import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@lyttle/ui";
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from "@lyttle/ui";
-import { Collapsible } from "@lyttle/ui";
+import {
+  Badge,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+  Separator,
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupAction,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarInset,
+  SidebarInput,
+  SidebarMenu,
+  SidebarMenuAction,
+  SidebarMenuBadge,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  SidebarProvider,
+  SidebarRail,
+  SidebarSeparator,
+  SidebarTrigger,
+} from "@lyttle/ui";
+import {
+  Bell,
+  Blocks,
+  ChevronRight,
+  Command,
+  FolderKanban,
+  HelpCircle,
+  LayoutDashboard,
+  Palette,
+  Plus,
+  Search,
+  Sparkles,
+  UserCircle2,
+} from "lucide-react";
 
 function LayoutBox({ label, className = "" }: { label: string; className?: string }) {
   return (
@@ -16,11 +57,26 @@ function LayoutBox({ label, className = "" }: { label: string; className?: strin
   );
 }
 
-const sidebarItems = [
-  { label: "Dashboard", icon: "⊞" },
-  { label: "Projects", icon: "◫" },
-  { label: "Components", icon: "◈" },
-  { label: "Settings", icon: "⚙" },
+const primarySidebarItems = [
+  { label: "Overview", icon: LayoutDashboard, isActive: true },
+  { label: "Projects", icon: FolderKanban, badge: "12" },
+  { label: "Components", icon: Blocks, badge: "56" },
+  { label: "Updates", icon: Bell, badge: "3" },
+];
+
+const sidebarHighlights = [
+  {
+    title: "Recommended shell",
+    description: "Use `SidebarProvider`, `Sidebar`, and `SidebarInset` together so layout, state, and content all stay in sync.",
+  },
+  {
+    title: "Keyboard friendly",
+    description: "`SidebarTrigger` and the built-in Ctrl/Cmd + B shortcut make collapse and expand feel native in admin-style apps.",
+  },
+  {
+    title: "Collapsed clarity",
+    description: "Tooltips, badges, and nested menus let icon mode stay useful instead of becoming purely decorative.",
+  },
 ];
 
 export function SectionLayout() {
@@ -149,68 +205,237 @@ export function SectionLayout() {
         </div>
       </ShowcaseBlock>
 
-      <ShowcaseBlock title="Sidebar" description="Application sidebar with navigation groups">
-        <div className="rounded-lg border border-border overflow-hidden" style={{ height: 320 }}>
-          <SidebarProvider defaultOpen>
-            <div className="flex h-full w-full">
-              <Sidebar collapsible="none" className="border-r border-border" style={{ width: 220 }}>
-                <SidebarHeader className="px-4 py-3 border-b border-border">
-                  <div className="flex items-center gap-2">
-                    <div
-                      className="h-6 w-6 rounded-md flex items-center justify-center text-white text-xs font-bold"
-                      style={{ background: "var(--brand-gradient-primary)" }}
-                    >
-                      L
-                    </div>
-                    <span className="font-semibold text-sm text-foreground">Lyttle App</span>
-                  </div>
-                </SidebarHeader>
-                <SidebarContent>
-                  <SidebarGroup>
-                    <SidebarGroupLabel>Navigation</SidebarGroupLabel>
-                    <SidebarGroupContent>
-                      <SidebarMenu>
-                        {sidebarItems.map((item, i) => (
-                          <SidebarMenuItem key={item.label}>
-                            <SidebarMenuButton isActive={i === 0}>
-                              <span aria-hidden="true">{item.icon}</span>
-                              <span>{item.label}</span>
-                              {i === 2 && (
-                                <Badge variant="secondary" className="ml-auto text-xs">
-                                  56
-                                </Badge>
-                              )}
-                            </SidebarMenuButton>
-                          </SidebarMenuItem>
-                        ))}
-                      </SidebarMenu>
-                    </SidebarGroupContent>
-                  </SidebarGroup>
-                </SidebarContent>
-              </Sidebar>
-              <div className="flex-1 p-6 bg-background overflow-auto">
-                <h3 className="font-semibold text-foreground mb-1">Dashboard</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Welcome back to Lyttle Framework.
-                </p>
-                <div className="grid grid-cols-2 gap-3">
-                  {["Components", "Tokens", "Pages", "Themes"].map((item) => (
-                    <Card key={item} className="p-3">
-                      <CardHeader className="p-0 pb-1">
-                        <CardTitle className="text-xs text-muted-foreground font-medium">
-                          {item}
+      <ShowcaseBlock
+        title="Sidebar"
+        description="A production-style app shell showing the sidebar's best composition patterns: provider state, inset content, trigger, icon collapse, nested menus, and footer actions."
+      >
+        <div className="overflow-hidden rounded-lg border border-border" style={{ height: 420 }}>
+          <SidebarProvider defaultOpen className="h-full min-h-0 bg-sidebar">
+            <Sidebar variant="inset" collapsible="icon">
+              <SidebarHeader>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton size="lg" tooltip="Lyttle Framework workspace">
+                      <div
+                        className="flex size-8 items-center justify-center rounded-lg text-white"
+                        style={{ background: "var(--brand-gradient-primary)" }}
+                      >
+                        <Sparkles className="size-4" />
+                      </div>
+                      <div className="grid flex-1 text-left leading-tight">
+                        <span className="truncate font-semibold text-sm">Lyttle Framework</span>
+                        <span className="truncate text-xs text-muted-foreground">Docs workspace</span>
+                      </div>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+                <SidebarInput placeholder="Search docs, patterns, components…" />
+              </SidebarHeader>
+
+              <SidebarContent>
+                <SidebarGroup>
+                  <SidebarGroupLabel>Workspace</SidebarGroupLabel>
+                  <SidebarGroupAction aria-label="Create a new view">
+                    <Plus className="size-4" />
+                  </SidebarGroupAction>
+                  <SidebarGroupContent>
+                    <SidebarMenu>
+                      {primarySidebarItems.map((item) => (
+                        <SidebarMenuItem key={item.label}>
+                          <SidebarMenuButton
+                            isActive={item.isActive}
+                            tooltip={item.label}
+                          >
+                            <item.icon className="size-4" />
+                            <span>{item.label}</span>
+                          </SidebarMenuButton>
+                          {item.badge ? <SidebarMenuBadge>{item.badge}</SidebarMenuBadge> : null}
+                        </SidebarMenuItem>
+                      ))}
+                    </SidebarMenu>
+                  </SidebarGroupContent>
+                </SidebarGroup>
+
+                <SidebarSeparator />
+
+                <SidebarGroup>
+                  <SidebarGroupLabel>Library</SidebarGroupLabel>
+                  <SidebarGroupContent>
+                    <SidebarMenu>
+                      <SidebarMenuItem>
+                        <SidebarMenuButton tooltip="Design system">
+                          <Palette className="size-4" />
+                          <span>Design system</span>
+                        </SidebarMenuButton>
+                        <SidebarMenuAction
+                          size="default"
+                          showOnHover
+                          aria-label="Open design system links"
+                        >
+                          <ChevronRight className="size-4" />
+                        </SidebarMenuAction>
+                        <SidebarMenuSub>
+                          <SidebarMenuSubItem>
+                            <SidebarMenuSubButton href="#colors">
+                              <span>Color roles</span>
+                            </SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                          <SidebarMenuSubItem>
+                            <SidebarMenuSubButton href="#layout" isActive>
+                              <span>App shell patterns</span>
+                            </SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                        </SidebarMenuSub>
+                      </SidebarMenuItem>
+
+                      <SidebarMenuItem>
+                        <SidebarMenuButton size="sm" tooltip="Quick search">
+                          <Search className="size-4" />
+                          <span>Quick search</span>
+                        </SidebarMenuButton>
+                        <SidebarMenuAction
+                          size="sm"
+                          showOnHover
+                          aria-label="Jump to quick search"
+                        >
+                          <Command className="size-3.5" />
+                        </SidebarMenuAction>
+                      </SidebarMenuItem>
+                    </SidebarMenu>
+                  </SidebarGroupContent>
+                </SidebarGroup>
+              </SidebarContent>
+
+              <SidebarFooter>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton tooltip="Get help">
+                      <HelpCircle className="size-4" />
+                      <span>Support & guides</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton size="lg" tooltip="Signed in as Sarah Chen">
+                      <UserCircle2 className="size-4" />
+                      <div className="grid flex-1 text-left text-sm leading-tight">
+                        <span className="truncate font-semibold">Sarah Chen</span>
+                        <span className="truncate text-xs text-muted-foreground">
+                          Design engineer
+                        </span>
+                      </div>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarFooter>
+
+              <SidebarRail />
+            </Sidebar>
+
+            <SidebarInset className="min-w-0 overflow-hidden">
+              <header className="flex h-14 items-center gap-3 border-b border-border bg-background/95 px-4">
+                <SidebarTrigger />
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-semibold text-foreground">Sidebar app shell</p>
+                  <p className="truncate text-xs text-muted-foreground">
+                    Collapse to icon mode, hover for tooltips, or press Ctrl/Cmd + B.
+                  </p>
+                </div>
+                <Badge variant="secondary" className="hidden sm:inline-flex">
+                  inset + icon collapse
+                </Badge>
+              </header>
+
+              <div className="grid h-[calc(100%-3.5rem)] gap-4 overflow-auto p-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(240px,0.9fr)]">
+                <div className="space-y-4">
+                  <div className="grid gap-3 sm:grid-cols-3">
+                    <Card>
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-xs font-medium text-muted-foreground">
+                          Sidebar states
                         </CardTitle>
                       </CardHeader>
-                      <CardContent className="p-0">
-                        <p className="text-xl font-bold text-foreground">
-                          {item === "Components" ? "56" : item === "Tokens" ? "32" : item === "Pages" ? "8" : "2"}
-                        </p>
+                      <CardContent>
+                        <p className="text-2xl font-semibold text-foreground">3</p>
+                        <p className="text-xs text-muted-foreground">Expanded, icon, mobile sheet</p>
                       </CardContent>
                     </Card>
-                  ))}
+                    <Card>
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-xs font-medium text-muted-foreground">
+                          Navigation depth
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-2xl font-semibold text-foreground">2 levels</p>
+                        <p className="text-xs text-muted-foreground">Menu items plus nested sub-links</p>
+                      </CardContent>
+                    </Card>
+                    <Card>
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-xs font-medium text-muted-foreground">
+                          Discoverability
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-2xl font-semibold text-foreground">Built in</p>
+                        <p className="text-xs text-muted-foreground">Tooltips, badges, rail, shortcut</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-sm">Why this is the recommended setup</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      {sidebarHighlights.map((item) => (
+                        <div key={item.title} className="rounded-lg border border-border bg-muted/20 p-3">
+                          <p className="text-sm font-medium text-foreground">{item.title}</p>
+                          <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
+                        </div>
+                      ))}
+                    </CardContent>
+                  </Card>
                 </div>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-sm">Patterns demonstrated</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        "SidebarProvider",
+                        "SidebarInset",
+                        "SidebarTrigger",
+                        "SidebarRail",
+                        "SidebarInput",
+                        "SidebarMenuSub",
+                      ].map((item) => (
+                        <Badge key={item} variant="secondary">
+                          {item}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    <div className="rounded-lg border border-border bg-muted/20 p-3 text-sm text-muted-foreground">
+                      Keep the source component generic and put product-specific content in the
+                      header, grouped menu sections, and footer. That way the shared sidebar stays
+                      reusable across admin apps, docs, dashboards, and internal tools.
+                    </div>
+
+                    <div className="space-y-2 text-sm text-muted-foreground">
+                      <p className="font-medium text-foreground">Implementation notes</p>
+                      <ul className="list-disc space-y-1 pl-5">
+                        <li>Use `tooltip` on menu buttons when `collapsible="icon"` is enabled.</li>
+                        <li>Pair badges and hover actions with the shared sidebar slots instead of ad-hoc absolute positioning.</li>
+                        <li>Constrain the provider with `className="h-full min-h-0"` when embedding demos inside docs pages.</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
-            </div>
+            </SidebarInset>
           </SidebarProvider>
         </div>
       </ShowcaseBlock>
