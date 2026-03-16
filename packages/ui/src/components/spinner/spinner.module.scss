@@ -9,7 +9,8 @@
   border: 2px solid currentColor;
   border-top-color: transparent;
   border-radius: 999px;
-  color: var(--primary);
+  color: currentColor;
+  vertical-align: middle;
   animation: spinner-rotate 0.8s linear infinite;
 }
 

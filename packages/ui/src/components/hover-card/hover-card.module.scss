@@ -11,7 +11,8 @@
   width: 16rem;
   transform-origin: var(--transform-origin);
   border-radius: var(--radius-lg);
-  background: var(--popover);
+  border: 1px solid color-mix(in oklab, var(--foreground) 12%, transparent);
+  background: color-mix(in oklab, var(--popover) 94%, var(--background));
   padding: 0.625rem;
   color: var(--popover-foreground);
   font-size: 0.875rem;
@@ -19,7 +20,7 @@
   translate: 0 0;
   scale: 1;
   outline: none;
-  box-shadow: var(--shadow-md), 0 0 0 1px color-mix(in oklab, var(--foreground) 10%, transparent);
+  box-shadow: var(--shadow-md), 0 16px 40px rgb(15 23 42 / 0.12);
   transition:
     opacity var(--motion-fast) var(--ease-standard),
     translate var(--motion-fast) var(--ease-standard),

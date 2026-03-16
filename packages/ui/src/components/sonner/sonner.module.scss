@@ -24,10 +24,30 @@
 .toast {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
-  background: color-mix(in oklab, var(--popover) 92%, transparent);
+  background: color-mix(in oklab, var(--popover) 94%, var(--background));
   color: var(--popover-foreground);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-md), 0 16px 40px rgb(15 23 42 / 0.14);
   backdrop-filter: blur(16px);
+}
+
+.toast[data-type="success"] {
+  border-color: color-mix(in oklab, #22c55e 32%, var(--border));
+  background: color-mix(in oklab, #22c55e 12%, var(--popover));
+}
+
+.toast[data-type="info"] {
+  border-color: color-mix(in oklab, var(--primary) 30%, var(--border));
+  background: color-mix(in oklab, var(--primary) 10%, var(--popover));
+}
+
+.toast[data-type="warning"] {
+  border-color: color-mix(in oklab, #f59e0b 34%, var(--border));
+  background: color-mix(in oklab, #f59e0b 12%, var(--popover));
+}
+
+.toast[data-type="error"] {
+  border-color: color-mix(in oklab, var(--destructive) 34%, var(--border));
+  background: color-mix(in oklab, var(--destructive) 12%, var(--popover));
 }
 
 .title {

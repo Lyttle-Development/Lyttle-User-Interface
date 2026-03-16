@@ -19,9 +19,6 @@
   @include mixins.control-focus-ring;
   @include mixins.disabled-state;
 
-  &:active {
-    transform: translateY(1px);
-  }
 
   &[aria-invalid="true"] {
     border-color: var(--destructive);

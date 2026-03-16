@@ -226,13 +226,12 @@ export function SectionForms() {
                 { value: "standard", label: "Standard (3–5 days)", hint: "€3.99" },
                 { value: "free", label: "Free (7–10 days)", hint: "Free" },
               ].map((item) => (
-                <div key={item.value} className="flex items-start gap-3">
+                <div key={item.value} className="flex items-center gap-3 rounded-lg border border-border/60 bg-muted/20 px-3 py-2">
                   <RadioGroupItem
                     value={item.value}
                     id={`radio-${item.value}`}
-                    className="mt-0.5"
                   />
-                  <Label htmlFor={`radio-${item.value}`} className="cursor-pointer">
+                  <Label htmlFor={`radio-${item.value}`} className="cursor-pointer flex flex-col gap-1 leading-tight">
                     <span className="block">{item.label}</span>
                     <span className="text-xs text-muted-foreground">{item.hint}</span>
                   </Label>
@@ -251,7 +250,7 @@ export function SectionForms() {
             { id: "sw3", label: "Disabled option", disabled: true },
           ].map((item) => (
             <div key={item.id} className="flex items-center justify-between gap-4 max-w-sm">
-              <div>
+              <div className="space-y-1">
                 <Label htmlFor={item.id} className={item.disabled ? "text-muted-foreground" : ""}>
                   {item.label}
                 </Label>
@@ -343,9 +342,9 @@ export function SectionForms() {
             <Input id="form-pw" type="password" autoComplete="new-password" required />
             <p className="text-xs text-muted-foreground">Min 8 chars, one number, one symbol.</p>
           </div>
-          <div className="flex items-start gap-3">
-            <Checkbox id="form-terms" required aria-required="true" />
-            <Label htmlFor="form-terms" className="text-sm leading-relaxed cursor-pointer">
+          <div className="flex items-start gap-3 rounded-lg border border-border/60 bg-muted/20 px-3 py-3">
+            <Checkbox id="form-terms" required aria-required="true" className="mt-0.5" />
+            <Label htmlFor="form-terms" className="text-sm leading-relaxed cursor-pointer inline">
               I agree to the{" "}
               <a href="#forms" className="text-primary">Terms of Service</a>{" "}
               and{" "}

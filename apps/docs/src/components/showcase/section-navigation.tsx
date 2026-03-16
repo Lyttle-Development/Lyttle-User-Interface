@@ -8,9 +8,13 @@ import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, Pagi
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger } from "@lyttle/ui";
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from "@lyttle/ui";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@lyttle/ui";
+import { Button } from "@lyttle/ui";
 
 export function SectionNavigation() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [showNotifications, setShowNotifications] = React.useState(true);
+  const [showActivity, setShowActivity] = React.useState(false);
+  const [menuRole, setMenuRole] = React.useState("editor");
 
   return (
     <ShowcaseSection
@@ -84,7 +88,7 @@ export function SectionNavigation() {
       <ShowcaseBlock title="Dropdown Menu" description="Context-triggered dropdown with rich content">
         <div className="flex flex-wrap gap-4">
           <DropdownMenu>
-            <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors">
+            <DropdownMenuTrigger render={<Button variant="outline" className="gap-2" />}>
               Open menu
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <polyline points="6 9 12 15 18 9" />
@@ -109,10 +113,10 @@ export function SectionNavigation() {
                 </DropdownMenuSubContent>
               </DropdownMenuSub>
               <DropdownMenuSeparator />
-              <DropdownMenuCheckboxItem checked>Show notifications</DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem>Show activity</DropdownMenuCheckboxItem>
+              <DropdownMenuCheckboxItem checked={showNotifications} onCheckedChange={setShowNotifications}>Show notifications</DropdownMenuCheckboxItem>
+              <DropdownMenuCheckboxItem checked={showActivity} onCheckedChange={setShowActivity}>Show activity</DropdownMenuCheckboxItem>
               <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup value="editor">
+              <DropdownMenuRadioGroup value={menuRole} onValueChange={setMenuRole}>
                 <DropdownMenuLabel>Role</DropdownMenuLabel>
                 <DropdownMenuRadioItem value="admin">Admin</DropdownMenuRadioItem>
                 <DropdownMenuRadioItem value="editor">Editor</DropdownMenuRadioItem>

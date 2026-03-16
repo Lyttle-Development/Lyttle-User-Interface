@@ -43,13 +43,32 @@ function XCircleIcon() {
 }
 
 export function SectionFeedback() {
-  const [progress, setProgress] = React.useState(0);
+  const [progress, setProgress] = React.useState(18);
+
+  const primaryGradientStyle = {
+    backgroundImage: "var(--brand-gradient-primary)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100% 100%",
+  } as const;
+  const accentGradientStyle = {
+    backgroundImage: "var(--brand-gradient-accent)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100% 100%",
+  } as const;
 
   React.useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((p) => (p >= 100 ? 0 : p + 2));
-    }, 120);
-    return () => clearInterval(timer);
+    const timer = window.setInterval(() => {
+      setProgress((current) => {
+        if (current >= 76) {
+          window.clearInterval(timer);
+          return 76;
+        }
+
+        return current + 2;
+      });
+    }, 110);
+
+    return () => window.clearInterval(timer);
   }, []);
 
   return (
@@ -60,7 +79,7 @@ export function SectionFeedback() {
     >
       <ShowcaseBlock title="Alerts" description="Informational, success, warning, and error variants">
         <div className="space-y-3">
-          <Alert>
+          <Alert className="border-primary/30 bg-primary/8 text-foreground [&>svg]:text-primary">
             <InfoIcon />
             <AlertTitle>Information</AlertTitle>
             <AlertDescription>
@@ -87,7 +106,7 @@ export function SectionFeedback() {
             </AlertDescription>
           </Alert>
 
-          <Alert variant="destructive">
+          <Alert className="border-destructive/40 bg-destructive/10 text-destructive [&>svg]:text-destructive">
             <XCircleIcon />
             <AlertTitle>Error</AlertTitle>
             <AlertDescription>
@@ -119,14 +138,14 @@ export function SectionFeedback() {
 
           {/* Brand badges */}
           <Badge
-            className="border-0 text-white"
-            style={{ background: "var(--brand-gradient-primary)" }}
+            className="border-transparent text-white"
+            style={primaryGradientStyle}
           >
             Brand
           </Badge>
           <Badge
-            className="border-0 text-white"
-            style={{ background: "var(--brand-gradient-accent)" }}
+            className="border-transparent text-white"
+            style={accentGradientStyle}
           >
             Accent
           </Badge>
@@ -214,7 +233,7 @@ export function SectionFeedback() {
                 className="text-white font-semibold"
                 style={{ background: "var(--brand-gradient-primary)" }}
               >
-                LD
+                <span className="text-white mix-blend-difference">LD</span>
               </AvatarFallback>
             </Avatar>
             <span className="text-xs text-muted-foreground">Brand fallback</span>
@@ -234,8 +253,8 @@ export function SectionFeedback() {
       <ShowcaseBlock title="Tooltip" description="Accessible tooltips on hover and focus">
         <div className="flex flex-wrap gap-4 items-center">
           <Tooltip>
-            <TooltipTrigger>
-              <Button variant="outline">Hover me</Button>
+            <TooltipTrigger render={<Button variant="outline" />}>
+              Hover me
             </TooltipTrigger>
             <TooltipContent>
               <p>This is a helpful tooltip</p>
@@ -243,10 +262,8 @@ export function SectionFeedback() {
           </Tooltip>
 
           <Tooltip>
-            <TooltipTrigger>
-              <Button variant="ghost" size="icon" aria-label="Information">
-                <InfoIcon />
-              </Button>
+            <TooltipTrigger render={<Button variant="ghost" size="icon" aria-label="Information" />}>
+              <InfoIcon />
             </TooltipTrigger>
             <TooltipContent side="right">
               <p>Additional context for this action</p>
@@ -254,10 +271,8 @@ export function SectionFeedback() {
           </Tooltip>
 
           <Tooltip>
-            <TooltipTrigger>
-              <span className="underline decoration-dotted cursor-help text-foreground">
-                What is WCAG?
-              </span>
+            <TooltipTrigger render={<span className="underline decoration-dotted cursor-help text-foreground" />}>
+              What is WCAG?
             </TooltipTrigger>
             <TooltipContent className="max-w-xs">
               <p>

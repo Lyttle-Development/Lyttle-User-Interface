@@ -5,7 +5,7 @@
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
-  border: 1px solid transparent;
+  border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
   border-radius: 999px;
   background: var(--input);
   transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
@@ -19,18 +19,18 @@
   }
 
   &[data-size="default"] {
-    width: 2rem;
-    height: 1.15rem;
-    padding: 1px;
-    --switch-thumb-size: 1rem;
-    --switch-thumb-translate: 0.875rem;
+    width: 2.25rem;
+    height: 1.35rem;
+    padding: 2px;
+    --switch-thumb-size: 0.95rem;
+    --switch-thumb-translate: 0.85rem;
   }
 
   &[data-size="sm"] {
-    width: 1.5rem;
-    height: 0.875rem;
-    padding: 1px;
-    --switch-thumb-size: 0.75rem;
+    width: 1.75rem;
+    height: 1rem;
+    padding: 2px;
+    --switch-thumb-size: 0.625rem;
     --switch-thumb-translate: 0.625rem;
   }
 

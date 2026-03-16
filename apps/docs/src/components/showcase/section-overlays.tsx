@@ -19,9 +19,6 @@ import { Badge } from "@lyttle/ui";
 const triggerClass =
   "inline-flex items-center justify-center gap-2 rounded-md border border-border bg-background px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors cursor-pointer";
 
-const destructiveTriggerClass =
-  "inline-flex items-center justify-center gap-2 rounded-md bg-destructive px-3 py-2 text-sm font-medium text-white hover:bg-destructive/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors cursor-pointer";
-
 export function SectionOverlays() {
   return (
     <ShowcaseSection
@@ -32,7 +29,7 @@ export function SectionOverlays() {
       <ShowcaseBlock title="Dialog" description="Accessible modal dialogs with focus trap">
         <div className="flex flex-wrap gap-3">
           <Dialog>
-            <DialogTrigger className={triggerClass}>Open dialog</DialogTrigger>
+            <DialogTrigger render={<Button variant="outline" className="gap-2" />}>Open dialog</DialogTrigger>
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>Edit profile</DialogTitle>
@@ -66,7 +63,7 @@ export function SectionOverlays() {
 
       <ShowcaseBlock title="Alert Dialog" description="Destructive action confirmation">
         <AlertDialog>
-          <AlertDialogTrigger className={destructiveTriggerClass}>
+          <AlertDialogTrigger render={<Button className="bg-destructive text-white hover:bg-destructive/90" />}>
             Delete account
           </AlertDialogTrigger>
           <AlertDialogContent>
@@ -91,7 +88,7 @@ export function SectionOverlays() {
         <div className="flex flex-wrap gap-3">
           {(["left", "right", "top", "bottom"] as const).map((side) => (
             <Sheet key={side}>
-              <SheetTrigger className={`${triggerClass} capitalize`}>{side}</SheetTrigger>
+              <SheetTrigger render={<Button variant="outline" className="capitalize" />}>{side}</SheetTrigger>
               <SheetContent side={side}>
                 <SheetHeader>
                   <SheetTitle>Sheet — {side}</SheetTitle>
@@ -150,7 +147,7 @@ export function SectionOverlays() {
       <ShowcaseBlock title="Popover" description="Floating anchored panel">
         <div className="flex flex-wrap gap-4">
           <Popover>
-            <PopoverTrigger className={triggerClass}>Open popover</PopoverTrigger>
+            <PopoverTrigger render={<Button variant="outline" />}>Open popover</PopoverTrigger>
             <PopoverContent className="w-80">
               <div className="space-y-3">
                 <h4 className="font-semibold text-foreground text-sm">Dimensions</h4>
@@ -172,7 +169,7 @@ export function SectionOverlays() {
       <ShowcaseBlock title="Hover Card" description="Rich preview card on hover">
         <div className="flex gap-4">
           <HoverCard>
-            <HoverCardTrigger className="text-primary font-medium underline-offset-4 hover:underline cursor-pointer">
+            <HoverCardTrigger render={<span className="text-primary font-medium underline-offset-4 hover:underline cursor-pointer" />}>
               @lyttledevelopment
             </HoverCardTrigger>
             <HoverCardContent className="w-80">
@@ -200,7 +197,7 @@ export function SectionOverlays() {
       <ShowcaseBlock title="Context Menu" description="Right-click contextual actions">
         <ContextMenu>
           <ContextMenuTrigger
-            className="flex h-32 w-full items-center justify-center rounded-lg border border-dashed border-border bg-muted/30 text-sm text-muted-foreground cursor-context-menu select-none"
+            render={<div className="flex h-32 w-full items-center justify-center rounded-lg border border-dashed border-border bg-muted/30 text-sm text-muted-foreground cursor-context-menu select-none" />}
             aria-label="Right-click area"
           >
             Right-click here to open context menu
@@ -222,7 +219,11 @@ export function SectionOverlays() {
       </ShowcaseBlock>
 
       <ShowcaseBlock title="Command Palette" description="⌘K-style searchable command menu">
-        <div className="border border-border rounded-lg overflow-hidden max-w-md">
+        <div className="max-w-md overflow-hidden rounded-xl border border-border/70 bg-card shadow-sm">
+          <div className="border-b border-border/60 bg-muted/25 px-4 py-3">
+            <p className="text-sm font-semibold text-foreground">Quick actions</p>
+            <p className="text-xs text-muted-foreground">Search commands, files, and preferences.</p>
+          </div>
           <Command>
             <CommandInput placeholder="Type a command or search…" />
             <CommandList>

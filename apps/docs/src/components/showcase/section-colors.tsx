@@ -14,7 +14,7 @@ const swatches = [
   {
     label: "Primary",
     var: "--primary",
-    desc: "Brand purple — interactive elements",
+    desc: "Primary interactive brand token",
   },
   {
     label: "Primary Foreground",
@@ -64,9 +64,9 @@ const swatches = [
 ];
 
 const brandSwatches = [
-  { label: "Brand Purple", var: "--brand-purple", desc: "#6C63FF family" },
-  { label: "Brand Coral", var: "--brand-coral", desc: "#FF6363 family" },
-  { label: "Brand Dark Purple", var: "--brand-dark-purple", desc: "#271B5E family" },
+  { label: "Brand Base", var: "--brand-base", desc: "Primary brand driver for key emphasis and actions" },
+  { label: "Brand Accent", var: "--brand-accent", desc: "Secondary highlight token for expressive emphasis" },
+  { label: "Brand Strong", var: "--brand-strong", desc: "Deep anchor tone for gradients and contrast" },
 ];
 
 const chartSwatches = [
@@ -111,8 +111,8 @@ export function SectionColors() {
       </ShowcaseBlock>
 
       <ShowcaseBlock
-        title="Brand Colors"
-        description="Raw brand values available as CSS custom properties."
+        title="Brand Foundation Tokens"
+        description="Role-based brand tokens that can stay stable even if the underlying hue shifts in future themes."
       >
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {brandSwatches.map((s) => (
@@ -153,8 +153,12 @@ export function SectionColors() {
           {chartSwatches.map((s) => (
             <div key={s.var} className="flex flex-col items-center gap-1">
               <div
-                className="h-12 w-12 rounded-full border border-border shadow-sm"
-                style={{ background: `var(${s.var})` }}
+                className="h-12 w-12 rounded-full shadow-sm"
+                style={{
+                  background: `var(${s.var})`,
+                  border: `1px solid color-mix(in oklab, var(${s.var}) 48%, var(--background))`,
+                  boxShadow: `inset 0 0 0 3px color-mix(in oklab, var(${s.var}) 14%, white), 0 8px 18px rgb(15 23 42 / 0.08)`,
+                }}
               />
               <span className="text-xs text-muted-foreground font-mono">
                 {s.label}

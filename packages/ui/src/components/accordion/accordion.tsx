@@ -5,7 +5,7 @@ import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion"
 
 import { composeRefs, useInteractiveMotion } from "../../lib/motion"
 import { cn } from "../../lib/utils"
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-react"
+import { ChevronDownIcon } from "lucide-react"
 import styles from "./accordion.module.scss"
 
 function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
@@ -83,8 +83,7 @@ const AccordionTrigger = React.forwardRef<
         {...triggerProps}
       >
         {children}
-        <ChevronDownIcon data-slot="accordion-trigger-icon" className={styles.iconDown} />
-        <ChevronUpIcon data-slot="accordion-trigger-icon" className={styles.iconUp} />
+        <ChevronDownIcon data-slot="accordion-trigger-icon" className={styles.icon} />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )

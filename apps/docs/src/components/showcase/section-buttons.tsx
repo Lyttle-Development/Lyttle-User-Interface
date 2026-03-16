@@ -46,6 +46,20 @@ function TrashIcon() {
 
 export function SectionButtons() {
   const [loading, setLoading] = React.useState(false);
+  const [singleSelection, setSingleSelection] = React.useState<string[]>(["italic"]);
+  const [multiSelection, setMultiSelection] = React.useState<string[]>(["bold", "italic"]);
+
+  const gradientButtonClassName = "border-transparent text-white shadow-md transition-opacity hover:opacity-95";
+  const primaryGradientStyle = {
+    backgroundImage: "var(--brand-gradient-primary)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100% 100%",
+  } as const;
+  const accentGradientStyle = {
+    backgroundImage: "var(--brand-gradient-accent)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100% 100%",
+  } as const;
 
   const handleLoad = () => {
     setLoading(true);
@@ -110,21 +124,21 @@ export function SectionButtons() {
       <ShowcaseBlock title="Brand Gradient Buttons" description="Custom brand-styled CTAs">
         <div className="flex flex-wrap gap-3 items-center">
           <Button
-            className="text-white border-0 shadow-md hover:opacity-90 transition-opacity"
-            style={{ background: "var(--brand-gradient-primary)" }}
+            className={gradientButtonClassName}
+            style={primaryGradientStyle}
           >
             Primary CTA
           </Button>
           <Button
-            className="text-white border-0 shadow-md hover:opacity-90 transition-opacity"
-            style={{ background: "var(--brand-gradient-accent)" }}
+            className={gradientButtonClassName}
+            style={accentGradientStyle}
           >
             Accent CTA
           </Button>
           <Button
             size="lg"
-            className="text-white border-0 shadow-lg hover:opacity-90 transition-opacity px-8"
-            style={{ background: "var(--brand-gradient-primary)" }}
+            className={`${gradientButtonClassName} px-8 shadow-lg`}
+            style={primaryGradientStyle}
           >
             Get Started →
           </Button>
@@ -162,7 +176,7 @@ export function SectionButtons() {
         <div className="flex flex-col gap-4">
           <div>
             <p className="text-xs text-muted-foreground mb-2">Single select</p>
-            <ToggleGroup>
+            <ToggleGroup value={singleSelection} onValueChange={setSingleSelection}>
               <ToggleGroupItem value="bold" aria-label="Bold"><BoldIcon /></ToggleGroupItem>
               <ToggleGroupItem value="italic" aria-label="Italic"><ItalicIcon /></ToggleGroupItem>
               <ToggleGroupItem value="underline" aria-label="Underline"><UnderlineIcon /></ToggleGroupItem>
@@ -170,7 +184,7 @@ export function SectionButtons() {
           </div>
           <div>
             <p className="text-xs text-muted-foreground mb-2">Multiple select</p>
-            <ToggleGroup>
+            <ToggleGroup multiple value={multiSelection} onValueChange={setMultiSelection}>
               <ToggleGroupItem value="bold" aria-label="Bold"><BoldIcon /></ToggleGroupItem>
               <ToggleGroupItem value="italic" aria-label="Italic"><ItalicIcon /></ToggleGroupItem>
               <ToggleGroupItem value="underline" aria-label="Underline"><UnderlineIcon /></ToggleGroupItem>

@@ -39,19 +39,19 @@ export function SectionTypography() {
         </div>
       </ShowcaseBlock>
 
-      <ShowcaseBlock title="Brand Colored Headings">
+      <ShowcaseBlock title="Token-colored Headings">
         <div className="space-y-3">
-          <h2 className="text-3xl font-bold text-brand-purple">
-            Purple heading — primary brand
+          <h2 className="text-3xl font-bold text-brand-base">
+            Base token heading — primary emphasis
           </h2>
-          <h2 className="text-3xl font-bold text-brand-coral">
-            Coral heading — accent brand
+          <h2 className="text-3xl font-bold text-brand-accent">
+            Accent token heading — expressive highlight
           </h2>
           <h2 className="text-3xl font-bold">
             Mixed{" "}
-            <span className="text-brand-purple">purple</span>{" "}
+            <span className="text-brand-base">base</span>{" "}
             and{" "}
-            <span className="text-brand-coral">coral</span>{" "}
+            <span className="text-brand-accent">accent</span>{" "}
             inline
           </h2>
         </div>
@@ -96,7 +96,7 @@ export function SectionTypography() {
             colour with underline offset
           </p>
           <p className="line-through text-muted-foreground">Strikethrough text</p>
-          <blockquote className="border-l-4 pl-4 italic text-muted-foreground" style={{ borderColor: "var(--brand-purple)" }}>
+          <blockquote className="border-l-4 pl-4 italic text-muted-foreground" style={{ borderColor: "var(--brand-base)" }}>
             &ldquo;Great design is about solving problems with clarity, empathy,
             and intention.&rdquo;
           </blockquote>

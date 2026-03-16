@@ -77,6 +77,9 @@
   --sidebar-ring:            oklch(0.48 0.22  270);
 
   /* brand-specific extras */
+  --brand-base:              oklch(0.55 0.22  270);
+  --brand-accent:            oklch(0.65 0.20  25);
+  --brand-strong:            oklch(0.28 0.13  275);
   --brand-purple:            oklch(0.55 0.22  270);
   --brand-coral:             oklch(0.65 0.20  25);
   --brand-dark-purple:       oklch(0.28 0.13  275);
@@ -143,6 +146,9 @@
   --sidebar-ring:            oklch(0.68 0.22  270);
 
   /* brand-specific extras */
+  --brand-base:              oklch(0.68 0.22  270);
+  --brand-accent:            oklch(0.70 0.19  25);
+  --brand-strong:            oklch(0.22 0.10  275);
   --brand-purple:            oklch(0.68 0.22  270);
   --brand-coral:             oklch(0.70 0.19  25);
   --brand-dark-purple:       oklch(0.22 0.10  275);
@@ -353,7 +359,7 @@ body {
   /* Minimum touch target size (WCAG 2.5.5) */
   button, [role="button"], input[type="submit"],
   input[type="button"], input[type="reset"],
-  a[href], label[for], select {
+  a[href], select {
     min-height: 44px;
     min-width: 44px;
   }
@@ -367,6 +373,18 @@ body {
 
   .bg-brand-gradient-accent {
     background: var(--brand-gradient-accent);
+  }
+
+  .text-brand-base {
+    color: var(--brand-base);
+  }
+
+  .text-brand-accent {
+    color: var(--brand-accent);
+  }
+
+  .text-brand-strong {
+    color: var(--brand-strong);
   }
 
   .text-brand-purple {
