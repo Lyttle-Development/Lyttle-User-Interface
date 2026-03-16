@@ -4,8 +4,12 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@lyttle/ui": ["../../packages/ui/src/index.ts"],
-      "@lyttle/ui/*": ["../../packages/ui/src/*"]
+      "@lyttle-development/ui": [
+        "../../packages/ui/src/index.ts"
+      ],
+      "@lyttle-development/ui/*": [
+        "../../packages/ui/src/*"
+      ]
     }
   },
   "include": [
@@ -17,5 +21,7 @@
     "../../packages/ui/src/**/*.tsx",
     "../../packages/ui/src/**/*.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

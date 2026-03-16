@@ -1,9 +1,9 @@
-import {Badge} from '@lyttle/ui';
+import {Badge} from '@lyttle-development/ui';
 import {
     ShowcaseHero as ShowcaseHeroShell,
     ShowcaseHeroPrimaryAction,
     ShowcaseHeroSecondaryAction,
-} from '@lyttle/ui/components/showcase/showcase';
+} from '@lyttle-development/ui/components/showcase/showcase';
 
 export function ShowcaseHero() {
     return (

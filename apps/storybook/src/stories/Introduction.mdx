@@ -27,7 +27,7 @@ All colours are specified in **OKLCH** for perceptually uniform palettes across 
 
 ## 📦 Components
 
-Every component in `packages/ui` is exported from `@lyttle/ui`.
+Every component in `packages/ui` is exported from `@lyttle-development/ui`.
 Browse the sidebar to explore each component individually.
 
 | Category | Components |
@@ -49,14 +49,14 @@ Install the package from the monorepo:
 
 ```bash
 # From any app in the monorepo
-npm install @lyttle/ui
+npm install @lyttle-development/ui
 ```
 
 Import and use components:
 
 ```tsx
-import { Button, Card, CardContent } from "@lyttle/ui";
-import "@lyttle/ui/styles"; // import the shared global styles once in your app root
+import { Button, Card, CardContent } from "@lyttle-development/ui";
+import "@lyttle-development/ui/styles"; // import the shared global styles once in your app root
 
 export default function Page() {
   return (
@@ -97,5 +97,5 @@ lyttle-user-interface/
 │   ├── docs/          # Next.js showcase app  (port 3000)
 │   └── storybook/     # This Storybook         (port 6006)
 ├── packages/
-│   └── ui/            # Shared component library (@lyttle/ui)
+│   └── ui/            # Shared component library (@lyttle-development/ui)
 └── tsconfig.base.json

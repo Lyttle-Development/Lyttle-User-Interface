@@ -1,11 +1,11 @@
 {
-  "name": "@lyttle/ui",
+  "name": "@lyttle-development/ui",
   "version": "0.1.0",
   "private": true,
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "scripts": {
-    "build": "echo \"@lyttle/ui is source-only, no build step required\""
+    "build": "echo \"@lyttle-development/ui is source-only, no build step required\""
   },
   "exports": {
     ".": "./src/index.ts",

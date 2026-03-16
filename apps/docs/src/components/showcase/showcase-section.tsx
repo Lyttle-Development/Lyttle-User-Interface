@@ -1,1 +1,3 @@
-export { ShowcaseSection, ShowcaseBlock } from "@lyttle/ui/components/showcase/showcase";
+export {
+    ShowcaseSection, ShowcaseBlock
+} from '@lyttle-development/ui/components/showcase/showcase';

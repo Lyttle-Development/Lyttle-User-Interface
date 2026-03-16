@@ -1,11 +1,11 @@
 'use client';
 
 import * as React from 'react';
-import {Button} from '@lyttle/ui';
+import {Button} from '@lyttle-development/ui';
 import {
-  ShowcaseBrand,
-  ShowcaseTopBar
-} from '@lyttle/ui/components/showcase/showcase';
+    ShowcaseBrand,
+    ShowcaseTopBar
+} from '@lyttle-development/ui/components/showcase/showcase';
 
 const navItems = [
     {href: '#colors', label: 'Colors'},
