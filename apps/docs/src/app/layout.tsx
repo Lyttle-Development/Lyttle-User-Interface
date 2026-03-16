@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     template: "%s | Lyttle Framework",
   },
   description:
-    "A complete design framework built on shadcn/ui, styled with the LyttleDevelopment brand palette — accessible, polished, and production-ready.",
-  keywords: ["design system", "component library", "lyttle", "shadcn", "accessible"],
+    "A complete design framework styled with the LyttleDevelopment brand palette — accessible, polished, and production-ready.",
+  keywords: ["design system", "component library", "lyttle", "accessible"],
   authors: [{ name: "LyttleDevelopment" }],
 };
 

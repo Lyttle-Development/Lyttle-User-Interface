@@ -175,7 +175,7 @@ export function SectionOverlays() {
             <HoverCardContent className="w-80">
               <div className="flex gap-4">
                 <Avatar>
-                  <AvatarImage src="https://github.com/shadcn.png" alt="LyttleDevelopment" />
+                  <AvatarImage src="https://github.com/vercel.png" alt="LyttleDevelopment" />
                   <AvatarFallback style={{ background: "var(--brand-gradient-primary)" }} className="text-white font-bold text-xs">LD</AvatarFallback>
                 </Avatar>
                 <div className="space-y-1">

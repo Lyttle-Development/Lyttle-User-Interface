@@ -28,7 +28,7 @@ type Story = StoryObj<typeof Avatar>;
 export const Default: Story = {
   render: () => (
     <Avatar>
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarImage src="https://github.com/vercel.png" alt="@lyttle" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
@@ -47,15 +47,15 @@ export const Sizes: Story = {
   render: () => (
     <div className="flex items-center gap-4">
       <Avatar size="sm">
-        <AvatarImage src="https://github.com/shadcn.png" alt="Small" />
+        <AvatarImage src="https://github.com/vercel.png" alt="Small" />
         <AvatarFallback>SM</AvatarFallback>
       </Avatar>
       <Avatar size="default">
-        <AvatarImage src="https://github.com/shadcn.png" alt="Default" />
+        <AvatarImage src="https://github.com/vercel.png" alt="Default" />
         <AvatarFallback>MD</AvatarFallback>
       </Avatar>
       <Avatar size="lg">
-        <AvatarImage src="https://github.com/shadcn.png" alt="Large" />
+        <AvatarImage src="https://github.com/vercel.png" alt="Large" />
         <AvatarFallback>LG</AvatarFallback>
       </Avatar>
     </div>
@@ -65,7 +65,7 @@ export const Sizes: Story = {
 export const WithBadge: Story = {
   render: () => (
     <Avatar>
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarImage src="https://github.com/vercel.png" alt="@lyttle" />
       <AvatarFallback>CN</AvatarFallback>
       <AvatarBadge className="bg-green-500" />
     </Avatar>
@@ -76,7 +76,7 @@ export const Group: Story = {
   render: () => (
     <AvatarGroup>
       <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" alt="User 1" />
+        <AvatarImage src="https://github.com/vercel.png" alt="User 1" />
         <AvatarFallback>U1</AvatarFallback>
       </Avatar>
       <Avatar>

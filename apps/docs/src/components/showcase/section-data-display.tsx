@@ -103,7 +103,7 @@ export function SectionDataDisplay() {
         <Card className="mt-4 shadow-sm">
           <div className="flex items-center gap-4 p-6">
             <Avatar className="h-14 w-14">
-              <AvatarImage src="https://github.com/shadcn.png" alt="Team member" />
+              <AvatarImage src="https://github.com/vercel.png" alt="Team member" />
               <AvatarFallback style={{ background: "var(--brand-gradient-primary)" }} className="text-white font-bold">
                 JD
               </AvatarFallback>
@@ -161,10 +161,10 @@ export function SectionDataDisplay() {
       <ShowcaseBlock title="Accordion" description="Expandable content sections">
         <Accordion className="w-full max-w-lg">
           {[
-            { value: "a1", trigger: "What is the Lyttle Framework?", content: "A complete design system built on shadcn/ui, styled with the LyttleDevelopment brand palette and optimised for WCAG AA accessibility." },
+            { value: "a1", trigger: "What is the Lyttle Framework?", content: "A complete design system styled with the LyttleDevelopment brand palette and optimised for WCAG AA accessibility." },
             { value: "a2", trigger: "Does it support dark mode?", content: "Yes — the dark mode IS the LyttleDevelopment aesthetic with the deep navy/purple background (#100429). Toggle it using the button in the top navigation." },
             { value: "a3", trigger: "Is it accessible?", content: "All components meet WCAG 2.1 AA contrast requirements. Focus rings are always visible, touch targets are at least 44×44px, and screen reader semantics are properly set." },
-            { value: "a4", trigger: "Can I use this without Tailwind?", content: "Tailwind v4 is required as the underlying engine for shadcn, but all theming is done through CSS custom properties. You work with semantic tokens, not utility classes directly." },
+            { value: "a4", trigger: "How is it themed?", content: "The framework uses shared CSS custom properties, Sass modules, and component-level styles to keep branding and theming consistent across apps." },
           ].map((item) => (
             <AccordionItem key={item.value} value={item.value}>
               <AccordionTrigger>{item.trigger}</AccordionTrigger>

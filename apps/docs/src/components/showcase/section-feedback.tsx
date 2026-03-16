@@ -223,7 +223,7 @@ export function SectionFeedback() {
           {/* With image */}
           <div className="flex flex-col items-center gap-2">
             <Avatar className="h-16 w-16">
-              <AvatarImage src="https://github.com/shadcn.png" alt="shadcn" />
+              <AvatarImage src="https://github.com/vercel.png" alt="Profile" />
               <AvatarFallback>SC</AvatarFallback>
             </Avatar>
             <span className="text-xs text-muted-foreground">With image</span>

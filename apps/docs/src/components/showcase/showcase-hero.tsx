@@ -29,9 +29,9 @@ export function ShowcaseHero() {
         </h1>
 
         <p className="text-lg leading-relaxed text-white/85 md:text-xl">
-          A complete design system built on shadcn/ui — styled with the
-          LyttleDevelopment brand palette, improved for WCAG AA accessibility,
-          and ready for any web project.
+          A complete design system styled with the LyttleDevelopment brand
+          palette, improved for WCAG AA accessibility, and ready for any web
+          project.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 pt-2">

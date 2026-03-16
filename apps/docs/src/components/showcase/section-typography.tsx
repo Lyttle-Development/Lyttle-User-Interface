@@ -127,7 +127,7 @@ export function SectionTypography() {
             </p>
             <ul className="space-y-1.5 list-disc pl-5 text-foreground">
               <li>Design tokens — semantic & composable</li>
-              <li>56 shadcn/ui components</li>
+              <li>56 reusable UI components</li>
               <li>WCAG AA accessible</li>
               <li>Dark & light mode</li>
             </ul>

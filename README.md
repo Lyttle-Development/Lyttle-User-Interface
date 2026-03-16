@@ -10,12 +10,11 @@
 
 - Preferred: `import { Button } from "@lyttle/ui"`
 - Allowed when needed: deep imports like `@lyttle/ui/components/button`
-- Avoid app-local shadcn-style imports like `@/components/ui/*` in consumers.
+- Avoid app-local UI wrapper imports like `@/components/ui/*` in consumers.
 
-## shadcn alignment
+## Shared package alignment
 
-- shadcn config is at `apps/docs/components.json`.
-- Aliases are mapped to `@lyttle/ui/*` so generated imports target the shared package.
+- Aliases are mapped to `@lyttle/ui/*` so consumer imports target the shared package.
 - Storybook Vite aliases support both:
   - `@lyttle/ui`
   - `@lyttle/ui/*`

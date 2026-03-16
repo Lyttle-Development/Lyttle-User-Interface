@@ -34,7 +34,7 @@ export default function Home() {
       <footer className="mt-20 border-t border-border py-12 text-center text-sm text-muted-foreground md:mt-24">
         <p>
           <strong className="text-foreground">Lyttle Framework</strong> — Built
-          with shadcn/ui · LyttleDevelopment brand palette · WCAG AA accessible
+          with the LyttleDevelopment brand palette · WCAG AA accessible
         </p>
       </footer>
     </div>
