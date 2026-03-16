@@ -47,7 +47,7 @@ export function SectionTypography() {
           </Text>
           <Text as="p" size="md">
             Regular body — the standard paragraph size. Used for most content
-            throughout an interface. LyttleDevelopment combines clarity and
+            throughout an interface. Lyttle Development combines clarity and
             personality in every pixel.
           </Text>
           <Text as="p" size="sm">

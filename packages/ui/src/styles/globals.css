@@ -89,7 +89,7 @@
 }
 
 /* ── Dark Mode ──────────────────────────────────────────── */
-/*   This IS the LyttleDevelopment aesthetic — deep navy/purple */
+/*   This IS the Lyttle Development aesthetic — deep navy/purple */
 .dark {
   /* surfaces */
   --background:              oklch(0.10 0.05  285);   /* #100429 */

@@ -35,8 +35,8 @@ export default function Home() {
       <footer style={{ marginTop: "5rem", borderTop: "1px solid var(--border)", paddingBlock: "3rem" }}>
         <Container size="7xl" padding="md">
           <Text as="p" size="sm" tone="muted" align="center">
-            <strong style={{ color: "var(--foreground)" }}>Lyttle Framework</strong> — Built with the
-            {" "}LyttleDevelopment brand palette · WCAG AA accessible
+            <strong style={{ color: "var(--foreground)" }}>Lyttle User Interface</strong> — Built with the
+            {" "}Lyttle Development brand palette · WCAG AA accessible
           </Text>
         </Container>
       </footer>

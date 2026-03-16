@@ -238,14 +238,14 @@ export function SectionLayout() {
               <SidebarHeader>
                 <SidebarMenu>
                   <SidebarMenuItem>
-                    <SidebarMenuButton size="lg" tooltip="Lyttle Framework workspace">
+                    <SidebarMenuButton size="lg" tooltip="Lyttle User Interface workspace">
                       <div
                         style={{ display: "flex", width: "2rem", height: "2rem", alignItems: "center", justifyContent: "center", borderRadius: "var(--radius-lg)", background: "var(--brand-gradient-primary)", color: "white" }}
                       >
                         <Sparkles size={16} />
                       </div>
                       <Stack gap="xs" align="start" style={{ flex: 1, minWidth: 0 }}>
-                        <Text as="span" size="sm" weight="semibold" truncate>Lyttle Framework</Text>
+                        <Text as="span" size="sm" weight="semibold" truncate>Lyttle User Interface</Text>
                         <Text as="span" size="xs" tone="muted" truncate>Docs workspace</Text>
                       </Stack>
                     </SidebarMenuButton>

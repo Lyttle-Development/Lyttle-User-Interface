@@ -165,11 +165,11 @@ export function SectionOverlays() {
             <HoverCardContent style={{ width: "20rem" }}>
               <Inline gap="md" wrap={false} align="start">
                 <Avatar>
-                  <AvatarImage src="https://github.com/vercel.png" alt="LyttleDevelopment" />
+                  <AvatarImage src="https://github.com/vercel.png" alt="Lyttle Development" />
                   <AvatarFallback style={{ background: "var(--brand-gradient-primary)", color: "white", fontWeight: 700 }}>LD</AvatarFallback>
                 </Avatar>
                 <Stack gap="xs" align="start">
-                  <Text as="h4" size="sm" weight="semibold">LyttleDevelopment</Text>
+                  <Text as="h4" size="sm" weight="semibold">Lyttle Development</Text>
                   <Text as="p" size="xs" tone="muted">
                     Building accessible design systems and web products.
                   </Text>

@@ -83,7 +83,7 @@ export function SectionColors() {
     <ShowcaseSection
       id="colors"
       title="Color System"
-      description="Design tokens derived from the LyttleDevelopment brand palette, adjusted for WCAG AA contrast in both light and dark modes."
+      description="Design tokens derived from the Lyttle Development brand palette, adjusted for WCAG AA contrast in both light and dark modes."
     >
       <ShowcaseBlock
         title="Semantic Tokens"

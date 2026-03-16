@@ -1,5 +1,7 @@
 {
-  "name": "lyttle-framework",
+  "name": "lyttle-user-interface",
+  "description": "Lyttle User Interface monorepo",
+  "author": "Lyttle Development",
   "version": "0.1.0",
   "private": true,
   "workspaces": [

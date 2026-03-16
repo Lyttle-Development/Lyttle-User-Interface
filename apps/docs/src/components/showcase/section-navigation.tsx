@@ -191,7 +191,7 @@ export function SectionNavigation() {
               </svg>
             </CollapsibleTrigger>
           </Inline>
-          <Text as="code" size="sm" mono style={{ display: "block", width: "100%", padding: "0.5rem 1rem", border: "1px solid var(--border)", borderRadius: "var(--radius-md)" }}>lyttle-framework</Text>
+          <Text as="code" size="sm" mono style={{ display: "block", width: "100%", padding: "0.5rem 1rem", border: "1px solid var(--border)", borderRadius: "var(--radius-md)" }}>lyttle-user-interface</Text>
           <CollapsibleContent>
             <Stack gap="xs" align="start" style={{ width: "100%" }}>
               <Text as="code" size="sm" mono style={{ display: "block", width: "100%", padding: "0.5rem 1rem", border: "1px solid var(--border)", borderRadius: "var(--radius-md)" }}>lyttle-website</Text>

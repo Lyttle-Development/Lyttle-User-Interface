@@ -45,7 +45,7 @@ export function SectionDataDisplay() {
             </CardHeader>
             <CardContent>
               <Text as="p" size="sm" tone="muted">
-                Building a comprehensive component library for LyttleDevelopment
+                Building a comprehensive component library for Lyttle Development
                 with full WCAG AA compliance.
               </Text>
             </CardContent>
@@ -115,7 +115,7 @@ export function SectionDataDisplay() {
             </Avatar>
             <Stack gap="xs" align="start" style={{ flex: 1, minWidth: 0 }}>
               <Text as="p" weight="semibold">Jane Doe</Text>
-              <Text as="p" size="sm" tone="muted">Senior Designer · LyttleDevelopment</Text>
+              <Text as="p" size="sm" tone="muted">Senior Designer · Lyttle Development</Text>
             </Stack>
             <Button variant="outline" size="sm">Follow</Button>
           </Inline>
@@ -166,10 +166,10 @@ export function SectionDataDisplay() {
       <ShowcaseBlock title="Accordion" description="Expandable content sections">
         <Accordion style={{ width: "100%", maxWidth: "32rem" }}>
           {[
-            { value: "a1", trigger: "What is the Lyttle Framework?", content: "A complete design system styled with the LyttleDevelopment brand palette and optimised for WCAG AA accessibility." },
-            { value: "a2", trigger: "Does it support dark mode?", content: "Yes — the dark mode IS the LyttleDevelopment aesthetic with the deep navy/purple background (#100429). Toggle it using the button in the top navigation." },
+            { value: "a1", trigger: "What is Lyttle User Interface?", content: "A complete design system styled with the Lyttle Development brand palette and optimised for WCAG AA accessibility." },
+            { value: "a2", trigger: "Does it support dark mode?", content: "Yes — the dark mode IS the Lyttle Development aesthetic with the deep navy/purple background (#100429). Toggle it using the button in the top navigation." },
             { value: "a3", trigger: "Is it accessible?", content: "All components meet WCAG 2.1 AA contrast requirements. Focus rings are always visible, touch targets are at least 44×44px, and screen reader semantics are properly set." },
-            { value: "a4", trigger: "How is it themed?", content: "The framework uses shared CSS custom properties, Sass modules, and component-level styles to keep branding and theming consistent across apps." },
+            { value: "a4", trigger: "How is it themed?", content: "Lyttle User Interface uses shared CSS custom properties, Sass modules, and component-level styles to keep branding and theming consistent across apps." },
           ].map((item) => (
             <AccordionItem key={item.value} value={item.value}>
               <AccordionTrigger>{item.trigger}</AccordionTrigger>

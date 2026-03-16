@@ -1,4 +1,4 @@
-# Lyttle Framework
+# Lyttle User Interface
 
 ## Design system source of truth
 

@@ -17,13 +17,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Lyttle Framework",
-    template: "%s | Lyttle Framework",
+    default: "Lyttle User Interface",
+    template: "%s | Lyttle User Interface",
   },
   description:
-    "A complete design framework styled with the LyttleDevelopment brand palette — accessible, polished, and production-ready.",
+    "A complete user interface system styled with the Lyttle Development brand palette — accessible, polished, and production-ready.",
   keywords: ["design system", "component library", "lyttle", "accessible"],
-  authors: [{ name: "LyttleDevelopment" }],
+  authors: [{ name: "Lyttle Development" }],
 };
 
 export default function RootLayout({
