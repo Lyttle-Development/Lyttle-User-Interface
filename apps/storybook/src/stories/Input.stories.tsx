@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
-import {Input, Label, Button} from '@lyttle-development/ui';
-import {Search, Mail, Eye, EyeOff} from 'lucide-react';
+import {Button, Input, Label} from '@lyttle-development/ui';
+import {Eye, EyeOff, Mail, Search} from 'lucide-react';
 import React from 'react';
 
 const meta: Meta<typeof Input> = {

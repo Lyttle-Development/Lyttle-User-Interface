@@ -1,14 +1,14 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
     AlertDialog,
-    AlertDialogTrigger,
-    AlertDialogContent,
-    AlertDialogHeader,
-    AlertDialogFooter,
-    AlertDialogTitle,
-    AlertDialogDescription,
     AlertDialogAction,
     AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
     Button,
 } from '@lyttle-development/ui';
 

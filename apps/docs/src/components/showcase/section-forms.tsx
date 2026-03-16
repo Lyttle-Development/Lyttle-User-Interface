@@ -1,36 +1,33 @@
 'use client';
 
 import * as React from 'react';
-import {ShowcaseSection, ShowcaseBlock} from './showcase-section';
-import {Input} from '@lyttle-development/ui';
+import {ShowcaseBlock, ShowcaseSection} from './showcase-section';
 import {
+    Button,
+    Checkbox,
+    Combobox,
+    Field,
+    Input,
     InputGroup,
     InputGroupInput,
-    InputGroupText
-} from '@lyttle-development/ui';
-import {Label} from '@lyttle-development/ui';
-import {Textarea} from '@lyttle-development/ui';
-import {Checkbox} from '@lyttle-development/ui';
-import {RadioGroup, RadioGroupItem} from '@lyttle-development/ui';
-import {Switch} from '@lyttle-development/ui';
-import {
+    InputGroupText,
+    InputOTP,
+    InputOTPGroup,
+    InputOTPSeparator,
+    InputOTPSlot,
+    Label,
+    NativeSelect,
+    RadioGroup,
+    RadioGroupItem,
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
-    SelectValue
+    SelectValue,
+    Slider,
+    Switch,
+    Textarea
 } from '@lyttle-development/ui';
-import {NativeSelect} from '@lyttle-development/ui';
-import {Slider} from '@lyttle-development/ui';
-import {Button} from '@lyttle-development/ui';
-import {Field} from '@lyttle-development/ui';
-import {
-    InputOTP,
-    InputOTPGroup,
-    InputOTPSlot,
-    InputOTPSeparator
-} from '@lyttle-development/ui';
-import {Combobox} from '@lyttle-development/ui';
 import {
     Grid,
     Inline,

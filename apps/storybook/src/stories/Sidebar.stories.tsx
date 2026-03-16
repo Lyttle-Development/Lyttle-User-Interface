@@ -1,6 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
-    SidebarProvider,
     Sidebar,
     SidebarContent,
     SidebarFooter,
@@ -8,21 +7,22 @@ import {
     SidebarGroupContent,
     SidebarGroupLabel,
     SidebarHeader,
+    SidebarInset,
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarProvider,
     SidebarSeparator,
     SidebarTrigger,
-    SidebarInset,
     TooltipProvider,
 } from '@lyttle-development/ui';
 import {
+    Calendar,
+    ChevronUp,
     Home,
     Inbox,
-    Calendar,
     Search,
     Settings,
-    ChevronUp,
     User2,
 } from 'lucide-react';
 

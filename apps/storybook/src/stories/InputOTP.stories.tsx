@@ -2,8 +2,8 @@ import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
     InputOTP,
     InputOTPGroup,
-    InputOTPSlot,
     InputOTPSeparator,
+    InputOTPSlot,
 } from '@lyttle-development/ui';
 
 const meta: Meta<typeof InputOTP> = {

@@ -27,10 +27,9 @@
   scale: 1;
   outline: none;
   box-shadow: var(--shadow-md), 0 0 0 1px color-mix(in oklab, var(--foreground) 14%, transparent);
-  transition:
-    opacity var(--motion-fast) var(--ease-standard),
-    translate var(--motion-fast) var(--ease-standard),
-    scale var(--motion-fast) var(--ease-standard);
+  transition: opacity var(--motion-fast) var(--ease-standard),
+  translate var(--motion-fast) var(--ease-standard),
+  scale var(--motion-fast) var(--ease-standard);
   will-change: opacity, translate, scale;
 
   &[data-side="bottom"] {

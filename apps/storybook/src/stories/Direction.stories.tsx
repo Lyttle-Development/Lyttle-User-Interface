@@ -1,6 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
-import {DirectionProvider} from '@lyttle-development/ui';
-import {Button, Input, Label} from '@lyttle-development/ui';
+import {Button, DirectionProvider, Input, Label} from '@lyttle-development/ui';
 
 const meta: Meta<typeof DirectionProvider> = {
     title: 'Components/Direction',

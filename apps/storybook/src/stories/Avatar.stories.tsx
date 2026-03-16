@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
     Avatar,
-    AvatarImage,
+    AvatarBadge,
     AvatarFallback,
     AvatarGroup,
     AvatarGroupCount,
-    AvatarBadge,
+    AvatarImage,
 } from '@lyttle-development/ui';
 
 const meta: Meta<typeof Avatar> = {

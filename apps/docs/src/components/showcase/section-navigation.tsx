@@ -1,24 +1,44 @@
 'use client';
 
 import * as React from 'react';
-import {ShowcaseSection, ShowcaseBlock} from './showcase-section';
+import {ShowcaseBlock, ShowcaseSection} from './showcase-section';
 import {
     Breadcrumb,
     BreadcrumbItem,
     BreadcrumbLink,
     BreadcrumbList,
     BreadcrumbPage,
-    BreadcrumbSeparator
-} from '@lyttle-development/ui';
-import {
+    BreadcrumbSeparator,
+    Button,
+    Collapsible,
+    CollapsibleContent,
+    CollapsibleTrigger,
+    DropdownMenu,
+    DropdownMenuCheckboxItem,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
+    DropdownMenuSeparator,
+    DropdownMenuShortcut,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
+    Menubar,
+    MenubarContent,
+    MenubarItem,
+    MenubarMenu,
+    MenubarSeparator,
+    MenubarShortcut,
+    MenubarTrigger,
     NavigationMenu,
     NavigationMenuContent,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger
-} from '@lyttle-development/ui';
-import {
+    NavigationMenuTrigger,
     Pagination,
     PaginationContent,
     PaginationEllipsis,
@@ -27,36 +47,6 @@ import {
     PaginationNext,
     PaginationPrevious
 } from '@lyttle-development/ui';
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-    DropdownMenuCheckboxItem,
-    DropdownMenuRadioGroup,
-    DropdownMenuRadioItem,
-    DropdownMenuShortcut,
-    DropdownMenuSub,
-    DropdownMenuSubContent,
-    DropdownMenuSubTrigger
-} from '@lyttle-development/ui';
-import {
-    Menubar,
-    MenubarContent,
-    MenubarItem,
-    MenubarMenu,
-    MenubarSeparator,
-    MenubarShortcut,
-    MenubarTrigger
-} from '@lyttle-development/ui';
-import {
-    Collapsible,
-    CollapsibleContent,
-    CollapsibleTrigger
-} from '@lyttle-development/ui';
-import {Button} from '@lyttle-development/ui';
 import {
     Grid,
     Inline,

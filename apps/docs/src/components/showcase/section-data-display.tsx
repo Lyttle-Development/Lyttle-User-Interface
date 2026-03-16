@@ -1,44 +1,45 @@
 'use client';
 
 import * as React from 'react';
-import {ShowcaseSection, ShowcaseBlock} from './showcase-section';
+import {ShowcaseBlock, ShowcaseSection} from './showcase-section';
 import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+    AspectRatio,
+    Avatar,
+    AvatarFallback,
+    AvatarImage,
+    Badge,
+    Button,
     Card,
     CardContent,
     CardDescription,
     CardFooter,
     CardHeader,
-    CardTitle
-} from '@lyttle-development/ui';
-import {
+    CardTitle,
+    Empty,
+    ScrollArea,
     Table,
     TableBody,
     TableCaption,
     TableCell,
     TableHead,
     TableHeader,
-    TableRow
+    TableRow,
+    Tabs,
+    TabsContent,
+    TabsList,
+    TabsTrigger
 } from '@lyttle-development/ui';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger
-} from '@lyttle-development/ui';
-import {Tabs, TabsContent, TabsList, TabsTrigger} from '@lyttle-development/ui';
-import {Badge} from '@lyttle-development/ui';
-import {Button} from '@lyttle-development/ui';
-import {Avatar, AvatarFallback, AvatarImage} from '@lyttle-development/ui';
-import {AspectRatio} from '@lyttle-development/ui';
-import {ScrollArea} from '@lyttle-development/ui';
-import {Empty} from '@lyttle-development/ui';
 import {
     Grid,
+    Heading,
     Inline,
     Stack,
     Surface,
-    Text,
-    Heading
+    Text
 } from '@lyttle-development/ui/components/layout/layout';
 
 const invoices = [

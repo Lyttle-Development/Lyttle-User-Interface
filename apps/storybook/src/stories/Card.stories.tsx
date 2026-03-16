@@ -1,13 +1,13 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
+    Badge,
+    Button,
     Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
     CardHeader,
     CardTitle,
-    CardDescription,
-    CardContent,
-    CardFooter,
-    Button,
-    Badge,
 } from '@lyttle-development/ui';
 
 const meta: Meta<typeof Card> = {

@@ -1,4 +1,4 @@
-import {ShowcaseSection, ShowcaseBlock} from './showcase-section';
+import {ShowcaseBlock, ShowcaseSection} from './showcase-section';
 import {
     Badge,
     Card,
@@ -16,8 +16,8 @@ import {
     SidebarGroupContent,
     SidebarGroupLabel,
     SidebarHeader,
-    SidebarInset,
     SidebarInput,
+    SidebarInset,
     SidebarMenu,
     SidebarMenuAction,
     SidebarMenuBadge,

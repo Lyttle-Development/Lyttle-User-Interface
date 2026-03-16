@@ -1,14 +1,14 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
+    Button,
     Sheet,
-    SheetTrigger,
+    SheetClose,
     SheetContent,
-    SheetHeader,
-    SheetTitle,
     SheetDescription,
     SheetFooter,
-    SheetClose,
-    Button,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
 } from '@lyttle-development/ui';
 
 const meta: Meta<typeof Sheet> = {

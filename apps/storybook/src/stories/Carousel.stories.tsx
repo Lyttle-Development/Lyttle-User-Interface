@@ -1,12 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
+    Card,
+    CardContent,
     Carousel,
     CarouselContent,
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-    Card,
-    CardContent,
 } from '@lyttle-development/ui';
 
 const meta: Meta<typeof Carousel> = {

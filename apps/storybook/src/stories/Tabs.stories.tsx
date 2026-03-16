@@ -1,18 +1,18 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
-    Tabs,
-    TabsList,
-    TabsTrigger,
-    TabsContent,
+    Badge,
+    Button,
     Card,
     CardContent,
+    CardDescription,
     CardHeader,
     CardTitle,
-    CardDescription,
     Input,
     Label,
-    Button,
-    Badge
+    Tabs,
+    TabsContent,
+    TabsList,
+    TabsTrigger
 } from '@lyttle-development/ui';
 
 const meta: Meta<typeof Tabs> = {

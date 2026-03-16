@@ -1,16 +1,24 @@
 'use client';
 
 import * as React from 'react';
-import {ShowcaseSection, ShowcaseBlock} from './showcase-section';
-import {Alert, AlertDescription, AlertTitle} from '@lyttle-development/ui';
-import {Badge} from '@lyttle-development/ui';
-import {Progress} from '@lyttle-development/ui';
-import {Skeleton} from '@lyttle-development/ui';
-import {Spinner} from '@lyttle-development/ui';
-import {Avatar, AvatarFallback, AvatarImage} from '@lyttle-development/ui';
-import {Tooltip, TooltipContent, TooltipTrigger} from '@lyttle-development/ui';
-import {Button} from '@lyttle-development/ui';
-import {Toaster} from '@lyttle-development/ui';
+import {ShowcaseBlock, ShowcaseSection} from './showcase-section';
+import {
+    Alert,
+    AlertDescription,
+    AlertTitle,
+    Avatar,
+    AvatarFallback,
+    AvatarImage,
+    Badge,
+    Button,
+    Progress,
+    Skeleton,
+    Spinner,
+    Toaster,
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger
+} from '@lyttle-development/ui';
 import {
     Inline,
     Stack,

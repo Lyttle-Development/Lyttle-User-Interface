@@ -1,17 +1,17 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
     Item,
-    ItemMedia,
-    ItemContent,
     ItemActions,
+    ItemContent,
+    ItemDescription,
+    ItemFooter,
     ItemGroup,
+    ItemHeader,
+    ItemMedia,
     ItemSeparator,
     ItemTitle,
-    ItemDescription,
-    ItemHeader,
-    ItemFooter,
 } from '@lyttle-development/ui';
-import {User, Settings, Bell} from 'lucide-react';
+import {Bell, Settings, User} from 'lucide-react';
 
 const meta: Meta<typeof Item> = {
     title: 'Components/Item',

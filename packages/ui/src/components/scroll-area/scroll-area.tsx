@@ -1,55 +1,55 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area"
+import * as React from 'react';
+import {ScrollArea as ScrollAreaPrimitive} from '@base-ui/react/scroll-area';
 
-import { cn } from "../../lib/utils"
-import styles from "./scroll-area.module.scss"
+import {cn} from '../../lib/utils';
+import styles from './scroll-area.module.scss';
 
 function ScrollArea({
-  className,
-  children,
-  ...props
-}: ScrollAreaPrimitive.Root.Props) {
-  return (
-    <ScrollAreaPrimitive.Root
-      data-slot="scroll-area"
-      className={cn(styles.root, className)}
-      {...props}
-    >
-      <ScrollAreaPrimitive.Viewport
-        data-slot="scroll-area-viewport"
-        className={styles.viewport}
-      >
-        {children}
-      </ScrollAreaPrimitive.Viewport>
-      <ScrollBar orientation="vertical" />
-      <ScrollBar orientation="horizontal" />
-      <ScrollAreaPrimitive.Corner />
-    </ScrollAreaPrimitive.Root>
-  )
+                        className,
+                        children,
+                        ...props
+                    }: ScrollAreaPrimitive.Root.Props) {
+    return (
+        <ScrollAreaPrimitive.Root
+            data-slot="scroll-area"
+            className={cn(styles.root, className)}
+            {...props}
+        >
+            <ScrollAreaPrimitive.Viewport
+                data-slot="scroll-area-viewport"
+                className={styles.viewport}
+            >
+                {children}
+            </ScrollAreaPrimitive.Viewport>
+            <ScrollBar orientation="vertical"/>
+            <ScrollBar orientation="horizontal"/>
+            <ScrollAreaPrimitive.Corner/>
+        </ScrollAreaPrimitive.Root>
+    );
 }
 
 function ScrollBar({
-  className,
-  orientation = "vertical",
-  ...props
-}: ScrollAreaPrimitive.Scrollbar.Props) {
-  return (
-    <ScrollAreaPrimitive.Scrollbar
-      data-slot="scroll-area-scrollbar"
-      data-orientation={orientation}
-      orientation={orientation}
-      className={cn(styles.scrollbar, className)}
-      {...props}
-    >
-      <ScrollAreaPrimitive.Thumb
-        data-slot="scroll-area-thumb"
-        className={styles.thumb}
-      />
-    </ScrollAreaPrimitive.Scrollbar>
-  )
+                       className,
+                       orientation = 'vertical',
+                       ...props
+                   }: ScrollAreaPrimitive.Scrollbar.Props) {
+    return (
+        <ScrollAreaPrimitive.Scrollbar
+            data-slot="scroll-area-scrollbar"
+            data-orientation={orientation}
+            orientation={orientation}
+            className={cn(styles.scrollbar, className)}
+            {...props}
+        >
+            <ScrollAreaPrimitive.Thumb
+                data-slot="scroll-area-thumb"
+                className={styles.thumb}
+            />
+        </ScrollAreaPrimitive.Scrollbar>
+    );
 }
 
-export { ScrollArea, ScrollBar }
+export {ScrollArea, ScrollBar};
 

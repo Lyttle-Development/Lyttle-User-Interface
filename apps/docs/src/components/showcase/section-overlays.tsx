@@ -1,16 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {ShowcaseSection, ShowcaseBlock} from './showcase-section';
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger
-} from '@lyttle-development/ui';
+import {ShowcaseBlock, ShowcaseSection} from './showcase-section';
 import {
     AlertDialog,
     AlertDialogAction,
@@ -20,9 +11,50 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
-    AlertDialogTrigger
-} from '@lyttle-development/ui';
-import {
+    AlertDialogTrigger,
+    Avatar,
+    AvatarFallback,
+    AvatarImage,
+    Badge,
+    Button,
+    Command,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+    CommandSeparator,
+    CommandShortcut,
+    ContextMenu,
+    ContextMenuContent,
+    ContextMenuItem,
+    ContextMenuLabel,
+    ContextMenuSeparator,
+    ContextMenuShortcut,
+    ContextMenuTrigger,
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerDescription,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+    HoverCard,
+    HoverCardContent,
+    HoverCardTrigger,
+    Input,
+    Label,
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
     Sheet,
     SheetContent,
     SheetDescription,
@@ -31,46 +63,6 @@ import {
     SheetTitle,
     SheetTrigger
 } from '@lyttle-development/ui';
-import {
-    Drawer,
-    DrawerClose,
-    DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerTitle,
-    DrawerTrigger
-} from '@lyttle-development/ui';
-import {Popover, PopoverContent, PopoverTrigger} from '@lyttle-development/ui';
-import {
-    HoverCard,
-    HoverCardContent,
-    HoverCardTrigger
-} from '@lyttle-development/ui';
-import {
-    ContextMenu,
-    ContextMenuContent,
-    ContextMenuItem,
-    ContextMenuLabel,
-    ContextMenuSeparator,
-    ContextMenuShortcut,
-    ContextMenuTrigger
-} from '@lyttle-development/ui';
-import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-    CommandList,
-    CommandSeparator,
-    CommandShortcut
-} from '@lyttle-development/ui';
-import {Button} from '@lyttle-development/ui';
-import {Input} from '@lyttle-development/ui';
-import {Label} from '@lyttle-development/ui';
-import {Avatar, AvatarFallback, AvatarImage} from '@lyttle-development/ui';
-import {Badge} from '@lyttle-development/ui';
 import {
     Grid,
     Heading,

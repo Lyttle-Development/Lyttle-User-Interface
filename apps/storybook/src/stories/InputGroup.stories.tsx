@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
-    InputGroup,
-    InputGroupText,
+    Button,
     Input,
-    Button
+    InputGroup,
+    InputGroupText
 } from '@lyttle-development/ui';
-import {Search, Mail, DollarSign} from 'lucide-react';
+import {DollarSign, Mail, Search} from 'lucide-react';
 
 const meta: Meta<typeof InputGroup> = {
     title: 'Components/InputGroup',

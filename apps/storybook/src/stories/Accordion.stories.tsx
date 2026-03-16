@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
     Accordion,
+    AccordionContent,
     AccordionItem,
     AccordionTrigger,
-    AccordionContent,
 } from '@lyttle-development/ui';
 
 const meta: Meta<typeof Accordion> = {

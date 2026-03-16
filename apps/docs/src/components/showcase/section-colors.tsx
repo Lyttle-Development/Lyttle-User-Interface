@@ -1,4 +1,4 @@
-import {ShowcaseSection, ShowcaseBlock} from './showcase-section';
+import {ShowcaseBlock, ShowcaseSection} from './showcase-section';
 import {
     Grid,
     Inline,

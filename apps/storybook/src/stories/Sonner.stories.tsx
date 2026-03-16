@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
-import {Toaster, Button} from '@lyttle-development/ui';
+import {Button, Toaster} from '@lyttle-development/ui';
 import {toast} from 'sonner';
 
 const meta: Meta = {

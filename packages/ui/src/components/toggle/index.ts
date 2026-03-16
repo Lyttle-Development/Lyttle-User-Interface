@@ -1,3 +1,3 @@
-export * from "./toggle"
-export { toggleVariants } from "./variants"
+export * from './toggle';
+export {toggleVariants} from './variants';
 

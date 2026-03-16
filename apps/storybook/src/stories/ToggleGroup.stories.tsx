@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {ToggleGroup, ToggleGroupItem} from '@lyttle-development/ui';
 import {
-    AlignLeft,
     AlignCenter,
+    AlignLeft,
     AlignRight,
     Bold,
     Italic,

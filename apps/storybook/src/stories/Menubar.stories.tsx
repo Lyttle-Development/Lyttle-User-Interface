@@ -1,17 +1,17 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
     Menubar,
-    MenubarMenu,
-    MenubarTrigger,
+    MenubarCheckboxItem,
     MenubarContent,
     MenubarItem,
-    MenubarSeparator,
-    MenubarSub,
-    MenubarSubTrigger,
-    MenubarSubContent,
-    MenubarCheckboxItem,
     MenubarLabel,
+    MenubarMenu,
+    MenubarSeparator,
     MenubarShortcut,
+    MenubarSub,
+    MenubarSubContent,
+    MenubarSubTrigger,
+    MenubarTrigger,
 } from '@lyttle-development/ui';
 
 const meta: Meta<typeof Menubar> = {

@@ -1,15 +1,15 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
+    Button,
     Command,
     CommandDialog,
-    CommandInput,
-    CommandList,
     CommandEmpty,
     CommandGroup,
+    CommandInput,
     CommandItem,
+    CommandList,
     CommandSeparator,
     CommandShortcut,
-    Button,
 } from '@lyttle-development/ui';
 import {
     Calculator,

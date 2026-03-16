@@ -1,52 +1,52 @@
-import type { Decorator, Preview } from "@storybook/react-vite";
-import React from "react";
-import "../src/styles/globals.css";
+import type {Decorator, Preview} from '@storybook/react-vite';
+import React from 'react';
+import '../src/styles/globals.css';
 
 const withTheme: Decorator = (Story, context) => {
-  const theme = context.globals?.theme === "dark" ? "dark" : "light";
+    const theme = context.globals?.theme === 'dark' ? 'dark' : 'light';
 
-  return (
-    <div
-      className={theme === "dark" ? "dark" : ""}
-      style={{
-        minHeight: "100vh",
-        background: "var(--background)",
-        color: "var(--foreground)",
-        padding: "2rem",
-      }}
-    >
-      <Story />
-    </div>
-  );
+    return (
+        <div
+            className={theme === 'dark' ? 'dark' : ''}
+            style={{
+                minHeight: '100vh',
+                background: 'var(--background)',
+                color: 'var(--foreground)',
+                padding: '2rem',
+            }}
+        >
+            <Story/>
+        </div>
+    );
 };
 
 const preview: Preview = {
-  globalTypes: {
-    theme: {
-      description: "Global theme for components",
-      defaultValue: "light",
-      toolbar: {
-        title: "Theme",
-        icon: "circlehollow",
-        items: [
-          { value: "light", icon: "sun", title: "Light" },
-          { value: "dark", icon: "moon", title: "Dark" },
-        ],
-        dynamicTitle: true,
-      },
+    globalTypes: {
+        theme: {
+            description: 'Global theme for components',
+            defaultValue: 'light',
+            toolbar: {
+                title: 'Theme',
+                icon: 'circlehollow',
+                items: [
+                    {value: 'light', icon: 'sun', title: 'Light'},
+                    {value: 'dark', icon: 'moon', title: 'Dark'},
+                ],
+                dynamicTitle: true,
+            },
+        },
     },
-  },
-  decorators: [withTheme],
-  parameters: {
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
+    decorators: [withTheme],
+    parameters: {
+        controls: {
+            matchers: {
+                color: /(background|color)$/i,
+                date: /Date$/i,
+            },
+        },
+        backgrounds: {disabled: true},
+        layout: 'fullscreen',
     },
-    backgrounds: { disabled: true },
-    layout: "fullscreen",
-  },
 };
 
 export default preview;

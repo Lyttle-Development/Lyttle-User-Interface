@@ -1,38 +1,38 @@
-"use client"
+'use client';
 
-import { Radio as RadioPrimitive } from "@base-ui/react/radio"
-import { RadioGroup as RadioGroupPrimitive } from "@base-ui/react/radio-group"
+import {Radio as RadioPrimitive} from '@base-ui/react/radio';
+import {RadioGroup as RadioGroupPrimitive} from '@base-ui/react/radio-group';
 
-import { cn } from "../../lib/utils"
-import styles from "./radio-group.module.scss"
+import {cn} from '../../lib/utils';
+import styles from './radio-group.module.scss';
 
-function RadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {
-  return (
-    <RadioGroupPrimitive
-      data-slot="radio-group"
-      className={cn(styles.radioGroup, className)}
-      {...props}
-    />
-  )
+function RadioGroup({className, ...props}: RadioGroupPrimitive.Props) {
+    return (
+        <RadioGroupPrimitive
+            data-slot="radio-group"
+            className={cn(styles.radioGroup, className)}
+            {...props}
+        />
+    );
 }
 
-function RadioGroupItem({ className, ...props }: RadioPrimitive.Root.Props) {
-  return (
-    <RadioPrimitive.Root
-      data-slot="radio-group-item"
-      data-motion-trigger
-      className={cn(styles.item, className)}
-      {...props}
-    >
-      <RadioPrimitive.Indicator
-        data-slot="radio-group-indicator"
-        className={styles.indicator}
-      >
-        <span className={styles.dot} />
-      </RadioPrimitive.Indicator>
-    </RadioPrimitive.Root>
-  )
+function RadioGroupItem({className, ...props}: RadioPrimitive.Root.Props) {
+    return (
+        <RadioPrimitive.Root
+            data-slot="radio-group-item"
+            data-motion-trigger
+            className={cn(styles.item, className)}
+            {...props}
+        >
+            <RadioPrimitive.Indicator
+                data-slot="radio-group-indicator"
+                className={styles.indicator}
+            >
+                <span className={styles.dot}/>
+            </RadioPrimitive.Indicator>
+        </RadioPrimitive.Root>
+    );
 }
 
-export { RadioGroup, RadioGroupItem }
+export {RadioGroup, RadioGroupItem};
 

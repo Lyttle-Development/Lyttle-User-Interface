@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
-import {Empty, Button} from '@lyttle-development/ui';
-import {Inbox, Search, FolderOpen} from 'lucide-react';
+import {Button, Empty} from '@lyttle-development/ui';
+import {FolderOpen, Inbox, Search} from 'lucide-react';
 
 const meta: Meta<typeof Empty> = {
     title: 'Components/Empty',

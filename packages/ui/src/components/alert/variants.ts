@@ -1,22 +1,22 @@
-import { cva } from "class-variance-authority"
+import {cva} from 'class-variance-authority';
 
-import styles from "./alert.module.scss"
+import styles from './alert.module.scss';
 
 const alertVariants = cva(styles.alert, {
-  variants: {
-    variant: {
-      default: styles.variantDefault,
-      destructive: styles.variantDestructive,
-      info: styles.variantInfo,
-      success: styles.variantSuccess,
-      warning: styles.variantWarning,
-      error: styles.variantError,
+    variants: {
+        variant: {
+            default: styles.variantDefault,
+            destructive: styles.variantDestructive,
+            info: styles.variantInfo,
+            success: styles.variantSuccess,
+            warning: styles.variantWarning,
+            error: styles.variantError,
+        },
     },
-  },
-  defaultVariants: {
-    variant: "default",
-  },
-})
+    defaultVariants: {
+        variant: 'default',
+    },
+});
 
-export { alertVariants }
+export {alertVariants};
 

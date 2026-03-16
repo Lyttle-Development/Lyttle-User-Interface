@@ -1,10 +1,17 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
-    Dialog, DialogContent, DialogDescription, DialogFooter,
-    DialogHeader, DialogTitle, DialogTrigger,
-    Button, Input, Label,
+    Button,
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+    Input,
+    Label,
 } from '@lyttle-development/ui';
-import {Trash2, Settings} from 'lucide-react';
+import {Settings, Trash2} from 'lucide-react';
 
 const meta: Meta<typeof Dialog> = {
     title: 'Components/Dialog',

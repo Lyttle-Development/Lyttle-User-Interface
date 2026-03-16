@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
     Button,
-    Label,
     Input,
+    Label,
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
 } from '@lyttle-development/ui';
 import {Settings} from 'lucide-react';
 

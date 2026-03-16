@@ -1,20 +1,20 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
+    Button,
     DropdownMenu,
-    DropdownMenuTrigger,
+    DropdownMenuCheckboxItem,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuSeparator,
     DropdownMenuLabel,
-    DropdownMenuSub,
-    DropdownMenuSubTrigger,
-    DropdownMenuSubContent,
-    DropdownMenuCheckboxItem,
     DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
-    Button,
+    DropdownMenuSeparator,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
 } from '@lyttle-development/ui';
-import {Settings, User, LogOut, ChevronDown} from 'lucide-react';
+import {ChevronDown, LogOut, Settings, User} from 'lucide-react';
 
 const meta: Meta<typeof DropdownMenu> = {
     title: 'Components/DropdownMenu',

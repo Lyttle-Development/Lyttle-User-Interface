@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
     NavigationMenu,
-    NavigationMenuList,
-    NavigationMenuItem,
-    NavigationMenuTrigger,
     NavigationMenuContent,
+    NavigationMenuItem,
     NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from '@lyttle-development/ui';
 

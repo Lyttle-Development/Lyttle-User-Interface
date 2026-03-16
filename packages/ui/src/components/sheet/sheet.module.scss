@@ -29,9 +29,8 @@
   color: var(--foreground);
   font-size: 0.875rem;
   box-shadow: var(--shadow-md);
-  transition:
-    opacity 200ms var(--ease-standard),
-    translate 200ms var(--ease-standard);
+  transition: opacity 200ms var(--ease-standard),
+  translate 200ms var(--ease-standard);
 
   &[data-starting-style],
   &[data-ending-style] {

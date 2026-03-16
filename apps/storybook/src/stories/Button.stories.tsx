@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {Button} from '@lyttle-development/ui';
-import {Loader2, Plus, Trash2, ArrowRight, Download, Mail} from 'lucide-react';
+import {ArrowRight, Download, Loader2, Mail, Plus, Trash2} from 'lucide-react';
 
 const meta: Meta<typeof Button> = {
     title: 'Components/Button',

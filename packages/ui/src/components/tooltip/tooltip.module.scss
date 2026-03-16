@@ -25,10 +25,9 @@
   translate: 0 0;
   scale: 1;
   box-shadow: var(--shadow-sm), 0 10px 24px rgb(15 23 42 / 0.2);
-  transition:
-    opacity var(--motion-fast) var(--ease-standard),
-    translate var(--motion-fast) var(--ease-standard),
-    scale var(--motion-fast) var(--ease-standard);
+  transition: opacity var(--motion-fast) var(--ease-standard),
+  translate var(--motion-fast) var(--ease-standard),
+  scale var(--motion-fast) var(--ease-standard);
   will-change: opacity, translate, scale;
 
   &:has([data-slot="kbd"]) {

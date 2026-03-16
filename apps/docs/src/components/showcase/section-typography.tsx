@@ -1,7 +1,5 @@
-import {ShowcaseSection, ShowcaseBlock} from './showcase-section';
-import {Badge} from '@lyttle-development/ui';
-import {Separator} from '@lyttle-development/ui';
-import {Kbd} from '@lyttle-development/ui';
+import {ShowcaseBlock, ShowcaseSection} from './showcase-section';
+import {Badge, Kbd, Separator} from '@lyttle-development/ui';
 import {
     Grid,
     Heading,

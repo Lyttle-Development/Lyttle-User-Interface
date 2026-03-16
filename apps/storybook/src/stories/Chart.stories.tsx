@@ -1,12 +1,14 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
     ChartContainer,
-    ChartTooltip,
-    ChartTooltipContent,
     ChartLegend,
     ChartLegendContent,
+    ChartTooltip,
+    ChartTooltipContent,
 } from '@lyttle-development/ui';
 import {
+    Area,
+    AreaChart,
     Bar,
     BarChart,
     CartesianGrid,
@@ -14,8 +16,6 @@ import {
     LineChart,
     XAxis,
     YAxis,
-    Area,
-    AreaChart,
 } from 'recharts';
 
 const meta: Meta = {

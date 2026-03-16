@@ -1,13 +1,13 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
     Select,
-    SelectTrigger,
-    SelectValue,
     SelectContent,
-    SelectItem,
     SelectGroup,
+    SelectItem,
     SelectLabel,
     SelectSeparator,
+    SelectTrigger,
+    SelectValue,
 } from '@lyttle-development/ui';
 
 const meta: Meta<typeof Select> = {

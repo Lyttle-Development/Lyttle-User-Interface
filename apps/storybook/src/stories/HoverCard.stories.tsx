@@ -1,12 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
-    HoverCard,
-    HoverCardTrigger,
-    HoverCardContent,
     Avatar,
-    AvatarImage,
     AvatarFallback,
+    AvatarImage,
     Button,
+    HoverCard,
+    HoverCardContent,
+    HoverCardTrigger,
 } from '@lyttle-development/ui';
 import {CalendarDays} from 'lucide-react';
 

@@ -1,7 +1,13 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
-    Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
-    Badge, Button,
+    Badge,
+    Button,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
 } from '@lyttle-development/ui';
 import {MoreHorizontal} from 'lucide-react';
 

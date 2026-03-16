@@ -1,8 +1,8 @@
-import { defineConfig, globalIgnores } from "eslint/config"
-import nextVitals from "eslint-config-next/core-web-vitals"
-import nextTs from "eslint-config-next/typescript"
+import {defineConfig, globalIgnores} from 'eslint/config';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTs from 'eslint-config-next/typescript';
 
-const docsFiles = ["apps/docs/**/*.{js,jsx,ts,tsx,mjs}"]
+const docsFiles = ['apps/docs/**/*.{js,jsx,ts,tsx,mjs}'];
 
 export default defineConfig([
   ...nextVitals.map((config) => ({
@@ -16,19 +16,19 @@ export default defineConfig([
   {
     files: docsFiles,
     rules: {
-      "@next/next/no-html-link-for-pages": "off",
+      '@next/next/no-html-link-for-pages': 'off',
     },
   },
   globalIgnores([
-    "**/node_modules/**",
-    "**/.next/**",
-    "**/out/**",
-    "**/build/**",
-    "**/dist/**",
-    "apps/storybook/**",
-    "packages/ui/**",
-    "next-env.d.ts",
-    "apps/docs/next-env.d.ts",
+    '**/node_modules/**',
+    '**/.next/**',
+    '**/out/**',
+    '**/build/**',
+    '**/dist/**',
+    'apps/storybook/**',
+    'packages/ui/**',
+    'next-env.d.ts',
+    'apps/docs/next-env.d.ts',
   ]),
-])
+]);
 

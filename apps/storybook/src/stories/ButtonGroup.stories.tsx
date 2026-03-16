@@ -1,12 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
-import {ButtonGroup, Button} from '@lyttle-development/ui';
+import {Button, ButtonGroup} from '@lyttle-development/ui';
 import {
+    AlignCenter,
+    AlignLeft,
+    AlignRight,
     Bold,
     Italic,
-    Underline,
-    AlignLeft,
-    AlignCenter,
-    AlignRight
+    Underline
 } from 'lucide-react';
 
 const meta: Meta<typeof ButtonGroup> = {

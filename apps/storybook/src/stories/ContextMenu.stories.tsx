@@ -1,15 +1,15 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
     ContextMenu,
-    ContextMenuTrigger,
+    ContextMenuCheckboxItem,
     ContextMenuContent,
     ContextMenuItem,
+    ContextMenuLabel,
     ContextMenuSeparator,
     ContextMenuSub,
-    ContextMenuSubTrigger,
     ContextMenuSubContent,
-    ContextMenuCheckboxItem,
-    ContextMenuLabel,
+    ContextMenuSubTrigger,
+    ContextMenuTrigger,
 } from '@lyttle-development/ui';
 
 const meta: Meta<typeof ContextMenu> = {

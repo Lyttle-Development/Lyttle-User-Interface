@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {
+    Button,
     Collapsible,
-    CollapsibleTrigger,
     CollapsibleContent,
-    Button
+    CollapsibleTrigger
 } from '@lyttle-development/ui';
 import {ChevronsUpDown} from 'lucide-react';
 

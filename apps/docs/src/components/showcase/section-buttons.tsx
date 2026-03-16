@@ -1,11 +1,14 @@
 'use client';
 
-import {ShowcaseSection, ShowcaseBlock} from './showcase-section';
-import {Button} from '@lyttle-development/ui';
-import {ButtonGroup} from '@lyttle-development/ui';
-import {Toggle} from '@lyttle-development/ui';
-import {ToggleGroup, ToggleGroupItem} from '@lyttle-development/ui';
-import {Spinner} from '@lyttle-development/ui';
+import {ShowcaseBlock, ShowcaseSection} from './showcase-section';
+import {
+    Button,
+    ButtonGroup,
+    Spinner,
+    Toggle,
+    ToggleGroup,
+    ToggleGroupItem
+} from '@lyttle-development/ui';
 import {
     Inline,
     Stack,

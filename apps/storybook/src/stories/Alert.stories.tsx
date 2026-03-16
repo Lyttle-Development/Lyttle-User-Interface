@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
-import {Alert, AlertTitle, AlertDescription} from '@lyttle-development/ui';
-import {AlertCircle, CheckCircle2, Info, AlertTriangle} from 'lucide-react';
+import {Alert, AlertDescription, AlertTitle} from '@lyttle-development/ui';
+import {AlertCircle, AlertTriangle, CheckCircle2, Info} from 'lucide-react';
 
 const meta: Meta<typeof Alert> = {
     title: 'Components/Alert',
