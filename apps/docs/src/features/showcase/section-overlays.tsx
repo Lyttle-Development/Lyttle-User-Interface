@@ -69,7 +69,7 @@ import {
     Inline,
     Stack,
     Text
-} from '@lyttle-development/ui/components/layout/layout';
+} from '@lyttle-development/ui';
 
 export function SectionOverlays() {
     return (

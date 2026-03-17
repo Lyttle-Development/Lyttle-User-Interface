@@ -1,16 +1,16 @@
 import type {Metadata} from 'next';
 import {Container, Text} from '@lyttle-development/ui';
-import {ShowcaseHero} from '@/components/showcase/showcase-hero';
-import {ShowcaseNav} from '@/components/showcase/showcase-nav';
-import {SectionTypography} from '@/components/showcase/section-typography';
-import {SectionButtons} from '@/components/showcase/section-buttons';
-import {SectionForms} from '@/components/showcase/section-forms';
-import {SectionFeedback} from '@/components/showcase/section-feedback';
-import {SectionDataDisplay} from '@/components/showcase/section-data-display';
-import {SectionNavigation} from '@/components/showcase/section-navigation';
-import {SectionOverlays} from '@/components/showcase/section-overlays';
-import {SectionLayout} from '@/components/showcase/section-layout';
-import {SectionColors} from '@/components/showcase/section-colors';
+import {ShowcaseHero} from '@/features/showcase/showcase-hero';
+import {ShowcaseNav} from '@/features/showcase/showcase-nav';
+import {SectionTypography} from '@/features/showcase/section-typography';
+import {SectionButtons} from '@/features/showcase/section-buttons';
+import {SectionForms} from '@/features/showcase/section-forms';
+import {SectionFeedback} from '@/features/showcase/section-feedback';
+import {SectionDataDisplay} from '@/features/showcase/section-data-display';
+import {SectionNavigation} from '@/features/showcase/section-navigation';
+import {SectionOverlays} from '@/features/showcase/section-overlays';
+import {SectionLayout} from '@/features/showcase/section-layout';
+import {SectionColors} from '@/features/showcase/section-colors';
 
 export const metadata: Metadata = {
     title: 'Component Showcase',

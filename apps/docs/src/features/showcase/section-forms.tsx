@@ -34,7 +34,7 @@ import {
     Stack,
     Surface,
     Text
-} from '@lyttle-development/ui/components/layout/layout';
+} from '@lyttle-development/ui';
 
 const frameworks = [
     {value: 'next', label: 'Next.js'},

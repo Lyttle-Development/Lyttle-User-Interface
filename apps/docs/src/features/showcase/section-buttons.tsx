@@ -13,7 +13,7 @@ import {
     Inline,
     Stack,
     Text
-} from '@lyttle-development/ui/components/layout/layout';
+} from '@lyttle-development/ui';
 import * as React from 'react';
 
 function BoldIcon() {

@@ -5,7 +5,7 @@ import {
     Stack,
     Surface,
     Text
-} from '@lyttle-development/ui/components/layout/layout';
+} from '@lyttle-development/ui';
 
 const swatches = [
     {

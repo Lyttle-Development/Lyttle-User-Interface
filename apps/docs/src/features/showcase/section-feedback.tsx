@@ -23,7 +23,7 @@ import {
     Inline,
     Stack,
     Text
-} from '@lyttle-development/ui/components/layout/layout';
+} from '@lyttle-development/ui';
 import {toast} from 'sonner';
 
 function InfoIcon() {

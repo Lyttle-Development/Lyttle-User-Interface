@@ -3,7 +3,7 @@ import {
     ShowcaseHero as ShowcaseHeroShell,
     ShowcaseHeroPrimaryAction,
     ShowcaseHeroSecondaryAction,
-} from '@lyttle-development/ui/components/showcase/showcase';
+} from '@lyttle-development/ui';
 
 export function ShowcaseHero() {
     return (

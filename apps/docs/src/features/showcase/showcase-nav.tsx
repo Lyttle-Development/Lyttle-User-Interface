@@ -5,7 +5,7 @@ import {Button} from '@lyttle-development/ui';
 import {
     ShowcaseBrand,
     ShowcaseTopBar
-} from '@lyttle-development/ui/components/showcase/showcase';
+} from '@lyttle-development/ui';
 
 const navItems = [
     {href: '#colors', label: 'Colors'},

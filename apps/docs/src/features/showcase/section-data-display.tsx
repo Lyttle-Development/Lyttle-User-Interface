@@ -40,7 +40,7 @@ import {
     Stack,
     Surface,
     Text
-} from '@lyttle-development/ui/components/layout/layout';
+} from '@lyttle-development/ui';
 
 const invoices = [
     {id: 'INV-001', status: 'Paid', method: 'Credit Card', amount: '€250.00'},
