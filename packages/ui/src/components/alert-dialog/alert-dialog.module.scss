@@ -3,20 +3,12 @@
   position: fixed;
   inset: 0;
   isolation: isolate;
-  z-index: 50;
+  z-index: 60;
   background: rgb(0 0 0 / 0.1);
-  opacity: 1;
-  transition: opacity var(--motion-fast) var(--ease-standard);
 
   @supports ((backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px))) {
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-  }
-
-  &[data-starting-style],
-  &[data-ending-style],
-  &[data-closed] {
-    opacity: 0;
   }
 }
 
@@ -24,7 +16,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: 50;
+  z-index: 60;
   display: grid;
   width: calc(100% - 2rem);
   max-width: 20rem;
@@ -34,18 +26,8 @@
   padding: 1rem;
   color: var(--foreground);
   translate: -50% -50%;
-  opacity: 1;
-  scale: 1;
   outline: none;
   box-shadow: var(--shadow-md), 0 0 0 1px color-mix(in oklab, var(--foreground) 10%, transparent);
-  transition: opacity var(--motion-fast) var(--ease-standard), scale var(--motion-fast) var(--ease-standard);
-
-  &[data-starting-style],
-  &[data-ending-style],
-  &[data-closed] {
-    opacity: 0;
-    scale: 0.95;
-  }
 
   &[data-size="sm"] {
     max-width: 20rem;
@@ -170,10 +152,4 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .overlay,
-  .content {
-    transition: none;
-  }
-}
 

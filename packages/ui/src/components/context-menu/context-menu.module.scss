@@ -4,15 +4,12 @@
 
 .positioner {
   isolation: isolate;
-  z-index: 50;
+  z-index: 60;
   outline: none;
 }
 
 .content {
-  --context-menu-enter-x: 0rem;
-  --context-menu-enter-y: 0rem;
-
-  z-index: 50;
+  z-index: 60;
   min-width: 9rem;
   max-height: var(--available-height);
   transform-origin: var(--transform-origin);
@@ -22,41 +19,9 @@
   background: color-mix(in oklab, var(--popover) 94%, var(--background));
   padding: 0.25rem;
   color: var(--popover-foreground);
-  opacity: 1;
-  translate: 0 0;
-  scale: 1;
   outline: none;
   box-shadow: var(--shadow-md), 0 0 0 1px color-mix(in oklab, var(--foreground) 14%, transparent);
-  transition: opacity var(--motion-fast) var(--ease-standard),
-  translate var(--motion-fast) var(--ease-standard),
-  scale var(--motion-fast) var(--ease-standard);
-  will-change: opacity, translate, scale;
-
-  &[data-side="bottom"] {
-    --context-menu-enter-y: -0.5rem;
-  }
-
-  &[data-side="top"] {
-    --context-menu-enter-y: 0.5rem;
-  }
-
-  &[data-side="left"],
-  &[data-side="inline-start"] {
-    --context-menu-enter-x: 0.5rem;
-  }
-
-  &[data-side="right"],
-  &[data-side="inline-end"] {
-    --context-menu-enter-x: -0.5rem;
-  }
-
-  &[data-starting-style],
-  &[data-ending-style],
-  &[data-closed] {
-    opacity: 0;
-    translate: var(--context-menu-enter-x) var(--context-menu-enter-y);
-    scale: 0.95;
-  }
+  will-change: opacity, transform;
 }
 
 .subContent {
@@ -188,9 +153,4 @@
   letter-spacing: 0.12em;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .content {
-    transition: none;
-  }
-}
 

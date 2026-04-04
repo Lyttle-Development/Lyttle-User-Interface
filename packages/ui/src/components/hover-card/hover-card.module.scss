@@ -1,13 +1,10 @@
 .positioner {
   isolation: isolate;
-  z-index: 50;
+  z-index: 60;
 }
 
 .content {
-  --hover-card-enter-x: 0rem;
-  --hover-card-enter-y: 0rem;
-
-  z-index: 50;
+  z-index: 60;
   width: 16rem;
   transform-origin: var(--transform-origin);
   border-radius: var(--radius-lg);
@@ -16,46 +13,9 @@
   padding: 0.625rem;
   color: var(--popover-foreground);
   font-size: 0.875rem;
-  opacity: 1;
-  translate: 0 0;
-  scale: 1;
   outline: none;
   box-shadow: var(--shadow-md), 0 16px 40px rgb(15 23 42 / 0.12);
-  transition: opacity var(--motion-fast) var(--ease-standard),
-  translate var(--motion-fast) var(--ease-standard),
-  scale var(--motion-fast) var(--ease-standard);
-  will-change: opacity, translate, scale;
-
-  &[data-side="bottom"] {
-    --hover-card-enter-y: -0.5rem;
-  }
-
-  &[data-side="top"] {
-    --hover-card-enter-y: 0.5rem;
-  }
-
-  &[data-side="left"],
-  &[data-side="inline-start"] {
-    --hover-card-enter-x: 0.5rem;
-  }
-
-  &[data-side="right"],
-  &[data-side="inline-end"] {
-    --hover-card-enter-x: -0.5rem;
-  }
-
-  &[data-starting-style],
-  &[data-ending-style],
-  &[data-closed] {
-    opacity: 0;
-    translate: var(--hover-card-enter-x) var(--hover-card-enter-y);
-    scale: 0.95;
-  }
+  will-change: opacity, transform;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .content {
-    transition: none;
-  }
-}
 
