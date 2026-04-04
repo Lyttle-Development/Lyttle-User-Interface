@@ -3,8 +3,17 @@
   color: var(--foreground);
   font-size: 0.875rem;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.25rem;
+  padding-top: 0.0625rem;
   user-select: none;
+
+  > span,
+  > a,
+  :global([data-slot="text"]) {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
 }
 
 :global(.group[data-disabled="true"]) .label {

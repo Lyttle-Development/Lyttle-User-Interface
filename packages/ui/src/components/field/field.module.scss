@@ -10,8 +10,10 @@
 }
 
 .required {
+  display: inline-block;
   margin-left: 0.125rem;
   color: var(--destructive);
+  line-height: inherit;
 }
 
 .description,
