@@ -13,7 +13,12 @@ import {cn} from '../../lib/utils';
 import {CheckIcon, ChevronDownIcon, ChevronUpIcon} from 'lucide-react';
 import styles from './select.module.scss';
 
-const Select = SelectPrimitive.Root;
+function Select<Value, Multiple extends boolean | undefined = false>({
+                                                                         modal = false,
+                                                                         ...props
+                                                                     }: SelectPrimitive.Root.Props<Value, Multiple>) {
+    return <SelectPrimitive.Root modal={modal} {...props} />;
+}
 
 const selectTriggerVariants = cva(styles.trigger, {
     variants: {
