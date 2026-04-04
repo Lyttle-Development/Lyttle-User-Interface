@@ -43,10 +43,23 @@ export function Combobox({
                          }: ComboboxProps) {
     const [open, setOpen] = React.useState(false);
     const [selected, setSelected] = React.useState(value ?? '');
+    const inputRef = React.useRef<HTMLInputElement | null>(null);
 
     React.useEffect(() => {
         setSelected(value ?? '');
     }, [value]);
+
+    React.useEffect(() => {
+        if (!open) {
+            return;
+        }
+
+        const frame = window.requestAnimationFrame(() => {
+            inputRef.current?.focus({preventScroll: true});
+        });
+
+        return () => window.cancelAnimationFrame(frame);
+    }, [open]);
 
     const selectedLabel = options.find((o) => o.value === selected)?.label;
 
@@ -67,16 +80,18 @@ export function Combobox({
                 disabled={disabled}
                 className={cn(styles.trigger, className)}
             >
-                {selectedLabel ?? (
-                    <span className={styles.placeholder}>{placeholder}</span>
-                )}
+                <span className={styles.value}>
+                    {selectedLabel ?? (
+                        <span className={styles.placeholder}>{placeholder}</span>
+                    )}
+                </span>
                 <ChevronDownIcon
                     className={cn(styles.triggerIcon, open && styles.triggerIconOpen)}
                     aria-hidden="true"/>
             </PopoverTrigger>
-            <PopoverContent className={styles.content} align="start">
+            <PopoverContent className={styles.content} align="start" initialFocus={false}>
                 <Command>
-                    <CommandInput placeholder={searchPlaceholder}/>
+                    <CommandInput ref={inputRef} placeholder={searchPlaceholder}/>
                     <CommandList>
                         <CommandEmpty>{emptyMessage}</CommandEmpty>
                         <CommandGroup>
