@@ -79,7 +79,7 @@
 }
 
 .description {
-  color: var(--muted-foreground);
+  color: color-mix(in oklab, var(--foreground) 72%, var(--muted-foreground));
 }
 
 .actionButton,

@@ -117,7 +117,7 @@ export function SectionButtons() {
                     <Button>Active</Button>
                     <Button disabled>Disabled</Button>
                     <Button disabled aria-busy="true">
-                        <Spinner size="sm"/>
+                        <Spinner size="sm" variant="white"/>
                         Loading…
                     </Button>
                     <Button
@@ -126,7 +126,7 @@ export function SectionButtons() {
                         aria-busy={loading}
                     >
                         {loading ? <><Spinner
-                            size="sm"/>Processing…</> : 'Click to load'}
+                            size="sm" variant="white"/>Processing…</> : 'Click to load'}
                     </Button>
                 </Inline>
             </ShowcaseBlock>

@@ -1,7 +1,9 @@
 .card {
   display: flex;
+  align-self: start;
   flex-direction: column;
   gap: 0.875rem;
+  height: fit-content;
   overflow: hidden;
   border-radius: var(--radius-xl);
   border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);

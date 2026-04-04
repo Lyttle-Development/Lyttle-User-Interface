@@ -1,5 +1,6 @@
 .menubar {
   display: flex;
+  width: fit-content;
   height: 2rem;
   align-items: center;
   gap: 0.125rem;
@@ -8,18 +9,28 @@
   overflow: hidden;
   background: color-mix(in oklab, var(--background) 92%, var(--muted));
   padding: 3px;
+  box-shadow: var(--shadow-xs);
 }
 
 .trigger {
   display: flex;
   min-height: calc(2rem - 6px);
   align-items: center;
+  justify-content: center;
+  border: 0;
   border-radius: calc(var(--radius) - 4px);
+  background: transparent;
+  color: var(--foreground);
+  cursor: default;
+  appearance: none;
   padding: 0.125rem 0.5rem;
   font-size: 0.875rem;
+  font-family: inherit;
   font-weight: 500;
+  line-height: 1;
   user-select: none;
   outline: none;
+  white-space: nowrap;
   transition: background-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard);
 
   &:hover,

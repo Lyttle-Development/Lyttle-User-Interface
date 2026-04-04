@@ -9,9 +9,20 @@
   border: 2px solid currentColor;
   border-top-color: transparent;
   border-radius: 999px;
-  color: var(--primary);
   vertical-align: middle;
   animation: spinner-rotate 0.8s linear infinite;
+}
+
+.variantDefault {
+  color: var(--primary);
+}
+
+.variantCurrent {
+  color: currentColor;
+}
+
+.variantWhite {
+  color: white;
 }
 
 .sizeSm {

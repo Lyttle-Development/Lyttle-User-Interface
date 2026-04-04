@@ -421,13 +421,13 @@ export function SectionForms() {
                         <Inline gap="sm" align="center" wrap={false}>
                             <Checkbox id="form-terms" required
                                       aria-required="true"/>
-                            <Text as="label" htmlFor="form-terms" size="sm"
-                                  style={{lineHeight: 1.5, cursor: 'pointer'}}>
+                            <Label htmlFor="form-terms"
+                                   style={{display: 'block', lineHeight: 1.5, cursor: 'pointer'}}>
                                 I agree to the{' '}
                                 <a href="#forms">Terms of Service</a>{' '}
                                 and{' '}
                                 <a href="#forms">Privacy Policy</a>
-                            </Text>
+                            </Label>
                         </Inline>
                     </Surface>
                     <Button

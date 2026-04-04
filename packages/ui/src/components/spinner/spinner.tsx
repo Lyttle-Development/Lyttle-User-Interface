@@ -13,9 +13,15 @@ const spinnerVariants = cva(
                 lg: styles.sizeLg,
                 xl: styles.sizeXl,
             },
+            variant: {
+                default: styles.variantDefault,
+                current: styles.variantCurrent,
+                white: styles.variantWhite,
+            },
         },
         defaultVariants: {
             size: 'default',
+            variant: 'default',
         },
     },
 );
@@ -25,12 +31,13 @@ export interface SpinnerProps
         VariantProps<typeof spinnerVariants> {
 }
 
-export function Spinner({className, size, ...props}: SpinnerProps) {
+export function Spinner({className, size, variant, ...props}: SpinnerProps) {
     return (
         <span
+            data-slot="spinner"
             role="status"
             aria-label="Loading"
-            className={cn(spinnerVariants({size}), className)}
+            className={cn(spinnerVariants({size, variant}), className)}
             {...props}
         />
     );
