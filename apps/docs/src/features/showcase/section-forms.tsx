@@ -185,7 +185,7 @@ export function SectionForms() {
                         <Label htmlFor="select-role">Role</Label>
                         <div style={{width: '100%', maxWidth: '16rem'}}>
                             <Select>
-                                <SelectTrigger id="select-role" style={{width: '100%'}}>
+                                <SelectTrigger id="select-role">
                                     <SelectValue placeholder="Select a role…"/>
                                 </SelectTrigger>
                                 <SelectContent>

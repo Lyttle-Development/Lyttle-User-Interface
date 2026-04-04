@@ -49,18 +49,6 @@ export function Combobox({
         setSelected(value ?? '');
     }, [value]);
 
-    React.useEffect(() => {
-        if (!open) {
-            return;
-        }
-
-        const frame = window.requestAnimationFrame(() => {
-            inputRef.current?.focus({preventScroll: true});
-        });
-
-        return () => window.cancelAnimationFrame(frame);
-    }, [open]);
-
     const selectedLabel = options.find((o) => o.value === selected)?.label;
 
     const handleSelect = (val: string) => {
@@ -89,7 +77,7 @@ export function Combobox({
                     className={cn(styles.triggerIcon, open && styles.triggerIconOpen)}
                     aria-hidden="true"/>
             </PopoverTrigger>
-            <PopoverContent className={styles.content} align="start" initialFocus={false}>
+            <PopoverContent className={styles.content} align="start">
                 <Command>
                     <CommandInput ref={inputRef} placeholder={searchPlaceholder}/>
                     <CommandList>

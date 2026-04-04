@@ -25,6 +25,9 @@
 .trigger {
   display: inline-flex;
   min-inline-size: 5rem;
+  width: 100%;
+  font-weight: 400;
+  text-align: left;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
@@ -170,5 +173,3 @@
 .scrollDownButton {
   bottom: 0;
 }
-
-

@@ -2,6 +2,7 @@
 
 .trigger {
   display: inline-flex;
+  min-inline-size: 5rem;
   width: 100%;
   min-width: 0;
   min-height: 2rem;
@@ -91,4 +92,3 @@
 .itemCheckHidden {
   opacity: 0;
 }
-
