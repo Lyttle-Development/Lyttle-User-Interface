@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   align-items: stretch;
+  overflow-x: clip;
   min-height: var(--sidebar-wrapper-min-height, 100svh);
   height: var(--sidebar-wrapper-height, auto);
   width: 100%;
@@ -196,37 +197,54 @@
 .rail {
   appearance: none;
   position: absolute;
-  inset-block: 0;
+  inset-block: 0.75rem;
   z-index: 20;
   display: none;
-  width: 1rem;
+  width: 0.875rem;
   padding: 0;
   border: 0;
+  border-radius: 999px;
   background: transparent;
   color: inherit;
   outline: none;
   transition: all 200ms linear;
 }
 
+.rail::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.25rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--sidebar-border) 82%, transparent);
+  transform: translate(-50%, -50%);
+  opacity: 0.75;
+  transition: background-color var(--motion-fast) var(--ease-standard), opacity var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
+}
+
 .rail::after {
   content: "";
   position: absolute;
-  inset-block: 0.875rem;
-  inset-inline-start: 50%;
-  width: 2px;
-  border-radius: 999px;
-  opacity: 0.35;
+  inset: 0;
+  border-radius: inherit;
   transition: background-color var(--motion-fast) var(--ease-standard), opacity var(--motion-fast) var(--ease-standard);
+}
+
+.rail:hover::before,
+.rail:focus-visible::before {
+  background: color-mix(in oklab, var(--sidebar-accent) 72%, var(--sidebar-border));
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.02);
 }
 
 .rail:hover::after,
 .rail:focus-visible::after {
-  background: color-mix(in oklab, var(--sidebar-accent) 72%, var(--sidebar-border));
-  opacity: 1;
+  background: color-mix(in oklab, var(--sidebar-accent) 12%, transparent);
 }
 
 .rail:focus-visible {
-  border-radius: 999px;
   box-shadow: 0 0 0 2px color-mix(in oklab, var(--sidebar-ring) 55%, transparent);
 }
 
@@ -237,14 +255,12 @@
 }
 
 .desktopRoot[data-side="left"] .rail {
-  right: -1rem;
-  transform: translateX(-50%);
+  right: 0;
   cursor: w-resize;
 }
 
 .desktopRoot[data-side="right"] .rail {
   left: 0;
-  transform: translateX(-50%);
   cursor: e-resize;
 }
 
@@ -257,19 +273,15 @@
 }
 
 .desktopRoot[data-collapsible="offcanvas"] .rail {
-  transform: translateX(0);
-}
-
-.desktopRoot[data-collapsible="offcanvas"] .rail::after {
-  left: 100%;
+  width: 0.75rem;
 }
 
 .desktopRoot[data-collapsible="offcanvas"][data-side="left"] .rail {
-  right: -0.5rem;
+  right: 0;
 }
 
 .desktopRoot[data-collapsible="offcanvas"][data-side="right"] .rail {
-  left: -0.5rem;
+  left: 0;
 }
 
 .inset {

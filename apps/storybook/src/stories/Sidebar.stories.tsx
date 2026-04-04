@@ -116,7 +116,8 @@ const toolbarStyle: React.CSSProperties = {
 const insetBodyStyle: React.CSSProperties = {
     flex: '1 1 auto',
     minHeight: 0,
-    overflow: 'auto',
+    overflowX: 'hidden',
+    overflowY: 'auto',
     padding: '1rem',
     background: 'linear-gradient(180deg, color-mix(in oklab, var(--background) 100%, transparent), color-mix(in oklab, var(--muted) 45%, var(--background)))',
 };

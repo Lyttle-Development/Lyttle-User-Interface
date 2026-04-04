@@ -137,11 +137,11 @@ export function SidebarDemo() {
                 ))}
             </Inline>
 
-            <Grid columns={1} lgColumns={2} gap="md">
+            <Stack gap="md">
                 {previewModes.map((mode) => (
                     <SidebarShellPreview key={mode.id} mode={mode}/>
                 ))}
-            </Grid>
+            </Stack>
 
             <Grid columns={1} mdColumns={3} gap="sm">
                 {sidebarMetrics.map((metric) => (
@@ -172,8 +172,10 @@ export function SidebarDemo() {
                                     shadow="none"
                                     className={styles.noteSurface}
                                 >
-                                    <Text as="p" size="sm" weight="medium">{item.title}</Text>
-                                    <Text as="p" size="sm" tone="muted">{item.description}</Text>
+                                    <Text as="p" size="sm"
+                                          weight="medium">{item.title}</Text>
+                                    <Text as="p" size="sm"
+                                          tone="muted">{item.description}</Text>
                                 </Surface>
                             ))}
                         </Stack>
@@ -188,17 +190,22 @@ export function SidebarDemo() {
                     </CardHeader>
                     <CardContent>
                         <Stack gap="md" align="start">
-                            <Surface tone="muted" padding="sm" radius="lg" shadow="none">
+                            <Surface tone="muted" padding="sm" radius="lg"
+                                     shadow="none">
                                 <Text as="p" size="sm" tone="muted">
-                                    Keep the shared sidebar generic and move product-specific content into the header,
-                                    grouped navigation, secondary actions, and footer identity block. That gives you the
-                                    same composition model for internal tools, docs experiences, and product shells.
+                                    Keep the shared sidebar generic and move
+                                    product-specific content into the header,
+                                    grouped navigation, secondary actions, and
+                                    footer identity block. That gives you the
+                                    same composition model for internal tools,
+                                    docs experiences, and product shells.
                                 </Text>
                             </Surface>
 
                             <Stack as="ul" gap="sm" className={styles.list}>
                                 {sidebarImplementationNotes.map((item) => (
-                                    <Text key={item} as="li" size="sm" className={styles.listItem}>
+                                    <Text key={item} as="li" size="sm"
+                                          className={styles.listItem}>
                                         {item}
                                     </Text>
                                 ))}
@@ -211,17 +218,20 @@ export function SidebarDemo() {
     );
 }
 
-function SidebarShellPreview({mode}: {mode: PreviewMode}) {
+function SidebarShellPreview({mode}: { mode: PreviewMode }) {
     return (
         <Card className={styles.previewCard}>
             <CardHeader>
                 <Inline gap="sm" justify="between" align="start">
                     <Stack gap="xs" className={styles.previewHeading}>
-                        <Text as="p" size="xs" weight="medium" tone="muted" transform="uppercase" tracking="tight">
+                        <Text as="p" size="xs" weight="medium" tone="muted"
+                              transform="uppercase" tracking="tight">
                             {mode.eyebrow}
                         </Text>
-                        <Text as="div" size="sm" weight="semibold">{mode.title}</Text>
-                        <Text as="p" size="sm" tone="muted">{mode.description}</Text>
+                        <Text as="div" size="sm"
+                              weight="semibold">{mode.title}</Text>
+                        <Text as="p" size="sm"
+                              tone="muted">{mode.description}</Text>
                     </Stack>
                     <Badge variant="secondary">{mode.badge}</Badge>
                 </Inline>
@@ -242,15 +252,20 @@ function SidebarShellPreview({mode}: {mode: PreviewMode}) {
                         <SidebarInset className={styles.insetSurface}>
                             <header className={styles.toolbar}>
                                 <SidebarTrigger/>
-                                <Stack gap="xs" align="start" className={styles.metaBlock}>
-                                    <Text as="p" size="sm" weight="semibold" truncate>{mode.shellTitle}</Text>
-                                    <Text as="p" size="xs" tone="muted" truncate>{mode.shellDescription}</Text>
+                                <Stack gap="xs" align="start"
+                                       className={styles.metaBlock}>
+                                    <Text as="p" size="sm" weight="semibold"
+                                          truncate>{mode.shellTitle}</Text>
+                                    <Text as="p" size="xs" tone="muted"
+                                          truncate>{mode.shellDescription}</Text>
                                 </Stack>
-                                <Badge variant="secondary">{mode.shellBadge}</Badge>
+                                <Badge
+                                    variant="secondary">{mode.shellBadge}</Badge>
                             </header>
 
                             <div className={styles.canvas}>
-                                <Stack gap="md" align="start" className={styles.canvasStack}>
+                                <Stack gap="md" align="start"
+                                       className={styles.canvasStack}>
                                     <Surface
                                         tone={mode.contained ? 'secondary' : 'card'}
                                         padding="lg"
@@ -259,16 +274,22 @@ function SidebarShellPreview({mode}: {mode: PreviewMode}) {
                                         className={styles.heroSurface}
                                     >
                                         <Stack gap="sm" align="start">
-                                            <Inline gap="xs" className={styles.heroBadges}>
-                                                <Badge variant="secondary">Ctrl/Cmd + B</Badge>
-                                                <Badge variant="secondary">tooltips on collapse</Badge>
+                                            <Inline gap="xs"
+                                                    className={styles.heroBadges}>
+                                                <Badge variant="secondary">Ctrl/Cmd
+                                                    + B</Badge>
+                                                <Badge variant="secondary">tooltips
+                                                    on collapse</Badge>
                                             </Inline>
-                                            <Text as="div" size="sm" weight="semibold">{mode.heroTitle}</Text>
-                                            <Text as="p" size="sm" tone="muted">{mode.heroDescription}</Text>
+                                            <Text as="div" size="sm"
+                                                  weight="semibold">{mode.heroTitle}</Text>
+                                            <Text as="p" size="sm"
+                                                  tone="muted">{mode.heroDescription}</Text>
                                         </Stack>
                                     </Surface>
 
-                                    <Grid columns={1} smColumns={2} gap="sm" className={styles.cardGrid}>
+                                    <Grid columns={1} smColumns={2} gap="sm"
+                                          className={styles.cardGrid}>
                                         {mode.cards.map((card) => (
                                             <Surface
                                                 key={card.label}
@@ -278,9 +299,13 @@ function SidebarShellPreview({mode}: {mode: PreviewMode}) {
                                                 shadow="none"
                                                 className={styles.metricCard}
                                             >
-                                                <Text as="p" size="xs" weight="medium" tone="muted">{card.label}</Text>
-                                                <Text as="p" size="lg" weight="semibold">{card.value}</Text>
-                                                <Text as="p" size="sm" tone="muted">{card.description}</Text>
+                                                <Text as="p" size="xs"
+                                                      weight="medium"
+                                                      tone="muted">{card.label}</Text>
+                                                <Text as="p" size="lg"
+                                                      weight="semibold">{card.value}</Text>
+                                                <Text as="p" size="sm"
+                                                      tone="muted">{card.description}</Text>
                                             </Surface>
                                         ))}
                                     </Grid>
@@ -294,16 +319,19 @@ function SidebarShellPreview({mode}: {mode: PreviewMode}) {
     );
 }
 
-function PreviewSidebarNavigation({mode}: {mode: PreviewMode}) {
+function PreviewSidebarNavigation({mode}: { mode: PreviewMode }) {
     return (
         <>
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
-                        <SidebarMenuButton size="lg" tooltip="Lyttle User Interface workspace">
+                        <SidebarMenuButton size="lg"
+                                           tooltip="Lyttle User Interface workspace">
                             <BrandMark/>
-                            <Stack gap="xs" align="start" className={styles.metaBlock}>
-                                <Text as="span" size="sm" weight="semibold" truncate>
+                            <Stack gap="xs" align="start"
+                                   className={styles.metaBlock}>
+                                <Text as="span" size="sm" weight="semibold"
+                                      truncate>
                                     Lyttle User Interface
                                 </Text>
                                 <Text as="span" size="xs" tone="muted" truncate>
@@ -327,11 +355,13 @@ function PreviewSidebarNavigation({mode}: {mode: PreviewMode}) {
                         <SidebarMenu>
                             {primarySidebarItems.map((item) => (
                                 <SidebarMenuItem key={item.label}>
-                                    <SidebarMenuButton isActive={item.isActive} tooltip={item.label}>
+                                    <SidebarMenuButton isActive={item.isActive}
+                                                       tooltip={item.label}>
                                         <item.icon size={16}/>
                                         <span>{item.label}</span>
                                     </SidebarMenuButton>
-                                    {item.badge ? <SidebarMenuBadge>{item.badge}</SidebarMenuBadge> : null}
+                                    {item.badge ?
+                                        <SidebarMenuBadge>{item.badge}</SidebarMenuBadge> : null}
                                 </SidebarMenuItem>
                             ))}
                         </SidebarMenu>
@@ -363,7 +393,8 @@ function PreviewSidebarNavigation({mode}: {mode: PreviewMode}) {
                                         </SidebarMenuSubButton>
                                     </SidebarMenuSubItem>
                                     <SidebarMenuSubItem>
-                                        <SidebarMenuSubButton href="#layout" isActive>
+                                        <SidebarMenuSubButton href="#layout"
+                                                              isActive>
                                             <span>{mode.contained ? 'Embedded shells' : 'Application shells'}</span>
                                         </SidebarMenuSubButton>
                                     </SidebarMenuSubItem>
@@ -371,7 +402,8 @@ function PreviewSidebarNavigation({mode}: {mode: PreviewMode}) {
                             </SidebarMenuItem>
 
                             <SidebarMenuItem>
-                                <SidebarMenuButton size="sm" tooltip="Quick search">
+                                <SidebarMenuButton size="sm"
+                                                   tooltip="Quick search">
                                     <Search size={16}/>
                                     <span>Quick search</span>
                                 </SidebarMenuButton>
@@ -397,10 +429,13 @@ function PreviewSidebarNavigation({mode}: {mode: PreviewMode}) {
                         </SidebarMenuButton>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
-                        <SidebarMenuButton size="lg" tooltip="Signed in as Sarah Chen">
+                        <SidebarMenuButton size="lg"
+                                           tooltip="Signed in as Sarah Chen">
                             <UserCircle2 size={16}/>
-                            <Stack gap="xs" align="start" className={styles.metaBlock}>
-                                <Text as="span" size="sm" weight="semibold" truncate>Sarah Chen</Text>
+                            <Stack gap="xs" align="start"
+                                   className={styles.metaBlock}>
+                                <Text as="span" size="sm" weight="semibold"
+                                      truncate>Sarah Chen</Text>
                                 <Text as="span" size="xs" tone="muted" truncate>
                                     {mode.contained ? 'Product designer' : 'Design engineer'}
                                 </Text>
@@ -422,10 +457,10 @@ function BrandMark() {
 }
 
 function SidebarMetricCard({
-    label,
-    value,
-    description,
-}: {
+                               label,
+                               value,
+                               description,
+                           }: {
     label: string;
     value: string;
     description: string;
@@ -433,7 +468,8 @@ function SidebarMetricCard({
     return (
         <Card>
             <CardHeader>
-                <Text as="div" size="xs" weight="medium" tone="muted">{label}</Text>
+                <Text as="div" size="xs" weight="medium"
+                      tone="muted">{label}</Text>
             </CardHeader>
             <CardContent>
                 <Text as="p" size="2xl" weight="semibold">{value}</Text>
