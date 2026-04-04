@@ -1,0 +1,112 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.previewCard {
+  min-width: 0;
+}
+
+.previewCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.previewHeading {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.previewFrame {
+  position: relative;
+  overflow: hidden;
+  height: 27rem;
+  border: 1px solid color-mix(in oklab, var(--border) 82%, transparent);
+  border-radius: calc(var(--radius-xl) - 0.125rem);
+  background: color-mix(in oklab, var(--background) 96%, var(--sidebar));
+}
+
+.previewProvider {
+  height: 100%;
+  min-height: 100%;
+}
+
+.metaBlock {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.brandMark {
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  background: var(--brand-gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.insetSurface {
+  min-width: 0;
+}
+
+.toolbar {
+  display: flex;
+  min-height: 3.75rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--border) 82%, transparent);
+  background: color-mix(in oklab, var(--background) 94%, transparent);
+}
+
+.canvas {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at top right, color-mix(in oklab, var(--brand-primary) 10%, transparent), transparent 32%),
+    linear-gradient(180deg, color-mix(in oklab, var(--background) 100%, transparent), color-mix(in oklab, var(--muted) 45%, var(--background)));
+}
+
+.canvasStack,
+.cardGrid {
+  width: 100%;
+}
+
+.heroSurface {
+  background: color-mix(in oklab, var(--background) 92%, var(--sidebar) 8%);
+}
+
+.heroBadges {
+  width: 100%;
+}
+
+.metricCard {
+  min-width: 0;
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.125rem;
+}
+
+.listItem {
+  color: var(--muted-foreground);
+}
+
+.noteSurface {
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .previewFrame {
+    height: 24rem;
+  }
+}
+

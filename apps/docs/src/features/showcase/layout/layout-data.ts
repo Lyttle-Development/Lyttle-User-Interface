@@ -22,16 +22,16 @@ export const primarySidebarItems: SidebarItem[] = [
 
 export const sidebarHighlights = [
     {
-        title: 'Recommended shell',
-        description: 'Use `SidebarProvider`, `Sidebar`, and `SidebarInset` together so layout, state, and content all stay in sync.',
+        title: 'Two clean layout modes',
+        description: 'Use a contained provider when the sidebar lives inside an existing card or panel, and use the default app shell pattern when it drives the whole page.',
     },
     {
-        title: 'Keyboard friendly',
-        description: '`SidebarTrigger` and the built-in Ctrl/Cmd + B shortcut make collapse and expand feel native in admin-style apps.',
+        title: 'One navigation API',
+        description: 'Header branding, grouped menus, nested links, badges, and footer actions stay identical across contained and full-page shells.',
     },
     {
         title: 'Collapsed clarity',
-        description: 'Tooltips, badges, and nested menus let icon mode stay useful instead of becoming purely decorative.',
+        description: 'Tooltips, badges, hover actions, and the rail keep icon mode useful instead of turning it into decorative chrome.',
     },
 ];
 
@@ -54,12 +54,20 @@ export const sidebarMetrics = [
 ];
 
 export const sidebarPatternBadges = [
+    'contained shells',
+    'main side nav',
     'SidebarProvider',
     'SidebarInset',
     'SidebarTrigger',
     'SidebarRail',
     'SidebarInput',
     'SidebarMenuSub',
+];
+
+export const sidebarImplementationNotes = [
+    'Set `contained` on `SidebarProvider` when the shell needs to inherit an existing container height, radius, and clipping.',
+    'Use `variant="floating"` or `variant="inset"` for embedded shells, and keep `SidebarInset` as the main content surface for application layouts.',
+    'Pass `tooltip` to menu buttons whenever `collapsible="icon"` is enabled so navigation labels remain discoverable in collapsed mode.',
 ];
 
 export const radiusScale = [

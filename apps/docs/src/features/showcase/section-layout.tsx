@@ -29,7 +29,7 @@ export function SectionLayout() {
 
             <ShowcaseBlock
                 title="Sidebar"
-                description="A production-style app shell showing the sidebar's best composition patterns: provider state, inset content, trigger, icon collapse, nested menus, and footer actions."
+                description="Two recommended sidebar patterns: a contained shell for bounded panels and a primary app-navigation shell with inset content, icon collapse, nested menus, and footer actions."
             >
                 <SidebarDemo/>
             </ShowcaseBlock>

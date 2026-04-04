@@ -54,6 +54,7 @@ function SidebarProvider({
                              defaultOpen = true,
                              open: openProp,
                              onOpenChange: setOpenProp,
+                             contained = false,
                              className,
                              style,
                              children,
@@ -62,6 +63,7 @@ function SidebarProvider({
     defaultOpen?: boolean
     open?: boolean
     onOpenChange?: (open: boolean) => void
+    contained?: boolean
 }) {
     const isMobile = useIsMobile();
     const [openMobile, setOpenMobile] = React.useState(false);
@@ -127,6 +129,7 @@ function SidebarProvider({
         <SidebarContext.Provider value={contextValue}>
             <div
                 data-slot="sidebar-wrapper"
+                data-contained={contained ? 'true' : 'false'}
                 style={
                     {
                         '--sidebar-width': SIDEBAR_WIDTH,
@@ -278,6 +281,7 @@ function SidebarRail({className, ...props}: React.ComponentProps<'button'>) {
             data-slot="sidebar-rail"
             data-motion-trigger
             aria-label="Toggle Sidebar"
+            type="button"
             tabIndex={-1}
             onClick={toggleSidebar}
             title="Toggle Sidebar"
@@ -411,6 +415,7 @@ function SidebarGroupAction({
         defaultTagName: 'button',
         props: mergeProps<'button'>(
             {
+                type: render ? undefined : 'button',
                 className: cn(
                     styles.groupAction,
                     className
@@ -501,6 +506,7 @@ function SidebarMenuButton({
         defaultTagName: 'button',
         props: mergeProps<'button'>(
             {
+                type: render ? undefined : 'button',
                 className: cn(sidebarMenuButtonVariants({
                     variant,
                     size
@@ -555,6 +561,7 @@ function SidebarMenuAction({
         defaultTagName: 'button',
         props: mergeProps<'button'>(
             {
+                type: render ? undefined : 'button',
                 className: cn(
                     styles.menuAction,
                     showOnHover && styles.menuActionShowOnHover,
