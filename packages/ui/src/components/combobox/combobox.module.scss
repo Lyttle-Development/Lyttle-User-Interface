@@ -3,25 +3,17 @@
 .trigger {
   display: inline-flex;
   width: 100%;
+  min-width: 0;
+  min-height: 2rem;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--input);
-  border-radius: var(--radius);
-  background: var(--background);
-  color: var(--foreground);
-  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem 0.375rem 0.625rem;
   font-weight: 400;
-  transition: background-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), opacity var(--motion-fast) var(--ease-standard);
+  text-align: left;
+  user-select: none;
 
-  @include mixins.control-focus-ring;
-  @include mixins.disabled-state;
-
-  &:hover {
-    background: var(--accent);
-    color: var(--accent-foreground);
-  }
+  @include mixins.field-control-surface;
 }
 
 .placeholder {
@@ -29,10 +21,11 @@
 }
 
 .triggerIcon {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 1rem;
+  height: 1rem;
   margin-left: 0.5rem;
   flex-shrink: 0;
+  color: var(--muted-foreground);
   transition: transform var(--motion-fast) var(--ease-standard);
 }
 
@@ -45,8 +38,31 @@
   padding: 0;
 }
 
+.content :global([data-slot="command"]) {
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.content :global([data-slot="command-list"]) {
+  padding: 0 0.375rem 0.375rem;
+}
+
+.content :global([data-slot="command-empty"]) {
+  padding: 1rem 0.625rem 1.25rem;
+}
+
 .item {
   gap: 0.5rem;
+  border-radius: calc(var(--radius) - 2px);
+
+  &:hover,
+  &[data-selected] {
+    background: color-mix(in oklab, var(--muted) 85%, transparent);
+    color: var(--foreground);
+  }
 }
 
 .itemCheck {

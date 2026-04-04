@@ -20,3 +20,40 @@
   }
 }
 
+@mixin field-control-surface {
+  border: 1px solid var(--input);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  transition: border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard), opacity var(--motion-fast) var(--ease-standard);
+
+  @include control-focus-ring;
+  @include disabled-state;
+
+  &:not(:disabled):not([aria-disabled="true"]) {
+    &:hover {
+      border-color: color-mix(in oklab, var(--foreground) 10%, var(--input));
+      background: color-mix(in oklab, var(--muted) 55%, transparent);
+    }
+
+    &[aria-expanded="true"],
+    &[data-popup-open],
+    &[data-open] {
+      border-color: color-mix(in oklab, var(--foreground) 12%, var(--input));
+      background: color-mix(in oklab, var(--muted) 70%, transparent);
+    }
+  }
+
+  &[aria-invalid="true"] {
+    border-color: var(--destructive);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--destructive) 25%, transparent);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    background: color-mix(in oklab, var(--input) 60%, transparent);
+  }
+}
+

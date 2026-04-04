@@ -183,38 +183,44 @@ export function SectionForms() {
                 <Grid columns={1} mdColumns={3} gap="lg">
                     <Stack gap="xs" align="start">
                         <Label htmlFor="select-role">Role</Label>
-                        <Select>
-                            <SelectTrigger id="select-role">
-                                <SelectValue placeholder="Select a role…"/>
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem
-                                    value="admin">Administrator</SelectItem>
-                                <SelectItem value="editor">Editor</SelectItem>
-                                <SelectItem value="viewer">Viewer</SelectItem>
-                                <SelectItem value="guest" disabled>Guest
-                                    (unavailable)</SelectItem>
-                            </SelectContent>
-                        </Select>
+                        <div style={{width: '100%', maxWidth: '16rem'}}>
+                            <Select>
+                                <SelectTrigger id="select-role" style={{width: '100%'}}>
+                                    <SelectValue placeholder="Select a role…"/>
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem
+                                        value="admin">Administrator</SelectItem>
+                                    <SelectItem value="editor">Editor</SelectItem>
+                                    <SelectItem value="viewer">Viewer</SelectItem>
+                                    <SelectItem value="guest" disabled>Guest
+                                        (unavailable)</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
                     </Stack>
                     <Stack gap="xs" align="start">
                         <Label htmlFor="native-select">Country</Label>
-                        <NativeSelect id="native-select">
-                            <option value="">Select country…</option>
-                            <option value="be">Belgium</option>
-                            <option value="nl">Netherlands</option>
-                            <option value="de">Germany</option>
-                            <option value="fr">France</option>
-                        </NativeSelect>
+                        <div style={{width: '100%', maxWidth: '16rem'}}>
+                            <NativeSelect id="native-select">
+                                <option value="">Select country…</option>
+                                <option value="be">Belgium</option>
+                                <option value="nl">Netherlands</option>
+                                <option value="de">Germany</option>
+                                <option value="fr">France</option>
+                            </NativeSelect>
+                        </div>
                     </Stack>
                     <Stack gap="xs" align="start">
                         <Label>Framework</Label>
-                        <Combobox
-                            options={frameworks}
-                            placeholder="Select framework…"
-                            searchPlaceholder="Search frameworks…"
-                            emptyMessage="No framework found."
-                        />
+                        <div style={{width: '100%', maxWidth: '16rem'}}>
+                            <Combobox
+                                options={frameworks}
+                                placeholder="Select framework…"
+                                searchPlaceholder="Search frameworks…"
+                                emptyMessage="No framework found."
+                            />
+                        </div>
                     </Stack>
                 </Grid>
             </ShowcaseBlock>

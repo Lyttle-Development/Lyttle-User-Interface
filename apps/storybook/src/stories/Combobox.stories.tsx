@@ -29,6 +29,7 @@ const frameworks = [
 export const Default: Story = {
     render: () => (
         <Combobox
+            className="w-48"
             options={frameworks}
             placeholder="Select framework..."
             searchPlaceholder="Search framework..."
@@ -40,6 +41,7 @@ export const Default: Story = {
 export const WithPreselected: Story = {
     render: () => (
         <Combobox
+            className="w-48"
             options={frameworks}
             value="next.js"
             placeholder="Select framework..."
@@ -62,6 +64,7 @@ const countries = [
 export const LongList: Story = {
     render: () => (
         <Combobox
+            className="w-48"
             options={countries}
             placeholder="Select country..."
             searchPlaceholder="Search country..."

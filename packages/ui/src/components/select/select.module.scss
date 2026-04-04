@@ -24,36 +24,21 @@
 
 .trigger {
   display: inline-flex;
-  width: fit-content;
-  min-width: 5rem;
+  min-inline-size: 5rem;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  border: 1px solid var(--input);
-  border-radius: var(--radius-lg);
-  background: transparent;
-  color: var(--foreground);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
   user-select: none;
-  transition: border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard);
-
-  @include mixins.control-focus-ring;
-  @include mixins.disabled-state;
+  @include mixins.field-control-surface;
 
   &[data-placeholder] {
     color: var(--muted-foreground);
-  }
-
-  &[aria-invalid="true"] {
-    border-color: var(--destructive);
-    box-shadow: 0 0 0 3px color-mix(in oklab, var(--destructive) 20%, transparent);
   }
 }
 
 .triggerDefault {
   min-height: 2rem;
-  padding: 0.375rem 0.5rem 0.375rem 0.625rem;
+  padding: 0.375rem 0.75rem 0.375rem 0.625rem;
 }
 
 .triggerSm {
@@ -126,8 +111,8 @@
 
   &:focus-visible,
   &[data-highlighted] {
-    background: var(--accent);
-    color: var(--accent-foreground);
+    background: color-mix(in oklab, var(--muted) 85%, transparent);
+    color: var(--foreground);
   }
 
   &[data-disabled] {
@@ -186,16 +171,4 @@
   bottom: 0;
 }
 
-.dark .trigger {
-  background: color-mix(in oklab, var(--input) 30%, transparent);
-
-  &:hover {
-    background: color-mix(in oklab, var(--input) 50%, transparent);
-  }
-
-  &[aria-invalid="true"] {
-    border-color: color-mix(in oklab, var(--destructive) 50%, transparent);
-    box-shadow: 0 0 0 3px color-mix(in oklab, var(--destructive) 40%, transparent);
-  }
-}
 
