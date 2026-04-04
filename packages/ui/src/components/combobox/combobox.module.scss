@@ -80,8 +80,13 @@
 
   &:hover,
   &:focus-visible,
-  &[data-selected="true"] {
+  &[data-selected],
+  &[aria-selected="true"] {
     background: color-mix(in oklab, var(--accent) 88%, transparent);
     color: var(--accent-foreground);
+  }
+
+  &[data-checked="true"] {
+    font-weight: 500;
   }
 }

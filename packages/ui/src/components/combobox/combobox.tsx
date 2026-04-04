@@ -47,6 +47,7 @@ export function Combobox({
     const [selected, setSelected] = React.useState(value ?? '');
     const inputRef = React.useRef<HTMLInputElement | null>(null);
     const triggerRef = React.useRef<HTMLButtonElement | null>(null);
+    const focusInputOnOpenRef = React.useRef(false);
 
     const focusWithoutScroll = React.useCallback((element: HTMLElement | null) => {
         if (!element) {
@@ -69,9 +70,12 @@ export function Combobox({
             return;
         }
 
+        if (!focusInputOnOpenRef.current) {
+            return;
+        }
+
         const frame = window.requestAnimationFrame(() => {
             focusWithoutScroll(inputRef.current);
-            inputRef.current?.select();
         });
 
         return () => {
@@ -92,11 +96,22 @@ export function Combobox({
         setOpen(nextOpen);
 
         if (!nextOpen) {
+            focusInputOnOpenRef.current = false;
             window.requestAnimationFrame(() => {
                 focusWithoutScroll(triggerRef.current);
             });
         }
     }, [focusWithoutScroll]);
+
+    const handleTriggerPointerDown = React.useCallback(() => {
+        focusInputOnOpenRef.current = false;
+    }, []);
+
+    const handleTriggerKeyDown = React.useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
+        if (event.key === 'Enter' || event.key === ' ' || event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            focusInputOnOpenRef.current = true;
+        }
+    }, []);
 
     return (
         <Popover open={open} onOpenChange={handleOpenChange}>
@@ -109,6 +124,8 @@ export function Combobox({
                 aria-haspopup="listbox"
                 disabled={disabled}
                 className={cn(styles.trigger, className)}
+                onPointerDown={handleTriggerPointerDown}
+                onKeyDown={handleTriggerKeyDown}
             >
                 <span className={styles.value}>
                     {selectedLabel ?? (
