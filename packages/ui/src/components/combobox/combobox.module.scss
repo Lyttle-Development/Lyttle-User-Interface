@@ -47,8 +47,10 @@
 }
 
 .content {
+  @include mixins.field-popup-surface;
   width: var(--anchor-width);
   padding: 0;
+  gap: 0;
 }
 
 .content :global([data-slot="command"]) {
@@ -59,36 +61,27 @@
   box-shadow: none;
 }
 
+.content :global([data-slot="command-input-wrapper"]) {
+  padding: 0.375rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
+}
+
 .content :global([data-slot="command-list"]) {
-  padding: 0 0.375rem 0.375rem;
+  padding: 0.25rem;
 }
 
 .content :global([data-slot="command-empty"]) {
-  padding: 1rem 0.625rem 1.25rem;
+  padding: 1rem 0.625rem;
 }
 
 .item {
-  gap: 0.5rem;
-  border-radius: calc(var(--radius) - 2px);
+  @include mixins.field-popup-item-base;
+  min-height: 0;
 
   &:hover,
-  &[data-selected] {
-    background: color-mix(in oklab, var(--muted) 85%, transparent);
-    color: var(--foreground);
+  &:focus-visible,
+  &[data-selected="true"] {
+    background: color-mix(in oklab, var(--accent) 88%, transparent);
+    color: var(--accent-foreground);
   }
-}
-
-.itemCheck {
-  width: 0.875rem;
-  height: 0.875rem;
-  margin-right: 0.5rem;
-  flex-shrink: 0;
-}
-
-.itemCheckVisible {
-  opacity: 1;
-}
-
-.itemCheckHidden {
-  opacity: 0;
 }

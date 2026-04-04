@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {CheckIcon, ChevronDownIcon} from 'lucide-react';
+import {ChevronDownIcon} from 'lucide-react';
 
 import {Popover, PopoverContent, PopoverTrigger} from '../popover';
 import {
@@ -21,6 +21,7 @@ export interface ComboboxOption {
 }
 
 export interface ComboboxProps {
+    id?: string;
     options: ComboboxOption[];
     value?: string;
     onValueChange?: (value: string) => void;
@@ -32,6 +33,7 @@ export interface ComboboxProps {
 }
 
 export function Combobox({
+                             id,
                              options,
                              value,
                              onValueChange,
@@ -44,10 +46,38 @@ export function Combobox({
     const [open, setOpen] = React.useState(false);
     const [selected, setSelected] = React.useState(value ?? '');
     const inputRef = React.useRef<HTMLInputElement | null>(null);
+    const triggerRef = React.useRef<HTMLButtonElement | null>(null);
+
+    const focusWithoutScroll = React.useCallback((element: HTMLElement | null) => {
+        if (!element) {
+            return;
+        }
+
+        try {
+            element.focus({preventScroll: true});
+        } catch {
+            element.focus();
+        }
+    }, []);
 
     React.useEffect(() => {
         setSelected(value ?? '');
     }, [value]);
+
+    React.useEffect(() => {
+        if (!open) {
+            return;
+        }
+
+        const frame = window.requestAnimationFrame(() => {
+            focusWithoutScroll(inputRef.current);
+            inputRef.current?.select();
+        });
+
+        return () => {
+            window.cancelAnimationFrame(frame);
+        };
+    }, [focusWithoutScroll, open]);
 
     const selectedLabel = options.find((o) => o.value === selected)?.label;
 
@@ -58,9 +88,21 @@ export function Combobox({
         setOpen(false);
     };
 
+    const handleOpenChange = React.useCallback((nextOpen: boolean) => {
+        setOpen(nextOpen);
+
+        if (!nextOpen) {
+            window.requestAnimationFrame(() => {
+                focusWithoutScroll(triggerRef.current);
+            });
+        }
+    }, [focusWithoutScroll]);
+
     return (
-        <Popover open={open} onOpenChange={setOpen}>
+        <Popover open={open} onOpenChange={handleOpenChange}>
             <PopoverTrigger
+                id={id}
+                ref={triggerRef}
                 type="button"
                 role="combobox"
                 aria-expanded={open}
@@ -77,7 +119,7 @@ export function Combobox({
                     className={cn(styles.triggerIcon, open && styles.triggerIconOpen)}
                     aria-hidden="true"/>
             </PopoverTrigger>
-            <PopoverContent className={styles.content} align="start">
+            <PopoverContent className={styles.content} align="start" initialFocus={false} finalFocus={false}>
                 <Command>
                     <CommandInput ref={inputRef} placeholder={searchPlaceholder}/>
                     <CommandList>
@@ -87,13 +129,10 @@ export function Combobox({
                                 <CommandItem
                                     key={option.value}
                                     value={option.value}
+                                    data-checked={selected === option.value ? 'true' : undefined}
                                     onSelect={handleSelect}
                                     className={styles.item}
                                 >
-                                    <CheckIcon
-                                        aria-hidden="true"
-                                        className={cn(styles.itemCheck, selected === option.value ? styles.itemCheckVisible : styles.itemCheckHidden)}
-                                    />
                                     {option.label}
                                 </CommandItem>
                             ))}

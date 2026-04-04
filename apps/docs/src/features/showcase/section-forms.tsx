@@ -16,7 +16,6 @@ import {
     InputOTPSeparator,
     InputOTPSlot,
     Label,
-    NativeSelect,
     RadioGroup,
     RadioGroupItem,
     Select,
@@ -35,6 +34,20 @@ import {
     Surface,
     Text
 } from '@lyttle-development/ui';
+
+const roles = [
+    {value: 'admin', label: 'Administrator'},
+    {value: 'editor', label: 'Editor'},
+    {value: 'viewer', label: 'Viewer'},
+    {value: 'guest', label: 'Guest (unavailable)', disabled: true},
+];
+
+const countries = [
+    {value: 'be', label: 'Belgium'},
+    {value: 'nl', label: 'Netherlands'},
+    {value: 'de', label: 'Germany'},
+    {value: 'fr', label: 'France'},
+];
 
 const frameworks = [
     {value: 'next', label: 'Next.js'},
@@ -179,7 +192,10 @@ export function SectionForms() {
                 </Stack>
             </ShowcaseBlock>
 
-            <ShowcaseBlock title="Select & Combobox">
+            <ShowcaseBlock
+                title="Selects"
+                description="Role, country, and framework now share the same custom select surface for identical open-state styling."
+            >
                 <Grid columns={1} mdColumns={3} gap="lg">
                     <Stack gap="xs" align="start">
                         <Label htmlFor="select-role">Role</Label>
@@ -189,40 +205,72 @@ export function SectionForms() {
                                     <SelectValue placeholder="Select a role…"/>
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem
-                                        value="admin">Administrator</SelectItem>
-                                    <SelectItem value="editor">Editor</SelectItem>
-                                    <SelectItem value="viewer">Viewer</SelectItem>
-                                    <SelectItem value="guest" disabled>Guest
-                                        (unavailable)</SelectItem>
+                                    {roles.map((role) => (
+                                        <SelectItem
+                                            key={role.value}
+                                            value={role.value}
+                                            disabled={role.disabled}
+                                        >
+                                            {role.label}
+                                        </SelectItem>
+                                    ))}
                                 </SelectContent>
                             </Select>
                         </div>
                     </Stack>
                     <Stack gap="xs" align="start">
-                        <Label htmlFor="native-select">Country</Label>
+                        <Label htmlFor="select-country">Country</Label>
                         <div style={{width: '100%', maxWidth: '16rem'}}>
-                            <NativeSelect id="native-select">
-                                <option value="">Select country…</option>
-                                <option value="be">Belgium</option>
-                                <option value="nl">Netherlands</option>
-                                <option value="de">Germany</option>
-                                <option value="fr">France</option>
-                            </NativeSelect>
+                            <Select>
+                                <SelectTrigger id="select-country">
+                                    <SelectValue placeholder="Select country…"/>
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {countries.map((country) => (
+                                        <SelectItem key={country.value} value={country.value}>
+                                            {country.label}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
                         </div>
                     </Stack>
                     <Stack gap="xs" align="start">
-                        <Label>Framework</Label>
+                        <Label htmlFor="select-framework">Framework</Label>
                         <div style={{width: '100%', maxWidth: '16rem'}}>
-                            <Combobox
-                                options={frameworks}
-                                placeholder="Select framework…"
-                                searchPlaceholder="Search frameworks…"
-                                emptyMessage="No framework found."
-                            />
+                            <Select>
+                                <SelectTrigger id="select-framework">
+                                    <SelectValue placeholder="Select framework…"/>
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {frameworks.map((framework) => (
+                                        <SelectItem key={framework.value} value={framework.value}>
+                                            {framework.label}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
                         </div>
                     </Stack>
                 </Grid>
+            </ShowcaseBlock>
+
+            <ShowcaseBlock
+                title="Combobox"
+                description="Searchable selection with scroll-safe focus management and select-aligned popup styling."
+            >
+                <Stack gap="xs" align="start">
+                    <Label htmlFor="framework-combobox">Framework search</Label>
+                    <div style={{width: '100%', maxWidth: '16rem'}}>
+                        <Combobox
+                            id="framework-combobox"
+                            options={frameworks}
+                            placeholder="Search frameworks…"
+                            searchPlaceholder="Type to filter frameworks…"
+                            emptyMessage="No framework found."
+                        />
+                    </div>
+                </Stack>
             </ShowcaseBlock>
 
             <ShowcaseBlock title="Checkbox & Radio">

@@ -57,3 +57,42 @@
   }
 }
 
+@mixin field-popup-surface {
+  position: relative;
+  isolation: isolate;
+  z-index: 50;
+  min-width: 9rem;
+  width: var(--anchor-width);
+  max-height: min(20rem, var(--available-height));
+  overflow: hidden auto;
+  border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
+  border-radius: var(--radius-lg);
+  background: var(--popover);
+  color: var(--popover-foreground);
+  box-shadow: var(--shadow-md);
+  outline: none;
+}
+
+@mixin field-popup-item-base {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 2rem 0.5rem 0.625rem;
+  border-radius: calc(var(--radius) - 4px);
+  color: inherit;
+  cursor: default;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  outline: none;
+  user-select: none;
+  transition: background-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard), opacity var(--motion-fast) var(--ease-standard);
+
+  &[data-disabled],
+  &[data-disabled="true"] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
