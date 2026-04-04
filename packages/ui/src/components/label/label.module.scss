@@ -1,12 +1,9 @@
 .label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 1.25rem;
+  display: inline-block;
   color: var(--foreground);
   font-size: 0.875rem;
   font-weight: 500;
-  line-height: 1.25rem;
+  line-height: 1.2;
   user-select: none;
 }
 

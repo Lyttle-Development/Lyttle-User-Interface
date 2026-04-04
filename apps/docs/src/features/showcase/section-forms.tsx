@@ -422,7 +422,7 @@ export function SectionForms() {
                             <Checkbox id="form-terms" required
                                       aria-required="true"/>
                             <Label htmlFor="form-terms"
-                                   style={{display: 'block', lineHeight: 1.5, cursor: 'pointer'}}>
+                                   style={{flex: 1, minWidth: 0, lineHeight: 1.35, cursor: 'pointer'}}>
                                 I agree to the{' '}
                                 <a href="#forms">Terms of Service</a>{' '}
                                 and{' '}
