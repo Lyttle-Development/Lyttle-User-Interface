@@ -18,6 +18,7 @@ import {
     Badge,
     Button,
     Command,
+    CommandDialog,
     CommandEmpty,
     CommandGroup,
     CommandInput,
@@ -72,6 +73,25 @@ import {
 } from '@lyttle-development/ui';
 
 export function SectionOverlays() {
+    const [commandOpen, setCommandOpen] = React.useState(false);
+
+    React.useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key.toLowerCase() !== 'k' || (!event.metaKey && !event.ctrlKey)) {
+                return;
+            }
+
+            event.preventDefault();
+            setCommandOpen(true);
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
+
     return (
         <ShowcaseSection
             id="overlays"
@@ -334,73 +354,89 @@ export function SectionOverlays() {
                     }}>
                         <Text as="p" size="sm" weight="semibold">Quick
                             actions</Text>
-                        <Text as="p" size="xs" tone="muted">Search commands,
-                            files, and preferences.</Text>
+                        <Text as="p" size="xs" tone="muted">Open the command
+                            palette on demand without shifting the page on
+                            load.</Text>
                     </Stack>
-                    <Command>
-                        <CommandInput placeholder="Type a command or search…"/>
-                        <CommandList>
-                            <CommandEmpty>No results found.</CommandEmpty>
-                            <CommandGroup heading="Suggestions">
-                                <CommandItem>
-                                    <svg style={{marginRight: '0.5rem'}}
-                                         width="14" height="14"
-                                         viewBox="0 0 24 24" fill="none"
-                                         stroke="currentColor" strokeWidth="2"
-                                         aria-hidden="true">
-                                        <rect x="3" y="3" width="18" height="18"
-                                              rx="2"/>
-                                        <path d="M9 9h6M9 12h6M9 15h4"/>
-                                    </svg>
-                                    New Document
-                                    <CommandShortcut>⌘N</CommandShortcut>
-                                </CommandItem>
-                                <CommandItem>
-                                    <svg style={{marginRight: '0.5rem'}}
-                                         width="14" height="14"
-                                         viewBox="0 0 24 24" fill="none"
-                                         stroke="currentColor" strokeWidth="2"
-                                         aria-hidden="true">
-                                        <circle cx="11" cy="11" r="8"/>
-                                        <line x1="21" y1="21" x2="16.65"
-                                              y2="16.65"/>
-                                    </svg>
-                                    Search Files
-                                    <CommandShortcut>⌘F</CommandShortcut>
-                                </CommandItem>
-                                <CommandItem>
-                                    <svg style={{marginRight: '0.5rem'}}
-                                         width="14" height="14"
-                                         viewBox="0 0 24 24" fill="none"
-                                         stroke="currentColor" strokeWidth="2"
-                                         aria-hidden="true">
-                                        <path d="M12 20h9"/>
-                                        <path
-                                            d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/>
-                                    </svg>
-                                    Edit Profile
-                                </CommandItem>
-                            </CommandGroup>
-                            <CommandSeparator/>
-                            <CommandGroup heading="Settings">
-                                <CommandItem>
-                                    <svg style={{marginRight: '0.5rem'}}
-                                         width="14" height="14"
-                                         viewBox="0 0 24 24" fill="none"
-                                         stroke="currentColor" strokeWidth="2"
-                                         aria-hidden="true">
-                                        <circle cx="12" cy="12" r="3"/>
-                                        <path
-                                            d="M19.07 4.93l-1.41 1.41M5.34 5.34L3.93 3.93M19.07 19.07l-1.41-1.41M5.34 18.66l-1.41 1.41M22 12h-2M4 12H2M12 22v-2M12 4V2"/>
-                                    </svg>
-                                    Preferences
-                                    <CommandShortcut>⌘,</CommandShortcut>
-                                </CommandItem>
-                                <CommandItem>Theme</CommandItem>
-                                <CommandItem>Keyboard Shortcuts</CommandItem>
-                            </CommandGroup>
-                        </CommandList>
-                    </Command>
+                    <Stack gap="sm" align="start" style={{padding: '1rem'}}>
+                        <Button variant="outline" onClick={() => setCommandOpen(true)}>
+                            Open command palette
+                        </Button>
+                        <Text as="p" size="xs" tone="muted">
+                            Keyboard shortcut: <kbd>Ctrl</kbd> + <kbd>K</kbd> or <kbd>⌘</kbd> + <kbd>K</kbd>
+                        </Text>
+                    </Stack>
+                    <CommandDialog
+                        open={commandOpen}
+                        onOpenChange={setCommandOpen}
+                        title="Quick actions"
+                        description="Search commands, files, and preferences."
+                    >
+                        <Command>
+                            <CommandInput placeholder="Type a command or search…"/>
+                            <CommandList>
+                                <CommandEmpty>No results found.</CommandEmpty>
+                                <CommandGroup heading="Suggestions">
+                                    <CommandItem>
+                                        <svg style={{marginRight: '0.5rem'}}
+                                             width="14" height="14"
+                                             viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" strokeWidth="2"
+                                             aria-hidden="true">
+                                            <rect x="3" y="3" width="18" height="18"
+                                                  rx="2"/>
+                                            <path d="M9 9h6M9 12h6M9 15h4"/>
+                                        </svg>
+                                        New Document
+                                        <CommandShortcut>⌘N</CommandShortcut>
+                                    </CommandItem>
+                                    <CommandItem>
+                                        <svg style={{marginRight: '0.5rem'}}
+                                             width="14" height="14"
+                                             viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" strokeWidth="2"
+                                             aria-hidden="true">
+                                            <circle cx="11" cy="11" r="8"/>
+                                            <line x1="21" y1="21" x2="16.65"
+                                                  y2="16.65"/>
+                                        </svg>
+                                        Search Files
+                                        <CommandShortcut>⌘F</CommandShortcut>
+                                    </CommandItem>
+                                    <CommandItem>
+                                        <svg style={{marginRight: '0.5rem'}}
+                                             width="14" height="14"
+                                             viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" strokeWidth="2"
+                                             aria-hidden="true">
+                                            <path d="M12 20h9"/>
+                                            <path
+                                                d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/>
+                                        </svg>
+                                        Edit Profile
+                                    </CommandItem>
+                                </CommandGroup>
+                                <CommandSeparator/>
+                                <CommandGroup heading="Settings">
+                                    <CommandItem>
+                                        <svg style={{marginRight: '0.5rem'}}
+                                             width="14" height="14"
+                                             viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" strokeWidth="2"
+                                             aria-hidden="true">
+                                            <circle cx="12" cy="12" r="3"/>
+                                            <path
+                                                d="M19.07 4.93l-1.41 1.41M5.34 5.34L3.93 3.93M19.07 19.07l-1.41-1.41M5.34 18.66l-1.41 1.41M22 12h-2M4 12H2M12 22v-2M12 4V2"/>
+                                        </svg>
+                                        Preferences
+                                        <CommandShortcut>⌘,</CommandShortcut>
+                                    </CommandItem>
+                                    <CommandItem>Theme</CommandItem>
+                                    <CommandItem>Keyboard Shortcuts</CommandItem>
+                                </CommandGroup>
+                            </CommandList>
+                        </Command>
+                    </CommandDialog>
                 </Stack>
             </ShowcaseBlock>
         </ShowcaseSection>
