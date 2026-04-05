@@ -1,211 +1,103 @@
-# Copilot Instructions for Lyttle Framework
+# Copilot Instructions for Lyttle User Interface
 
-## Repository Summary
+Use these instructions when generating or editing code in this repository. The detailed AI docs live in `instructions/`, especially `instructions/shared-repository-guide.md` and `instructions/github-copilot.md`.
 
-**Lyttle Framework** is a comprehensive React/TypeScript UI component library styled with the LyttleDevelopment brand palette. The repository follows a monorepo structure using npm workspaces and includes 50+ accessible, production-ready UI components, a Storybook documentation site, and a Next.js documentation application.
+## Repository summary
 
-## High-Level Repository Information
+This repository is a TypeScript/React monorepo with npm workspaces:
 
-- **Project Type**: TypeScript/React Monorepo
-- **Build System**: npm workspaces with Next.js and Storybook
-- **Languages**: TypeScript, TypeScriptReact (TSX), JavaScript (ESM modules)
-- **Framework/Runtime**: Node.js (v24.13.0+), npm (11.6.2+), React 19.2.3
-- **Repository Size**: ~850 total packages after dependencies
-- **Key Frameworks**: Next.js 16.1.6, Storybook 8, Base UI React 1.3.0, Sass modules
+- `packages/ui` — the shared, source-only `@lyttle-development/ui` component library
+- `apps/docs` — the Next.js 16 showcase/docs app
+- `apps/storybook` — the Storybook 10 component explorer
 
-## Project Structure
+The shared UI package is the design-system source of truth.
 
-```
-LyttleFramework/ (monorepo root)
-├── packages/ui/                  # Shared UI component library (source-only, no build)
-│   ├── src/
-│   │   ├── components/           # 50+ UI components (accordion, button, dialog, table, etc.)
-│   │   ├── hooks/                # Reusable hooks (e.g., use-mobile)
-│   │   ├── lib/                  # Utilities (e.g., cn for class merging)
-│   │   ├── styles/               # Global CSS variables and shared Sass layers
-│   │   └── index.ts              # Main export file
-│   ├── package.json              # Exports: ".", "./styles", "./*"
-│   └── tsconfig.json             # Path aliases: @/*, @lyttle-development/ui
-│
-├── apps/docs/                    # Next.js documentation site (port 3000)
-│   ├── src/app/                  # Next.js 16 app directory
-│   ├── next.config.ts            # Turbopack config with monorepo root
-│   └── eslint.config.mjs         # ESLint 9 with Next.js core-web-vitals
-│
-├── apps/storybook/               # Storybook 8 component showcase (port 6006)
-│   ├── .storybook/
-│   │   ├── main.ts               # Storybook config and monorepo aliases
-│   │   └── preview.tsx           # Theme switcher (light/dark)
-│   ├── src/stories/              # 57 story files (one per component + Introduction.mdx)
-│   └── storybook-static/         # Build output (generated)
-│
-├── package.json                  # Root workspace configuration
-├── tsconfig.base.json            # Base TypeScript config (extends to all apps/packages)
-└── tsconfig.json                 # Additional Next.js-specific config
-```
+## Source-of-truth files
 
-## Essential Commands and Build Steps
+Before making changes, rely on these files instead of assumptions:
 
-### Prerequisites
+- `package.json`
+- `apps/docs/package.json`
+- `apps/storybook/package.json`
+- `packages/ui/package.json`
+- `tsconfig.base.json`
+- `apps/docs/tsconfig.json`
+- `apps/storybook/tsconfig.json`
+- `packages/ui/tsconfig.json`
+- `apps/docs/next.config.ts`
+- `apps/storybook/.storybook/main.ts`
+- `packages/ui/src/index.ts`
 
-Always run **once** before building:
+## Setup and commands
+
+Install dependencies first when needed:
 
 ```bash
-npm install  # Install all dependencies for the monorepo (16 seconds typical)
+npm install
 ```
 
-### Build Commands
-
-**Full build** (packages/ui + apps/docs):
-
-```bash
-npm run build
-# Output: apps/docs/.next/
-# Time: ~10 seconds
-# Status: TypeScript compilation, next build
-```
-
-**Build docs only**:
-
-```bash
-npm run build:docs
-```
-
-**Build Storybook static site**:
-
-```bash
-npm run build:storybook
-# Output: apps/storybook/storybook-static/
-# Time: ~12-13 seconds
-# Note: Produces bundle size warnings (chunks >500kB) but builds successfully
-```
-
-### Development Servers
-
-**Start docs dev server** (port 3000):
+Useful workspace commands:
 
 ```bash
 npm run dev:docs
-# Ready in ~550ms via Turbopack (fast refresh enabled)
-# Access: http://localhost:3000
-```
-
-**Start Storybook dev server** (port 6006):
-
-```bash
 npm run dev:storybook
-# Time: ~1-2 seconds
-# Access: http://localhost:6006
-```
-
-### Linting
-
-**Lint the docs app**:
-
-```bash
+npm run build
+npm run build:docs
+npm run build:storybook
 npm run lint
-# Currently requires eslint.config.mjs at monorepo root
-# If missing: Create `.eslintrc.config.mjs` in root with ESLint 9 config
-# Status: ESLint 9.39.4 (Next.js core-web-vitals)
 ```
 
-Note: No tests are configured in this repository (no Jest/Vitest config found).
+Notes:
 
-## TypeScript and Path Aliases
+- `packages/ui` is source-only and its `build` script is a stub message.
+- `npm run build` builds the docs app after running the UI package stub.
+- `npm run lint` uses the root flat config and currently targets `apps/docs`; `apps/storybook` and `packages/ui` are globally ignored there.
+- No dedicated Jest/Vitest test suite is configured in the repo.
 
-All TypeScript files use path aliases configured in `tsconfig.base.json` and extended by each workspace:
-| Alias | Resolves To |
-|-------|------------|
-| `@/*` | `./src/*` (within each app/package context) |
-| `@lyttle-development/ui` | `../../packages/ui/src/index.ts` |
-| `@lyttle-development/ui/*` | `../../packages/ui/src/*` |
-| `@/components/ui` | `../../packages/ui/src/components` (in Storybook) |
-| `@/lib` | `../../packages/ui/src/lib` |
-| `@/hooks` | `../../packages/ui/src/hooks` |
-**Always use path aliases when importing from `@lyttle-development/ui`** — avoid relative paths.
+## Import and alias rules
 
-## Key Dependencies and Component Architecture
+- Always prefer `@lyttle-development/ui` for shared UI imports in consumer apps.
+- Use deep imports only when the barrel export is not enough.
+- In `apps/docs`, use `@/*` only for docs-local source.
+- In `packages/ui`, use local package paths consistently with existing code; avoid large import-style churn.
+- Do not introduce `@lyttle/ui` in new code. It appears only as a Storybook compatibility alias.
 
-### UI Package (`packages/ui`)
+## Styling rules
 
-- **@base-ui/react**: Unstyled accessible components (Button, Dialog, etc.)
-- **lucide-react**: Icon library (~577 icons)
-- **class-variance-authority**: Component variant management
-- **clsx**: Class name composition
-- **Specialized**: date-fns, embla-carousel-react, input-otp, recharts, sonner, vaul, react-resizable-panels
+- Shared style tokens and Sass layers live in `packages/ui/src/styles/`.
+- The active shared style entry used by the apps is `packages/ui/src/styles/globals.scss`.
+- `apps/docs/src/app/globals.scss` and `apps/storybook/src/styles/globals.scss` both `@use` that shared file.
+- If you change shared style entrypoints, update package exports and both consumer apps together.
 
-### All Components
+## Component authoring rules
 
-- Use `"use client"` directive (React 19 Client Components)
-- Use **class-variance-authority (CVA)** for variant-based styling
-- Built on Base UI's unstyled primitives for accessibility
-- Use `cn()` utility from `./lib/utils` to compose class names
+Follow the existing patterns in `packages/ui`:
 
-### Configuration Files
+- Use `'use client';` for interactive client components.
+- Use `class-variance-authority` for variants when the component already follows that pattern.
+- Use `cn()` from `packages/ui/src/lib/utils.ts` for class composition.
+- Prefer `@base-ui/react` primitives for accessible interactions.
+- Keep Sass modules colocated with each component.
+- Keep file names kebab-case and exported symbols PascalCase.
+- Route public exports through the component folder `index.ts` and then `packages/ui/src/index.ts`.
+- Preserve existing formatting and avoid unrelated refactors.
 
-- **tsconfig*.json**: Strict mode, JSX: react-jsx, incremental compilation
-- **next.config.ts**: Turbopack with `root: path.resolve(__dirname, "../..")` for monorepo resolution and TLS cert workaround
-- **eslint.config.mjs**: ESLint 9 flat config with Next.js presets
+## Working rules for Copilot
 
-## No CI/CD or Tests
+- Read the relevant files before editing.
+- Keep changes minimal and scoped to the request.
+- Do not invent setup details that are not present in the workspace.
+- When documenting commands, prefer root workspace commands unless a workspace-specific command is necessary.
+- When changing `packages/ui`, think about both consumer apps because they import the source directly through workspace aliases.
 
-- **No GitHub Actions workflows** found
-- **No test framework** configured (Jest, Vitest, etc.)
-- **No pre-commit hooks** configured
-- **Linting is available** but not enforced in CI
+## Validation expectations
 
-## Important Notes for Agents
+Choose validation based on the files you changed:
 
-1. **Always run `npm install` first** if dependencies may have changed
-2. **Use path aliases** (@lyttle-development/ui, @/, etc.) instead of relative imports — they're configured in tsconfig
-3. **Monorepo context**: When modifying `packages/ui`, changes are automatically available to all apps via workspace linking
-4. **Build order matters**: `packages/ui` is source-only; only `apps/docs` and `apps/storybook` have real builds
-5. **Component naming**: Components are file-named in kebab-case (e.g., `button.tsx`) but exported as PascalCase
-6. **Shared styling**: Global tokens live in `packages/ui/src/styles/` and components use Sass modules plus CSS variables
-7. **No type generation**: All files are hand-written TypeScript; no code generation pipeline
-8. **Storybook stories**: One `.stories.tsx` file per component in `apps/storybook/src/stories/`; uses Storybook 8 format
-9. **ESLint configuration**: Only configured in `apps/docs/` currently; root-level linting requires a root `eslint.config.mjs`
-10. **Trust these instructions**: If encountering issues not covered here, refer to package.json scripts and tsconfig paths before running exploratory searches
+- Docs app work: `npm run lint` and, if needed, `npm run build:docs`
+- Shared UI work: `npm run build` and optionally `npm run build:storybook`
+- Storybook work: `npm run build:storybook`
 
-## Summary Table
-
-| Task            | Command                   | Output                | Time   |
-|-----------------|---------------------------|-----------------------|--------|
-| Install         | `npm install`             | node_modules/         | 16s    |
-| Build all       | `npm run build`           | .next/                | 10s    |
-| Build docs      | `npm run build:docs`      | .next/                | ~8s    |
-| Build Storybook | `npm run build:storybook` | storybook-static/     | 12-13s |
-| Dev docs        | `npm run dev:docs`        | http://localhost:3000 | <1s    |
-| Dev Storybook   | `npm run dev:storybook`   | http://localhost:6006 | 1-2s   |
-| Lint            | `npm run lint`            | ESLint report         | <5s    |
-
-## Version Control (.gitignore)
-
-The repository is configured with comprehensive .gitignore files at multiple levels:
-
-**Root .gitignore** (66 lines):
-
-- Handles monorepo-wide patterns
-- Covers: node_modules, .next, storybook-static, build/, dist/
-- Ignores: IDE files (.idea, .vscode), OS files (.DS_Store, Thumbs.db)
-- Protects: .env files, logs (npm-debug.log*, yarn-debug.log*, etc.)
-- Includes: TypeScript artifacts (*.tsbuildinfo, next-env.d.ts)
-
-**Workspace-specific .gitignore files** (in each app/package):
-
-- **packages/ui/.gitignore**: Source-only package, minimal artifacts
-- **apps/docs/.gitignore**: Next.js-specific outputs (.next, .vercel, next-env.d.ts)
-- **apps/storybook/.gitignore**: Storybook-specific outputs (storybook-static/, .vite)
-
-**What's ignored**:
-
-- All build outputs and artifacts
-- node_modules and package manager caches
-- IDE configuration and temp files
-- Environment variables and secrets (.env*)
-- Logs and debug files
-- OS-specific files (.DS_Store, Thumbs.db)
-
-**When committing**: Changes to .gitignore files themselves should be committed to maintain team consistency.
+If a change affects docs or instructions only, verify the file contents against the source-of-truth config and keep the guidance consistent with the current workspace.
 
 
