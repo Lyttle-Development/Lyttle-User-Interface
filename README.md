@@ -21,6 +21,12 @@
 
 ## Git submodule helpers
 
+- From the root of another git repository, install this project as a submodule with:
+
+```bash
+git submodule add https://github.com/Lyttle-Development/LyttleFramework.git packages/design-framework && git submodule update --init --recursive packages/design-framework
+```
+
 - Install the design-framework submodule with `./setup/git-submodule-install.sh`.
 - Update the submodule with `./setup/git-submodule-update.sh`.
 - Remove the submodule with `./setup/git-submodule-remove.sh`.
