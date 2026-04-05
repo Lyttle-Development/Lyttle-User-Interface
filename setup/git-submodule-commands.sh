@@ -1,23 +1,46 @@
 #!/usr/bin/env bash
 
-# Add submodule (LyttleFramework as design library) into packages/design-framework
-git submodule add https://github.com/Lyttle-Development/LyttleFramework.git packages/design-framework
-git submodule update --init --recursive
+set -euo pipefail
 
-# Commit the submodule (.gitmodules + entry)
-git add .gitmodules packages/design-framework
-git commit -m "chore: add LyttleFramework design library as git submodule (packages/design-framework)"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
-# Clone with submodules
-git clone --recurse-submodules <your-repo-url>
-# OR after cloning
-git submodule update --init --recursive
+usage() {
+  cat <<EOF
+Usage: ${0##*/} <install|update|remove> [args]
 
-# Update submodule to the latest on its remote branch
-git submodule update --remote --merge packages/design-framework
+Available commands:
+  install   Run the dedicated submodule install script.
+  update    Run the dedicated submodule update script.
+  remove    Run the dedicated submodule removal script.
 
-# Remove submodule (if needed)
-git submodule deinit -f packages/design-framework
-git rm -f packages/design-framework
-rm -rf .git/modules/packages/design-framework
-git commit -m "chore: remove design submodule"
+Examples:
+  ${0##*/} install
+  ${0##*/} update
+  ${0##*/} remove --yes
+EOF
+}
+
+command_name="${1:-}"
+
+case "$command_name" in
+  install)
+	shift
+	exec bash "$SCRIPT_DIR/git-submodule-install.sh" "$@"
+	;;
+  update)
+	shift
+	exec bash "$SCRIPT_DIR/git-submodule-update.sh" "$@"
+	;;
+  remove)
+	shift
+	exec bash "$SCRIPT_DIR/git-submodule-remove.sh" "$@"
+	;;
+  -h|--help|"")
+	usage
+	;;
+  *)
+	echo "Unknown command: $command_name" >&2
+	usage >&2
+	exit 1
+	;;
+esac

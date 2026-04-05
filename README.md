@@ -18,3 +18,12 @@
 - Storybook Vite aliases support both:
     - `@lyttle-development/ui`
     - `@lyttle-development/ui/*`
+
+## Git submodule helpers
+
+- Install the design-framework submodule with `./setup/git-submodule-install.sh`.
+- Update the submodule with `./setup/git-submodule-update.sh`.
+- Remove the submodule with `./setup/git-submodule-remove.sh`.
+- Optional npm shortcuts are available via `npm run submodule:install`, `npm run submodule:update`, and `npm run submodule:remove`.
+- `./setup/git-submodule-commands.sh` remains available as a small dispatcher if you prefer a single entry point.
+

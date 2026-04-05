@@ -15,7 +15,10 @@
     "build": "npm run build --workspace=packages/ui && npm run build --workspace=apps/docs",
     "build:docs": "npm run build --workspace=apps/docs",
     "build:storybook": "npm run build --workspace=apps/storybook",
-    "lint": "eslint"
+    "lint": "eslint",
+    "submodule:install": "bash ./setup/git-submodule-install.sh",
+    "submodule:update": "bash ./setup/git-submodule-update.sh",
+    "submodule:remove": "bash ./setup/git-submodule-remove.sh"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
