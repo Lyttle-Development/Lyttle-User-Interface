@@ -1,0 +1,3 @@
+[submodule "setup/packages/design-framework"]
+	path = setup/packages/design-framework
+	url = https://github.com/Lyttle-Development/LyttleFramework.git
