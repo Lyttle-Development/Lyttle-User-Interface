@@ -42,6 +42,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.25rem;
+  pointer-events: none;
 }
 
 .navButton {
@@ -49,6 +50,7 @@
   height: var(--cell-size);
   padding: 0;
   user-select: none;
+  pointer-events: auto;
 }
 
 .navButton[aria-disabled="true"] {
@@ -273,4 +275,3 @@
   background: var(--muted);
   color: var(--foreground);
 }
-

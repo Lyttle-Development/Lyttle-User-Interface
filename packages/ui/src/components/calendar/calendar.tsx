@@ -38,12 +38,12 @@ function Calendar({
                 month: styles.month,
                 nav: styles.nav,
                 button_previous: cn(
-                    buttonVariants({variant: buttonVariant}),
+                    buttonVariants({variant: buttonVariant, size: 'icon'}),
                     styles.navButton,
                     styles.navButtonPrevious
                 ),
                 button_next: cn(
-                    buttonVariants({variant: buttonVariant}),
+                    buttonVariants({variant: buttonVariant, size: 'icon'}),
                     styles.navButton,
                     styles.navButtonNext
                 ),
