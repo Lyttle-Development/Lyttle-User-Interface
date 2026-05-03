@@ -70,15 +70,3 @@ a {
 a:hover {
   opacity: 0.85;
 }
-
-button,
-[role="button"],
-input[type="submit"],
-input[type="button"],
-input[type="reset"],
-a[href],
-select {
-  min-height: 44px;
-  min-width: 44px;
-}
-
