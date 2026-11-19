@@ -60,7 +60,7 @@ function Calendar({
                         ? styles.captionLabelStatic
                         : styles.captionLabelInteractive
                 ),
-                table: styles.table,
+                month_grid: styles.table,
                 weekdays: styles.weekdays,
                 weekday: styles.weekday,
                 week: styles.week,
@@ -155,4 +155,3 @@ function CalendarDayButton({
 }
 
 export {Calendar, CalendarDayButton};
-
