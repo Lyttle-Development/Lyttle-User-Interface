@@ -76,21 +76,21 @@ function StorybookIcon() {
 }
 
 function ThemeToggle() {
-    const [dark, setDark] = React.useState(false);
+    const dark = React.useSyncExternalStore(
+        subscribeToTheme,
+        getThemeSnapshot,
+        () => false
+    );
 
     React.useEffect(() => {
-        const stored = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isDark = stored === 'dark' || (!stored && prefersDark);
-        setDark(isDark);
-        document.documentElement.classList.toggle('dark', isDark);
-    }, []);
+        document.documentElement.classList.toggle('dark', dark);
+    }, [dark]);
 
     const toggle = () => {
         const next = !dark;
-        setDark(next);
         document.documentElement.classList.toggle('dark', next);
         localStorage.setItem('theme', next ? 'dark' : 'light');
+        window.dispatchEvent(new Event('themechange'));
     };
 
     return (
@@ -136,4 +136,23 @@ function ThemeToggle() {
             )}
         </Button>
     );
+}
+
+function getThemeSnapshot() {
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return stored === 'dark' || (!stored && prefersDark);
+}
+
+function subscribeToTheme(onStoreChange: () => void) {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    window.addEventListener('storage', onStoreChange);
+    window.addEventListener('themechange', onStoreChange);
+    mediaQuery.addEventListener('change', onStoreChange);
+
+    return () => {
+        window.removeEventListener('storage', onStoreChange);
+        window.removeEventListener('themechange', onStoreChange);
+        mediaQuery.removeEventListener('change', onStoreChange);
+    };
 }
